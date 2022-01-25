@@ -21,7 +21,16 @@ const initialElements = [
         position: { x: 250, y: 5 },
     },
 ];
+//TODO decide on formal of config
+function flow_elements_to_config (elements) {
+    return {name:"king",age:elements,city:"New York"}
 
+}
+//TODO once format decided do reverse transformation
+function config_to_flow_elements (config) {
+    return {name:"king",age:config,city:"New York"}
+
+}
 
 const flowStyles = { height: 800 };
 
@@ -81,7 +90,7 @@ const DnDFlow = () => {
 
                 <Sidebar/>
                 </ReactFlowProvider>
-                <button className="primary" onClick={() => console.log(elements)}>Primary</button>
+                <button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Primary</button>
 
             </div>
 
