@@ -81,7 +81,7 @@ const DnDFlow = () => {
 
                 <Sidebar/>
                 </ReactFlowProvider>
-                <button className="primary" onClick={() => console.log(new Date().toUTCString())}>Primary</button>
+                <button className="primary" onClick={() => console.log(elements)}>Primary</button>
 
             </div>
 
