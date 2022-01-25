@@ -6,6 +6,9 @@ import ReactFlow, {
     Controls,
 } from 'react-flow-renderer';
 
+import Button from 'react-bootstrap/Button';
+
+
 import Sidebar from './Sidebar';
 
 import '../css/dnd.css';
@@ -78,6 +81,8 @@ const DnDFlow = () => {
 
                 <Sidebar/>
                 </ReactFlowProvider>
+                <button className="primary" onClick={() => console.log(new Date().toUTCString())}>Primary</button>
+
             </div>
 
 
