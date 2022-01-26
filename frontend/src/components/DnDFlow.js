@@ -12,6 +12,7 @@ import Button from 'react-bootstrap/Button';
 import Sidebar from './Sidebar';
 
 import '../css/dnd.css';
+import CustomNodeExample from "./CustomNodeExample";
 
 const initialElements = [
     {
@@ -76,6 +77,7 @@ const DnDFlow = () => {
 
 
     return (
+        <div className="row-cols-2">
             <div className="dndflow">
                 <ReactFlowProvider>
                     <div className="reactflow-wrapper" ref={reactFlowWrapper}>
@@ -94,6 +96,9 @@ const DnDFlow = () => {
 
             </div>
 
+            <CustomNodeExample style={flowStyles}/>
+
+        </div>
 
     );
 };
