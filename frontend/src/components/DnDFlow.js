@@ -13,7 +13,7 @@ import Sidebar from './Sidebar';
 
 import '../css/dnd.css';
 import CustomNodeExample from "./CustomNodeExample";
-import AdditionNode from "./AdditionNode";
+import AdditionNode from "./nodes/AdditionNode";
 
 const initialElements = [
     {

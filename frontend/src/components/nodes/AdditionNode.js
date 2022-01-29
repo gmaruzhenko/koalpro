@@ -1,12 +1,7 @@
 import React from 'react';
-import ReactFlow, { Handle, Position } from 'react-flow-renderer';
-import '../css/custom_nodes.css'
-//
-// const customNodeStyles = {
-//     background: '#9CA8B3',
-//     color: '#FFF',
-//     padding: 10,
-// };
+import  { Handle, Position } from 'react-flow-renderer';
+import '../../css/custom_nodes.css'
+
 
 const AdditionNode = ({ data }) => {
     return (

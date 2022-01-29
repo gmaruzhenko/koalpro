@@ -21,7 +21,7 @@ export default () => {
                 Output Node
             </div>
             <div className="addition_node" onDragStart={(event) => onDragStart(event, 'addition')} draggable>
-                Addition Node
+                Addition
             </div>
         </aside>
     );
