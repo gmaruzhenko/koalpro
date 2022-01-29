@@ -24,7 +24,7 @@ export default () => {
             <div className="react-flow__node-output" onDragStart={(event) => onDragStart(event, 'output')} draggable>
                 Output Node
             </div>
-            <div className="react-flow__node-AdditionNode" onDragStart={(event) => onDragStart(event, 'AdditionNode')} draggable>
+            <div className="react-flow__node react-flow__node-addition" onDragStart={(event) => onDragStart(event, 'addition')} draggable>
                 Addition Node
             </div>
         </aside>
