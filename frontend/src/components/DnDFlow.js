@@ -25,7 +25,7 @@ const initialElements = [
     },
     {
         id: '2',
-        type: 'addition',
+        type: 'csv_data_import',
         position: {x: 250, y: 100},
         data: {text: 'A custom node'},
     }
