@@ -1,5 +1,10 @@
 .addition_node{
-    background: #9CA8B3;
-    color: #FFF;
+     background: #9CA8B3;
+     color: #FFF;
+     padding: 10px;
+ }
+.cross_sell_output_node{
+    background: #252db3;
+    color: #fbf9ff;
     padding: 10px;
 }

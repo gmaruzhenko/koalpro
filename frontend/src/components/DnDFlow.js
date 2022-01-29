@@ -6,7 +6,6 @@ import ReactFlow, {
     Controls,
 } from 'react-flow-renderer';
 
-import Button from 'react-bootstrap/Button';
 
 
 import Sidebar from './Sidebar';
@@ -14,6 +13,7 @@ import Sidebar from './Sidebar';
 import '../css/dnd.css';
 import CustomNodeExample from "./CustomNodeExample";
 import AdditionNode from "./nodes/AdditionNode";
+import CrossSellOutputNode from "./nodes/CrossSellOutputNode";
 
 const initialElements = [
     {
@@ -80,10 +80,11 @@ const DnDFlow = () => {
 
         setElements((es) => es.concat(newNode));
     };
-    // const BasicFlow = () => <ReactFlow elements={elements} style={flowStyles} />;
 
     const nodeTypes = {
         addition: AdditionNode,
+        cross_sell_output: CrossSellOutputNode,
+
     };
 
 
@@ -103,7 +104,7 @@ const DnDFlow = () => {
                                    nodeTypes={nodeTypes}/>
                     </div>
 
-                <Sidebar nodeTypes={nodeTypes}/>
+                <Sidebar />
                 </ReactFlowProvider>
                 <button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Primary</button>
 

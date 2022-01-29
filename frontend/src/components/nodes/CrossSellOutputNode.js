@@ -3,10 +3,10 @@ import  { Handle, Position } from 'react-flow-renderer';
 import '../../css/custom_nodes.css'
 
 
-const CrossSellOutputNode = ({ data }) => {
+const CrossSellOutputNode = () => {
     return (
-        <div className="addition_node">
-            <Handle type="target" position={Position.Left} style={{  top: '30%',borderRadius: 0 }} />
+        <div className="cross_sell_output_node">
+            <Handle type="target" position={Position.Left} style={{  top: '50%',borderRadius: 0 }} />
             <div>Cross Sell Dashboard Output</div>
         </div>
     );

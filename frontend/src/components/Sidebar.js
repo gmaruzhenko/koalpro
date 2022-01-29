@@ -23,6 +23,9 @@ export default () => {
             <div className="addition_node" onDragStart={(event) => onDragStart(event, 'addition')} draggable>
                 Addition
             </div>
+            <div className="cross_sell_output_node" onDragStart={(event) => onDragStart(event, 'cross_sell_output')} draggable>
+                Cross Sell Dashboard Output
+            </div>
         </aside>
     );
 };
