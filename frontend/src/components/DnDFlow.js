@@ -14,6 +14,7 @@ import '../css/dnd.css';
 import CustomNodeExample from "./CustomNodeExample";
 import AdditionNode from "./nodes/AdditionNode";
 import CrossSellOutputNode from "./nodes/CrossSellOutputNode";
+import CsvDataImportNode from "./nodes/CsvDataImportNode";
 
 const initialElements = [
     {
@@ -84,6 +85,7 @@ const DnDFlow = () => {
     const nodeTypes = {
         addition: AdditionNode,
         cross_sell_output: CrossSellOutputNode,
+        csv_data_import:CsvDataImportNode
 
     };
 
