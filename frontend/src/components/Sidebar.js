@@ -1,11 +1,7 @@
 import React from 'react';
 import '../css/dnd.css';
-import AdditionNode from "./AdditionNode";
-const customNodeStyles = {
-    background: '#9CA8B3',
-    color: '#FFF',
-    padding: 10,
-};
+import '../css/custom_nodes.css'
+
 export default () => {
     const onDragStart = (event, nodeType) => {
         event.dataTransfer.setData('application/reactflow', nodeType);
@@ -24,7 +20,7 @@ export default () => {
             <div className="react-flow__node-output" onDragStart={(event) => onDragStart(event, 'output')} draggable>
                 Output Node
             </div>
-            <div className="react-flow__node react-flow__node-addition" onDragStart={(event) => onDragStart(event, 'addition')} draggable>
+            <div className="addition_node" onDragStart={(event) => onDragStart(event, 'addition')} draggable>
                 Addition Node
             </div>
         </aside>
