@@ -14,7 +14,7 @@ const AdditionNode = ({ data }) => {
             <Handle type="target" position={Position.Left} style={{  top: '30%',borderRadius: 0 }} />
             <Handle type="target" position={Position.Left} style={{ top: '70%', borderRadius: 0 }} />
 
-            <div>{data.text}</div>
+            <div>Addition</div>
             <Handle
                 type="source"
                 position={Position.Right}
