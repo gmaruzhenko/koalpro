@@ -9,10 +9,10 @@ const CsvDataImportNode = ({ data }) => {
     const onButtonClick = () => {
         // `current` points to the mounted file input element
         inputFile.current.click();
+
     };
-    useEffect(() => {
-        setFileName(inputFile.current.value);
-    });
+    const handleUpdate = event => setFileName(event.target.value);
+
 
     return (
         <div className="csv_data_import_node">
@@ -24,7 +24,7 @@ const CsvDataImportNode = ({ data }) => {
                 style={{ borderRadius: 0 }}
             />
             <button onClick={onButtonClick}>Open file upload window</button>
-            <input type='file' id='file' ref={inputFile} style={{display: 'none'}}/>
+            <input type='file' id='file' ref={inputFile} onChange={handleUpdate} style={{display: 'none'}}/>
         </div>
     );
 };
