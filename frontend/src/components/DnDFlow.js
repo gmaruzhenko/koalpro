@@ -27,7 +27,7 @@ const initialElements = [
         id: '2',
         type: 'csv_data_import',
         position: {x: 250, y: 100},
-        data: {text: 'A custom node'},
+        data: {csv_name: 'C:\\fakepath\\webex (1).exe'},
     }
 ];
 //TODO decide on formal of config
