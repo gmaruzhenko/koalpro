@@ -4,6 +4,7 @@ import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import DnDFlow from "./components/DnDFlow";
 import KoalproLogo from './images/logo.svg';
+import Dashboard from "./components/Dashboard";
 
 
 const App = () => {
@@ -33,7 +34,7 @@ const App = () => {
                 </Tabs>
                 {/*Display the 2 tabs of contents below */}
                 {tabValue==1 && <DnDFlow/>}
-                {tabValue!=1&&<label> Dashboard todo</label>}
+                {tabValue!=1&&<Dashboard/>}
             </Paper>
         </div>
     );
