@@ -27,7 +27,7 @@ const initialElements = [
         id: '2',
         type: 'csv_data_import',
         position: {x: 250, y: 100},
-        data: {csv_name: 'C:\\fakepath\\webex (1).exe'},
+        data: {csv_name: 'C:\\fakepath\\webex (1).exe',column_keys:'A'},
     }
 ];
 //TODO decide on formal of config

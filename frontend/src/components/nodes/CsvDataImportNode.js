@@ -15,13 +15,28 @@ const CsvDataImportNode = ({ data }) => {
         // `current` points to the mounted file input element
         inputFile.current.click();
     };
-    const handleUpdate = event => setFileName(event.target.value);
 
+    const handleUpdate = e => setFileName(e.target.value);
+    const handleColumnKeysChange = e => {setColumnKeys(e.target.value)};
+    const handleColumnValuesChange = e => setColumnValues(e.target.value);
+
+    //Update data using effect after file browser or input text
     useEffect(() => {
             data.csv_name = fileName
         },
         [fileName]
     );
+    useEffect(() => {
+            data.column_keys = columnKeys
+        },
+        [columnKeys]
+    );
+    useEffect(() => {
+            data.column_values = columnValues
+        },
+        [columnValues]
+    );
+
     return (
         <div className="csv_data_import_node">
             <div>CSV Data Import From {fileName}</div>
@@ -38,10 +53,10 @@ const CsvDataImportNode = ({ data }) => {
 
                 </div>
                 <div className="row">
-                <input className="text-input-field" type="text" value={columnKeys} placeholder={"enter column letter with company names"}/>
+                <input className="text-input-field" type="text" value={columnKeys} onChange={handleColumnKeysChange} placeholder={"enter column letter with company names"}/>
                 </div>
                     <div className="row">
-                <input className="text-input-field" type="text" value={columnValues} placeholder={"enter column letter with associated data"}/>
+                <input className="text-input-field" type="text" value={columnValues} onChange={handleColumnValuesChange} placeholder={"enter column letter with associated data"}/>
                     </div>
             </div>
         </div>
