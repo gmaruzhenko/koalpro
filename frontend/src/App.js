@@ -3,28 +3,37 @@ import Paper from "@material-ui/core/Paper";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import DnDFlow from "./components/DnDFlow";
+import KoalproLogo from './images/logo.svg';
+
 
 const App = () => {
-    const [value, setValue] = React.useState(0);
-
+    const [tabValue, setTabValue] = React.useState(0);
     return (
-        <div
+        <div>
+            <div className="row">
+                <div className="col">
+                    <img src={KoalproLogo} alt="React Logo" style={{width: 200}}/>
+                </div>
+                <div className="col">
 
-        >
-            <h2>How to Create Tabs in ReactJS?</h2>
+                    <h2>Koalpro Sales Data Hub</h2>
+                </div>
+            </div>
             <Paper square>
                 <Tabs
-                    value={value}
+                    value={tabValue}
                     textColor="primary"
                     indicatorColor="primary"
                     onChange={(event, newValue) => {
-                        setValue(newValue);
+                        setTabValue(newValue);
                     }}
                 >
                     <Tab label="Dashboard" />
                     <Tab label="No-Code Workflows" />
                 </Tabs>
-                {value==1 && <DnDFlow/>}
+                {/*Display the 2 tabs of contents below */}
+                {tabValue==1 && <DnDFlow/>}
+                {tabValue!=1&&<label> Dashboard todo</label>}
             </Paper>
         </div>
     );
