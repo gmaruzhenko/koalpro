@@ -38,7 +38,7 @@ const CsvDataImportNode = ({ data }) => {
     );
 
     return (
-        <div className="csv_data_import_node">
+        <div className="csv-data-import-node">
             <div>CSV Data Import From {fileName}</div>
             <Handle
                 type="source"

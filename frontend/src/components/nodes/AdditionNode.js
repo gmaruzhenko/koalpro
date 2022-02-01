@@ -5,7 +5,7 @@ import '../../css/custom_nodes.css'
 
 const AdditionNode = ({ data }) => {
     return (
-        <div className="addition_node">
+        <div className="addition-node">
             <Handle type="target" id="input_1" position={Position.Left} style={{  top: '30%',borderRadius: 0 }} />
             <Handle type="target" id="input_2" position={Position.Left} style={{ top: '70%', borderRadius: 0 }} />
 
