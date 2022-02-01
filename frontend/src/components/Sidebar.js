@@ -1,4 +1,6 @@
 import React from 'react';
+import Paper from "@material-ui/core/Paper";
+
 import '../css/dnd.css';
 import '../css/custom_nodes.css'
 
