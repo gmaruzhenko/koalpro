@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './css/index.css';
 import reportWebVitals from './reportWebVitals';
 import DnDFlow from "./components/DnDFlow";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <DnDFlow/>
+      <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
