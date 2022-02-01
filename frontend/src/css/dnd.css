@@ -36,3 +36,8 @@
     }
 }
 
+.text-input-field {
+    flex-direction: row;
+    display: flex;
+    width:100%;
+}

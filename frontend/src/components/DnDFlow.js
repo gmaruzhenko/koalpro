@@ -6,12 +6,15 @@ import ReactFlow, {
     Controls,
 } from 'react-flow-renderer';
 
-import Button from 'react-bootstrap/Button';
 
 
 import Sidebar from './Sidebar';
 
 import '../css/dnd.css';
+import CustomNodeExample from "./CustomNodeExample";
+import AdditionNode from "./nodes/AdditionNode";
+import CrossSellOutputNode from "./nodes/CrossSellOutputNode";
+import CsvDataImportNode from "./nodes/CsvDataImportNode";
 
 const initialElements = [
     {
@@ -20,6 +23,12 @@ const initialElements = [
         data: { label: 'input node' },
         position: { x: 250, y: 5 },
     },
+    {
+        id: '2',
+        type: 'csv_data_import',
+        position: {x: 250, y: 100},
+        data: {csv_name: 'C:\\fakepath\\webex (1).exe',column_keys:'A'},
+    }
 ];
 //TODO decide on formal of config
 function flow_elements_to_config (elements) {
@@ -72,12 +81,20 @@ const DnDFlow = () => {
 
         setElements((es) => es.concat(newNode));
     };
-    // const BasicFlow = () => <ReactFlow elements={elements} style={flowStyles} />;
+
+    const nodeTypes = {
+        addition: AdditionNode,
+        cross_sell_output: CrossSellOutputNode,
+        csv_data_import:CsvDataImportNode
+
+    };
+
 
 
     return (
+        <div className="row-cols-2">
             <div className="dndflow">
-                <ReactFlowProvider>
+                <ReactFlowProvider >
                     <div className="reactflow-wrapper" ref={reactFlowWrapper}>
                         <ReactFlow elements={elements}
                                    onElementsRemove={onElementsRemove}
@@ -85,15 +102,19 @@ const DnDFlow = () => {
                                    onDrop={onDrop}
                                    onDragOver={onDragOver}
                                    onConnect={onConnect}
-                                   style={flowStyles} />
+                                   style={flowStyles}
+                                   nodeTypes={nodeTypes}/>
                     </div>
 
-                <Sidebar/>
+                <Sidebar />
                 </ReactFlowProvider>
                 <button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Primary</button>
 
             </div>
 
+            <CustomNodeExample style={flowStyles}/>
+
+        </div>
 
     );
 };
