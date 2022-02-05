@@ -24,14 +24,21 @@ const initialElements = [
     //     data: {csv_name: 'C:\\fakepath\\webex (1).exe',column_keys:'A'},
     // }
 ];
+
+
 //TODO decide on formal of config
 function flow_elements_to_config (elements) {
-    return {name:"king",age:elements,city:"New York"}
+    elements.forEach(function(node, index, myArray) {
+        if (node.type===undefined){
+          node.type = 'connection'
+        }
+    });
+    return elements
 
 }
 //TODO once format decided do reverse transformation
 function config_to_flow_elements (config) {
-    return {name:"king",age:config,city:"New York"}
+    return config
 
 }
 
@@ -102,7 +109,7 @@ const DnDFlow = () => {
 
                 <Sidebar />
                 </ReactFlowProvider>
-                <button className="primary" onClick={() => console.log(elements)}>Click to console log nodes JSON object</button>
+                <button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Click to console log nodes JSON object</button>
 
             </div>
 
