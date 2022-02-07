@@ -38,9 +38,9 @@ f = open('example.json')
 example_json_data = json.load(f)
 
 operations = ["addition", "subtraction", "multiplication", "division"]
-nodelist = [] #Keep track of inputs
+nodelist = [] #Keep track of nodes
 operations_todo = {} #Dictionary to keep track of connections. Key = node name, Value = type of operation
-edges = {}
+edges = {} #Dictionary to keep track of edges. Key = Target, Values = Sources
 results = {} #Dictionary to keep track of connections. Key = node name, Value = result dict
 
 def load_JSON(json_data):
@@ -73,15 +73,15 @@ def load_JSON(json_data):
                     edges[node['target']].append(node['source'])
     
     print(
-    "Nodelist: \n",nodelist,"\n\n",
+    "\nNodelist: \n",nodelist,"\n\n",
     "Operations: \n", operations_todo,"\n\n",
     "Edges \n", edges,"\n\n",
     "Results: \n", results)
 
     processOperations(operations_todo)
     print("\n\nCompleting calculations...\n")
-    print("Completed Node List:\n",nodelist,"\n\n")
-    print("Results\n",results)
+    print("Modified Node List:\n",nodelist,"\n\n")
+    print("FINAL RESULTS:\n",results,"\n\n")
 
 #Params =  string: type of operation, inputs: list of input node names 
 #Returns = result dict         
