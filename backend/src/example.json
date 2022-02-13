@@ -1,76 +1,76 @@
 [
     {
-        "data": {
-            "column_keys": "a",
-            "column_values": "b",
-            "csv_name": "C:\\fakepath\\22.02.02_P403-slides-3_microcanonical.pdf",
-            "label": "csv_data_import node"
-        },
         "id": "dndnode_0",
+        "type": "csv_data_import",
         "position": {
             "x": 285.2574076565239,
             "y": 206.35268478716307
         },
-        "type": "csv_data_import"
+        "data": {
+            "label": "csv_data_import node",
+            "csv_name": "C:\\fakepath\\22.02.02_P403-slides-3_microcanonical.pdf",
+            "column_keys": "a",
+            "column_values": "b"
+        }
     },
     {
-        "data": {
-            "column_keys": "c",
-            "column_values": "d",
-            "csv_name": "C:\\fakepath\\Phys408 2021W2 - Lecture 7notes.pdf",
-            "label": "csv_data_import node"
-        },
         "id": "dndnode_1",
+        "type": "csv_data_import",
         "position": {
             "x": 320.8654083345734,
             "y": 393.8183354157175
         },
-        "type": "csv_data_import"
+        "data": {
+            "label": "csv_data_import node",
+            "csv_name": "C:\\fakepath\\Phys408 2021W2 - Lecture 7notes.pdf",
+            "column_keys": "c",
+            "column_values": "d"
+        }
     },
     {
-        "data": {
-            "label": "cross_sell_output node"
-        },
         "id": "dndnode_2",
+        "type": "cross_sell_output",
         "position": {
             "x": 906.2832971888121,
             "y": 394.0416275191588
         },
-        "type": "cross_sell_output"
+        "data": {
+            "label": "cross_sell_output node"
+        }
     },
     {
-        "data": {
-            "label": "addition node"
-        },
         "id": "dndnode_3",
+        "type": "addition",
         "position": {
             "x": 694.2832971888122,
             "y": 342.04162751915885
         },
-        "type": "addition"
+        "data": {
+            "label": "addition node"
+        }
     },
     {
-        "id": "reactflow__edge-dndnode_0a-dndnode_3input_1",
+        "type": "connection",
         "source": "dndnode_0",
         "sourceHandle": "a",
         "target": "dndnode_3",
         "targetHandle": "input_1",
-        "type": "connection"
+        "id": "reactflow__edge-dndnode_0a-dndnode_3input_1"
     },
     {
-        "id": "reactflow__edge-dndnode_1a-dndnode_3input_2",
+        "type": "connection",
         "source": "dndnode_1",
         "sourceHandle": "a",
         "target": "dndnode_3",
         "targetHandle": "input_2",
-        "type": "connection"
+        "id": "reactflow__edge-dndnode_1a-dndnode_3input_2"
     },
     {
-        "id": "reactflow__edge-dndnode_3a-dndnode_2null",
+        "type": "connection",
         "source": "dndnode_3",
         "sourceHandle": "a",
         "target": "dndnode_2",
         "targetHandle": null,
-        "type": "connection"
+        "id": "reactflow__edge-dndnode_3a-dndnode_2null"
     }
 ]
