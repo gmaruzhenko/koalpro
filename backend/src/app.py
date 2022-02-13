@@ -1,12 +1,13 @@
 from flask import Flask, render_template, jsonify, request
 from flask_restful import Resource, Api, reqparse
-from flask_cors import CORS
-
+from flask_cors import CORS, cross_origin
 # import pandas as pd
 import ast, json
 from types import SimpleNamespace
 
 app = Flask(__name__)
+CORS(app)
+
 api = Api(app)
 
 
@@ -27,7 +28,7 @@ def process_config():
         return jsonify('TODO implement config update')
     else:
         response = jsonify(json.load(open('example.json')))
-        response.headers.add("Access-Control-Allow-Origin", "*")
+        # response.headers.add("Access-Control-Allow-Origin", "*")
         return response
 
 
