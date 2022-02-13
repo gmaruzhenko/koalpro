@@ -18,8 +18,8 @@ import CsvDataImportNode from "./nodes/CsvDataImportNode";
 
 
 
-
-const initialElements = [
+//Prep the initial state and load from backend using Axios
+let initialElements = [
     // {
     //     id: '2',
     //     type: 'csv_data_import',
@@ -28,18 +28,15 @@ const initialElements = [
     // }
 ];
 
+axios.get('http://127.0.0.1:5000/config')
+    .then(function (response) {
+        // handle success
+        initialElements = response.data;
+    });
+
 
 //TODO decide on formal of config
 function flow_elements_to_config (elements) {
-
-    axios.get('http://127.0.0.1:5000/config')
-        .then(function (response) {
-            // handle success
-            console.log(response.data);
-        });
-
-
-
     elements.forEach(function(node, index, myArray) {
         if (node.type===undefined){
           node.type = 'connection'

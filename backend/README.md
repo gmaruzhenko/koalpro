@@ -1,3 +1,17 @@
+# Starting with virtual environment 
+See for further details on OS specific commands https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#activating-a-virtual-environment
+
+###For windows:
+
+
+cd into src
+
+`py -m pip install -r requirements.txt`
+
+when updating or adding dependencies make sure to update requirements.txt 
+
+`py -m pip freeze > requirements.txt`
+
 # How to access endpoints of  Flask API via console
 ## /data  
 View currently computed data
