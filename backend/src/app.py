@@ -8,8 +8,15 @@ from types import SimpleNamespace
 app = Flask(__name__)
 CORS(app)
 
+
 @app.route('/data', methods=['GET'])
 def send_data():
+    '''
+    Sends aggregated tabulated data up to frontend
+    :return: json
+    '''
+
+    # TODO ship main function's data tabulation results instead of dummy below
     response = jsonify({'key1': 'value1', 'key2': 'value2'})
     response.headers.add("Access-Control-Allow-Origin", "*")
 
@@ -25,7 +32,6 @@ def process_config():
         return jsonify('TODO implement config update')
     else:
         response = jsonify(json.load(open('example.json')))
-        # response.headers.add("Access-Control-Allow-Origin", "*")
         return response
 
 
