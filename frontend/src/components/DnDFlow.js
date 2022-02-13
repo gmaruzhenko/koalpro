@@ -128,7 +128,7 @@ const DnDFlow = () => {
 
                 <Sidebar />
                 </ReactFlowProvider>
-                <button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Click to console log nodes JSON object</button>
+                <button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Click to console log nodes JSON object and send to FLASK</button>
 
             </div>
 
