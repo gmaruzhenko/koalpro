@@ -5,7 +5,7 @@ import ReactFlow, {
     removeElements,
     Controls,
 } from 'react-flow-renderer';
-
+import axios from 'axios';
 
 
 import Sidebar from './Sidebar';
@@ -15,6 +15,9 @@ import CustomNodeExample from "./CustomNodeExample";
 import AdditionNode from "./nodes/AdditionNode";
 import CrossSellOutputNode from "./nodes/CrossSellOutputNode";
 import CsvDataImportNode from "./nodes/CsvDataImportNode";
+
+
+
 
 const initialElements = [
     // {
@@ -28,6 +31,15 @@ const initialElements = [
 
 //TODO decide on formal of config
 function flow_elements_to_config (elements) {
+
+    axios.get('http://127.0.0.1:5000/config')
+        .then(function (response) {
+            // handle success
+            console.log(response.data);
+        });
+
+
+
     elements.forEach(function(node, index, myArray) {
         if (node.type===undefined){
           node.type = 'connection'

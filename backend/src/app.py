@@ -10,7 +10,10 @@ api = Api(app)
 
 @app.route('/data', methods=['GET'])
 def send_data():
-    return jsonify({'key1': 'value1', 'key2': 'value2'})
+    response = jsonify({'key1': 'value1', 'key2': 'value2'})
+    response.headers.add("Access-Control-Allow-Origin", "*")
+
+    return response
 
 
 @app.route('/config', methods=['GET', 'POST'])
@@ -20,7 +23,9 @@ def process_config():
         print(new_config)
         return jsonify('TODO implement config update')
     else:
-        return jsonify(json.load(open('example.json')))
+        response = jsonify(json.load(open('example.json')))
+        response.headers.add("Access-Control-Allow-Origin", "*")
+        return response
 
 
 
