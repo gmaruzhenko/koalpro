@@ -39,9 +39,19 @@ axios.get('http://127.0.0.1:5000/config')
 function flow_elements_to_config (elements) {
     elements.forEach(function(node, index, myArray) {
         if (node.type===undefined){
-          node.type = 'connection'
+            node.type = 'connection'
         }
     });
+
+    axios.post('http://127.0.0.1:5000/config', {
+        elements
+    })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     return elements
 
 }
