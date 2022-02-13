@@ -1,5 +1,7 @@
 from flask import Flask, render_template, jsonify, request
 from flask_restful import Resource, Api, reqparse
+from flask_cors import CORS
+
 # import pandas as pd
 import ast, json
 from types import SimpleNamespace
@@ -17,6 +19,7 @@ def send_data():
 
 
 @app.route('/config', methods=['GET', 'POST'])
+@cross_origin()
 def process_config():
     if request.method == 'POST':
         new_config = request.get_json()

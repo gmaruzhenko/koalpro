@@ -3,6 +3,14 @@ See for further details on OS specific commands https://packaging.python.org/en/
 
 ###For windows:
 
+create a virtual environment 
+
+`py -m venv env`
+
+
+load into it
+
+`.\env\Scripts\activate`
 
 cd into src
 
