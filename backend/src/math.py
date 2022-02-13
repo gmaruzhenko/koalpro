@@ -33,7 +33,7 @@ def handleMath(dict1, dict2, operation):
         for key2 in dict2:
             if key2 not in resDict:
                 resDict[key2] = dict2[key2]
-        print(resDict)
+        return resDict
 
     # subtract
     if operation == 1:
@@ -47,7 +47,7 @@ def handleMath(dict1, dict2, operation):
         for key2 in dict2:
             if key2 not in resDict:
                 resDict[key2] = dict2[key2]
-        print(resDict)
+        return resDict
 
 
     #multiply
@@ -62,7 +62,7 @@ def handleMath(dict1, dict2, operation):
         for key2 in dict2:
             if key2 not in resDict:
                 resDict[key2] = dict2[key2]
-        print(resDict)
+        return resDict
 
 
     #divide
@@ -77,9 +77,8 @@ def handleMath(dict1, dict2, operation):
         for key2 in dict2:
             if key2 not in resDict:
                 resDict[key2] = dict2[key2]
-        print(resDict)
+        return resDict
 
 
 
-handleMath(company1, company2, 3)
 
