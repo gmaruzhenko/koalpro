@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route('/data', methods=['GET'])
+@app.route('/data/crosssell', methods=['GET'])
 def send_data():
     '''
     Sends aggregated tabulated data up to frontend
