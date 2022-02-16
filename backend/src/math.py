@@ -15,70 +15,60 @@ company2 = {
     "tesla": 4000
 }
 
+def addition(dict1, dict2):
+    resDict = {}
+    for key in dict1:
+        if key in dict2:
+            resDict[key] = dict1[key] + dict2[key]
+        else:
+            resDict[key] = dict1[key]
+            pass
+    for key2 in dict2:
+        if key2 not in resDict:
+            resDict[key2] = dict2[key2]
+    print(resDict)
+    return resDict
 
+def subtraction(dict1, dict2):
+    resDict = {}
+    for key in dict1:
+        if key in dict2:
+            resDict[key] = abs(dict1[key] - dict2[key])
+        else:
+            resDict[key] = dict1[key]
+            pass
+    for key2 in dict2:
+        if key2 not in resDict:
+            resDict[key2] = dict2[key2]
+    print(resDict)
+    return resDict
 
+def multiplication(dict1, dict2):
+    resDict = {}
+    for key in dict1:
+        if key in dict2:
+            resDict[key] = dict1[key] * dict2[key]
+        else:
+            resDict[key] = dict1[key]
+            pass
+    for key2 in dict2:
+        if key2 not in resDict:
+            resDict[key2] = dict2[key2]
+    print(resDict)
+    return resDict
 
-
-
-def handleMath(dict1, dict2, operation):
-    # add
-    if operation == 0:
-        resDict = {}
-        for key in dict1:
-            if key in dict2:
-                resDict[key] = dict1[key] + dict2[key]
-            else:
-                resDict[key] = dict1[key]
-                pass
-        for key2 in dict2:
-            if key2 not in resDict:
-                resDict[key2] = dict2[key2]
-        return resDict
-
-    # subtract
-    if operation == 1:
-        resDict = {}
-        for key in dict1:
-            if key in dict2:
-                resDict[key] = abs(dict1[key] - dict2[key])
-            else:
-                resDict[key] = dict1[key]
-                pass
-        for key2 in dict2:
-            if key2 not in resDict:
-                resDict[key2] = dict2[key2]
-        return resDict
-
-
-    #multiply
-    if operation == 2:
-        resDict = {}
-        for key in dict1:
-            if key in dict2:
-                resDict[key] = dict1[key]*dict2[key]
-            else:
-                resDict[key] = dict1[key]
-                pass
-        for key2 in dict2:
-            if key2 not in resDict:
-                resDict[key2] = dict2[key2]
-        return resDict
-
-
-    #divide
-    if operation == 3:
-        resDict = {}
-        for key in dict1:
-            if key in dict2:
-                resDict[key] = dict1[key]//dict2[key]
-            else:
-                resDict[key] = dict1[key]
-                pass
-        for key2 in dict2:
-            if key2 not in resDict:
-                resDict[key2] = dict2[key2]
-        return resDict
-
-
+def division(dict1, dict2):
+    resDict = {}
+    for key in dict1:
+        if key in dict2:
+            resDict[key] = dict1[key] // dict2[key]
+        else:
+            resDict[key] = dict1[key]
+            pass
+    for key2 in dict2:
+        if key2 not in resDict:
+            resDict[key2] = dict2[key2]
+    print(resDict)
+    return resDict
 
 
