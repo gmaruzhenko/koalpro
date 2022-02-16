@@ -55,6 +55,9 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+#virtual environment
+env/
+venv/
 
 # Flask stuff:
 instance/

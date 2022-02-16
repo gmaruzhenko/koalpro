@@ -5,7 +5,7 @@ import ReactFlow, {
     removeElements,
     Controls,
 } from 'react-flow-renderer';
-
+import axios from 'axios';
 
 
 import Sidebar from './Sidebar';
@@ -16,7 +16,10 @@ import AdditionNode from "./nodes/AdditionNode";
 import CrossSellOutputNode from "./nodes/CrossSellOutputNode";
 import CsvDataImportNode from "./nodes/CsvDataImportNode";
 
-const initialElements = [
+
+
+//Prep the initial state and load from backend using Axios
+let initialElements = [
     // {
     //     id: '2',
     //     type: 'csv_data_import',
@@ -25,14 +28,30 @@ const initialElements = [
     // }
 ];
 
+axios.get('http://127.0.0.1:5000/config')
+    .then(function (response) {
+        // handle success
+        initialElements = response.data;
+    });
+
 
 //TODO decide on formal of config
 function flow_elements_to_config (elements) {
     elements.forEach(function(node, index, myArray) {
         if (node.type===undefined){
-          node.type = 'connection'
+            node.type = 'connection'
         }
     });
+
+    axios.post('http://127.0.0.1:5000/config', {
+        elements
+    })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     return elements
 
 }
@@ -109,7 +128,7 @@ const DnDFlow = () => {
 
                 <Sidebar />
                 </ReactFlowProvider>
-                <button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Click to console log nodes JSON object</button>
+                <button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Click to console log nodes JSON object and send to FLASK</button>
 
             </div>
 
