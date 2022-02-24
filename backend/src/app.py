@@ -10,14 +10,27 @@ CORS(app)
 
 
 @app.route('/data/crosssell', methods=['GET'])
-def send_data():
+def send_cross_sell_data():
     '''
-    Sends aggregated tabulated data up to frontend
+    Sends aggregated cross sell tabulated data up to frontend
     :return: json
     '''
 
     # TODO ship main function's data tabulation results instead of dummy below
-    response = jsonify({'key1': 'value1', 'key2': 'value2'})
+    response = jsonify({'cross sell key1 ': 'value1', 'ross sell key2': 'value2'})
+    response.headers.add("Access-Control-Allow-Origin", "*")
+
+    return response
+
+@app.route('/data/upsell', methods=['GET'])
+def send_upsell_data():
+    '''
+    Sends aggregated upsell tabulated data up to frontend
+    :return: json
+    '''
+
+    # TODO ship main function's data tabulation results instead of dummy below
+    response = jsonify({'upsell key1': 'value1', 'upsell key2': 'value2'})
     response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response
