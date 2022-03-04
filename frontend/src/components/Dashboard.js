@@ -80,7 +80,7 @@ class MuiVirtualizedTable extends React.PureComponent {
             </TableCell>
         );
     };
-
+// TODO use https://github.com/bvaughn/react-virtualized/blob/2e962d8f8aebc22cb1168a8d147bcaa1d27aa326/docs/multiColumnSortTable.md if want to pivot on columns
     headerRenderer = ({ label, columnIndex }) => {
         const { headerHeight, columns, classes } = this.props;
 
