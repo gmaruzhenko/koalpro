@@ -4,7 +4,7 @@ from flask_cors import CORS, cross_origin
 # import pandas as pd
 import ast, json
 from types import SimpleNamespace
-from math import addition, subtraction, multiplication, division
+from algebra import addition, subtraction, multiplication, division, load_csv
 
 app = Flask(__name__)
 CORS(app)
@@ -73,9 +73,9 @@ def load_JSON():
             nodelist.append(node)
 
             # load dict from csv
-            # TODO: loadcsv(node.data) Returns dict obj with nodeid = {key,value}
-            # data = loadcsv(node.data)
-            # results[node.id] = data
+            # loadcsv(node.data) Returns dict obj with nodeid = {key,value}
+            data = load_csv(node.data)
+            results[node.id] = data
         elif node['type'] in operations:
             # store in operations to do list
             operations_todo[node['id']] = node['type']
