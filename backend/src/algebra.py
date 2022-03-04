@@ -1,6 +1,12 @@
 
+import pandas as pd
 
-
+data = {
+            "label": "csv_data_import node",
+            "csv_name": "dummy.csv",
+            "column_keys": "Company Name",
+            "column_values": "Sales"
+        }
 
 company1 = {
     "salesforce": 30000,
@@ -71,4 +77,19 @@ def division(dict1, dict2):
     print(resDict)
     return resDict
 
-
+# takes "data" and loads the CSV.
+def load_csv(data):
+    path = data["csv_name"]
+    keysColumn = data["column_keys"]
+    valuesColumn = data["column_values"]
+    df = pd.read_csv(path)
+    print(df)
+    keys = df[keysColumn]
+    print(keys)
+    values = df[valuesColumn]
+    print(values)
+    res = {}
+    for i in range(len(keys)):
+        res[keys[i]] = values[i]
+    print(res)
+    return res
