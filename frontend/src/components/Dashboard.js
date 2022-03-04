@@ -5,6 +5,9 @@ import { FixedSizeGrid as Grid } from 'react-window';
 import '../css/dnd.css';
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
 
 
 const Dashboard = () => {
@@ -27,7 +30,15 @@ const Dashboard = () => {
         </div>
     );
     return (
-        <div className="dashboard">
+        <div className="container">
+            <TableHead rowSpan={2}>
+                <TableRow >
+                    <TableCell>Desc</TableCell>
+                    <TableCell align="right">Calories</TableCell>
+                    <TableCell align="center">Fat&nbsp;(g)</TableCell>
+                    <TableCell align="left">Carbs&nbsp;(g)</TableCell>
+                </TableRow>
+            </TableHead>
             <Grid
                 columnCount={3}
                 columnWidth={200}
