@@ -6,6 +6,8 @@ import { createTheme } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table } from 'react-virtualized';
+import {useState} from "react";
+import {useEffect} from "react";
 
 const styles = (theme) => ({
     flexContainer: {
@@ -213,6 +215,20 @@ const rows = [...sampledata,...sampledata,...sampledata,...sampledata,...sampled
 // }
 
 export default function Dashboard() {
+
+    const [width, setWidth] = useState(window.innerWidth);
+    const [height, setHeight] = useState(window.innerHeight);
+    const updateWidthAndHeight = () => {
+        setWidth(window.innerWidth);
+        setHeight(window.innerHeight);
+    };
+    const numberOfColumns = 3;
+
+    useEffect(() => {
+        window.addEventListener("resize", updateWidthAndHeight);
+        return () => window.removeEventListener("resize", updateWidthAndHeight);
+    });
+
     return (
         <Paper style={{ height: 400, width: '100%' }}>
             <VirtualizedTable
@@ -220,18 +236,18 @@ export default function Dashboard() {
                 rowGetter={({ index }) => rows[index]}
                 columns={[
                     {
-                        width: 200,
+                        width: width/numberOfColumns,
                         label: 'Company Name',
                         dataKey: 'companyID',
                     },
                     {
-                        width: 200,
+                        width:  width/numberOfColumns,
                         label: 'Cross-Sell Value',
                         dataKey: 'cross_sell_value',
                         numeric: true,
                     },
                     {
-                        width: 200,
+                        width:  width/numberOfColumns,
                         label: 'Up-Sell Value',
                         dataKey: 'up_sell_value',
                         numeric: true,
