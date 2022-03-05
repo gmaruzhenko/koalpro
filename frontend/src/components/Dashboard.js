@@ -224,7 +224,7 @@ export default function Dashboard() {
         return () => window.removeEventListener("resize", updateWidthAndHeight);
     });
 
-
+    //TODO miove somewhere else to avoid net::ERR_INSUFFICIENT_RESOURCES
     axios.get('http://127.0.0.1:5000/data/crosssell')
         .then(function (response) {
             // handle success
