@@ -10,14 +10,7 @@ import {useState} from "react";
 import {useEffect} from "react";
 import axios from 'axios';
 
-let initialData = [];
 
-axios.get('http://127.0.0.1:5000/data/crosssell')
-    .then(function (response) {
-        // handle success
-        initialData = response.data;
-        console.log(initialData)
-    });
 
 const styles = (theme) => ({
     flexContainer: {
@@ -203,8 +196,6 @@ const sampledata = [
 ];
 
 // const rows = [...sampledata,...sampledata,...sampledata,...sampledata,...sampledata];
-const rows = initialData;
-
 // function createData(id, dessert, calories, fat, carbs, protein) {
 //     return { id, dessert, calories, fat, carbs, protein };
 // }
@@ -218,8 +209,10 @@ const rows = initialData;
 
 export default function Dashboard() {
 
+
     const [width, setWidth] = useState(window.innerWidth);
     const [height, setHeight] = useState(window.innerHeight);
+    const [dashData, setDashData] = useState([]);
     const updateWidthAndHeight = () => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
@@ -231,11 +224,22 @@ export default function Dashboard() {
         return () => window.removeEventListener("resize", updateWidthAndHeight);
     });
 
+
+    axios.get('http://127.0.0.1:5000/data/crosssell')
+        .then(function (response) {
+            // handle success
+            setDashData(response.data);
+        });
+
+
+
+
+
     return (
         <Paper style={{ height: 400, width: '100%' }}>
             <VirtualizedTable
-                rowCount={rows.length}
-                rowGetter={({ index }) => rows[index]}
+                rowCount={dashData.length}
+                rowGetter={({ index }) => dashData[index]}
                 columns={[
                     {
                         width: width/numberOfColumns,
