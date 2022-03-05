@@ -18,6 +18,7 @@ def send_cross_sell_data():
     '''
     #if cross-sell, 
     # TODO ship main function's data tabulation results instead of dummy below
+    
     response = jsonify(load_JSON())
     response.headers.add("Access-Control-Allow-Origin", "*")
 
@@ -42,6 +43,7 @@ def send_upsell_data():
 def process_config():
     if request.method == 'POST':
         new_config = request.get_json()
+
         try:
             with open('../../../resources/config_file', 'w') as config_file:
                 config_file.write(new_config)
