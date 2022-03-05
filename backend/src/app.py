@@ -1,3 +1,4 @@
+import pandas as pd
 from flask import Flask, render_template, jsonify, request
 from flask_restful import Resource, Api, reqparse
 from flask_cors import CORS, cross_origin
@@ -22,6 +23,10 @@ def send_data():
 
     return response
 
+@app.route('/postcsv', methods=['POST'])
+def send_csv():
+    response = jsonify(json.load(open(request.data)))
+    return response
 
 @app.route('/config', methods=['GET', 'POST'])
 @cross_origin()
