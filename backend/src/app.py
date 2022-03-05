@@ -17,8 +17,16 @@ def send_cross_sell_data():
     :return: json
     '''
 
-    # TODO ship main function's data tabulation results instead of dummy below
-    response = jsonify({'cross sell key1 ': 'value1', 'ross sell key2': 'value2'})
+    # TODO ship main function's data tabulation results instead of dummy below, Here it is merely hardcoded
+    df = pd.read_csv('../../resources\SP500 by employees.xlsx - SP500 by Employees.csv')
+    newdf = df[['Name','Number of Employees']].copy()
+    newdf.rename(columns = {'Name':'companyID', 'Number of Employees':'cross_sell_value'}, inplace = True)
+
+    newdf["cross_sell_value"] = newdf["cross_sell_value"].str.replace(',', '').astype(int)
+
+    records = newdf.to_dict('records')
+
+    response = jsonify(records)
     response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response

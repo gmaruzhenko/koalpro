@@ -8,6 +8,16 @@ import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table } from 'react-virtualized';
 import {useState} from "react";
 import {useEffect} from "react";
+import axios from 'axios';
+
+let initialData = [];
+
+axios.get('http://127.0.0.1:5000/data/crosssell')
+    .then(function (response) {
+        // handle success
+        initialData = response.data;
+        console.log(initialData)
+    });
 
 const styles = (theme) => ({
     flexContainer: {
@@ -158,14 +168,6 @@ const VirtualizedTable = withStyles(styles, { defaultTheme })(MuiVirtualizedTabl
 
 // ---
 
-const sample = [
-    ['Frozen yoghurt', 159, 6.0, 24, 4.0],
-    ['Ice cream sandwich', 237, 9.0, 37, 4.3],
-    ['Eclair', 262, 16.0, 24, 6.0],
-    ['Cupcake', 305, 3.7, 67, 4.3],
-    ['Gingerbread', 356, 16.0, 49, 3.9],
-];
-
 
 const sampledata = [
     {
@@ -200,8 +202,8 @@ const sampledata = [
     }
 ];
 
-const rows = [...sampledata,...sampledata,...sampledata,...sampledata,...sampledata];
-
+// const rows = [...sampledata,...sampledata,...sampledata,...sampledata,...sampledata];
+const rows = initialData;
 
 // function createData(id, dessert, calories, fat, carbs, protein) {
 //     return { id, dessert, calories, fat, carbs, protein };
