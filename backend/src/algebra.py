@@ -93,3 +93,6 @@ def load_csv(data):
         res[keys[i]] = values[i]
     print(res)
     return res
+
+def load_initial(path):
+    return pd.read_csv(path)
