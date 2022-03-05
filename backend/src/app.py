@@ -18,7 +18,8 @@ def send_cross_sell_data():
     '''
     #if cross-sell, 
     # TODO ship main function's data tabulation results instead of dummy below
-    response = jsonify({'cross sell key1 ': 'value1', 'ross sell key2': 'value2'})
+    
+    response = jsonify(load_JSON())
     response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response
@@ -31,7 +32,7 @@ def send_upsell_data():
     '''
 
     # TODO ship main function's data tabulation results instead of dummy below
-    response = jsonify({'upsell key1': 'value1', 'upsell key2': 'value2'})
+    response = jsonify(load_JSON())
     response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response
@@ -42,6 +43,13 @@ def send_upsell_data():
 def process_config():
     if request.method == 'POST':
         new_config = request.get_json()
+
+        try:
+            with open('../../../resources/config_file', 'w') as config_file:
+                config_file.write(new_config)
+        except FileNotFoundError:
+            print("The file directory does not exist")
+
         print(new_config)
         return jsonify(new_config)
     else:
@@ -50,9 +58,8 @@ def process_config():
         After the user completes dragging and dropping nodes in the no-code workflow, 
         backend can request the node configuration from the JSON config file. 
         '''
-
-        response = jsonify(json.load(open('example.json')))
-        return response
+        curr_config = open('../../../resources/config_file', 'r')
+        return jsonify(curr_config)
 
 '''
 Parses JSON config file from Frontend
