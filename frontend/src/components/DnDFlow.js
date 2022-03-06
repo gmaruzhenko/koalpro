@@ -6,7 +6,7 @@ import ReactFlow, {
     Controls,
 } from 'react-flow-renderer';
 import axios from 'axios';
-
+import { v4 as uuid } from 'uuid';
 
 import Sidebar from './Sidebar';
 
@@ -51,7 +51,9 @@ const flowStyles = { height: 800 };
 
 
 let id = 0;
-const getId = () => `dndnode_${id++}`;
+const getId = () =>{
+    const unique_id = uuid();
+    return `dndnode_${unique_id}`};
 
 
 const DnDFlow = () => {
@@ -82,6 +84,7 @@ const DnDFlow = () => {
     const onClear = () => {
         setElements([]);
     };
+    
 
 
 
