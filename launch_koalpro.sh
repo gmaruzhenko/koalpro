@@ -5,4 +5,4 @@
 
 #Note that this doesnt kill the second process and you gotta manually do it
 
-(cd ./backend/ && source env/Scripts/activate && cd ./src && flask run) &  (cd frontend/ && yarn start )
+(cd ./backend/ && source env/Scripts/activate && cd ./src && flask run) #&  (cd frontend/ && yarn start )

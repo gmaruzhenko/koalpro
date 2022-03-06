@@ -5,6 +5,8 @@ from flask_cors import CORS, cross_origin
 # import pandas as pd
 import ast, json
 from types import SimpleNamespace
+import uuid
+
 
 app = Flask(__name__)
 CORS(app)
@@ -55,6 +57,10 @@ def process_config():
     if request.method == 'POST':
         new_config = request.get_json()
         print(new_config)
+        unique_filename = str(uuid.uuid4())
+        with open(unique_filename, 'w') as f:
+            json.dump(team, f)
+
         return jsonify('TODO implement config update')
     else:
         response = jsonify(json.load(open('example.json')))
