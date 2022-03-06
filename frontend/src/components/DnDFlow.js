@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, {useState, useRef, useCallback, useEffect} from 'react';
 import ReactFlow, {
     ReactFlowProvider,
     addEdge,
@@ -18,21 +18,7 @@ import CsvDataImportNode from "./nodes/CsvDataImportNode";
 
 
 
-//Prep the initial state and load from backend using Axios
-let initialElements = [
-    // {
-    //     id: '2',
-    //     type: 'csv_data_import',
-    //     position: {x: 250, y: 100},
-    //     data: {csv_name: 'C:\\fakepath\\webex (1).exe',column_keys:'A'},
-    // }
-];
 
-axios.get('http://127.0.0.1:5000/config')
-    .then(function (response) {
-        // handle success
-        initialElements = response.data;
-    });
 
 
 //TODO decide on formal of config
@@ -67,16 +53,42 @@ const flowStyles = { height: 800 };
 let id = 0;
 const getId = () => `dndnode_${id++}`;
 
+
 const DnDFlow = () => {
     const reactFlowWrapper = useRef(null);
     const [reactFlowInstance, setReactFlowInstance] = useState(null);
-    const [elements, setElements] = useState(initialElements);
+    const [elements, setElements] = useState([]);
+    useEffect(() => {
+            axios.get('http://127.0.0.1:5000/config')
+                .then(function (response) {
+                    // handle success
+                   setElements(response.data);
+                });
+        },
+        []
+    );
+
     const onConnect = (params) => setElements((els) => addEdge(params, els));
     const onElementsRemove = (elementsToRemove) =>
         setElements((els) => removeElements(elementsToRemove, els));
 
     const onLoad = (_reactFlowInstance) =>
         setReactFlowInstance(_reactFlowInstance);
+
+    const onSave = useCallback(() => {
+        if (reactFlowInstance) {
+            flow_elements_to_config(elements)
+        }
+    }, [reactFlowInstance]);
+
+    const onRestore = useCallback(() => {
+        axios.get('http://127.0.0.1:5000/config')
+            .then(function (response) {
+                // handle success
+                setElements(response.data);
+            });
+    }, [setElements]);
+
 
     const onDragOver = (event) => {
         event.preventDefault();
@@ -127,6 +139,10 @@ const DnDFlow = () => {
                     </div>
 
                 <Sidebar />
+                    <div className="save__controls">
+                        <button onClick={onSave}>save</button>
+                        <button onClick={onRestore}>restore</button>
+                    </div>
                 </ReactFlowProvider>
                 <button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Click to console log nodes JSON object and send to FLASK</button>
 
