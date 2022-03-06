@@ -59,7 +59,7 @@ def process_config():
         print(new_config)
         unique_filename = str(uuid.uuid4())
         with open(unique_filename, 'w') as f:
-            json.dump(team, f)
+            json.dump(new_config, f)
 
         return jsonify('TODO implement config update')
     else:
