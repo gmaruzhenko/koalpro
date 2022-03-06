@@ -75,19 +75,14 @@ const DnDFlow = () => {
     const onLoad = (_reactFlowInstance) =>
         setReactFlowInstance(_reactFlowInstance);
 
-    const onSave = useCallback(() => {
-        if (reactFlowInstance) {
-            flow_elements_to_config(elements)
-        }
-    }, [reactFlowInstance]);
+    const onSave = () => {
+            flow_elements_to_config(reactFlowInstance.toObject().elements)
+    };
 
-    const onRestore = useCallback(() => {
-        axios.get('http://127.0.0.1:5000/config')
-            .then(function (response) {
-                // handle success
-                setElements(response.data);
-            });
-    }, [setElements]);
+    const onClear = () => {
+        setElements([]);
+    };
+
 
 
     const onDragOver = (event) => {
@@ -141,10 +136,10 @@ const DnDFlow = () => {
                 <Sidebar />
                     <div className="save__controls">
                         <button onClick={onSave}>save</button>
-                        <button onClick={onRestore}>restore</button>
+                        <button onClick={onClear}>clear</button>
                     </div>
                 </ReactFlowProvider>
-                <button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Click to console log nodes JSON object and send to FLASK</button>
+                {/*<button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Click to console log nodes JSON object and send to FLASK</button>*/}
 
             </div>
         </div>

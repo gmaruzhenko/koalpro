@@ -57,7 +57,7 @@ def process_config():
     if request.method == 'POST':
         new_config = request.get_json()
         print(new_config)
-        unique_filename = str(uuid.uuid4())
+        unique_filename = 'sampleconfig/'+str(uuid.uuid4())
         with open(unique_filename, 'w') as f:
             json.dump(new_config, f)
 
