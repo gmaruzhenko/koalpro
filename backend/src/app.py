@@ -18,7 +18,7 @@ def send_cross_sell_data():
     '''
 
     # TODO ship main function's data tabulation results instead of dummy below
-    response = jsonify({'cross sell key1 ': 'value1', 'ross sell key2': 'value2'})
+    response = jsonify({[]})
     response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response
