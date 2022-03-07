@@ -60,6 +60,8 @@ const DnDFlow = () => {
     const reactFlowWrapper = useRef(null);
     const [reactFlowInstance, setReactFlowInstance] = useState(null);
     const [elements, setElements] = useState([]);
+    const [restoreFlag, setRestoreFlag] = useState(false);
+
     useEffect(() => {
             axios.get('http://127.0.0.1:5000/config')
                 .then(function (response) {
@@ -67,7 +69,7 @@ const DnDFlow = () => {
                    setElements(response.data);
                 });
         },
-        []
+        [restoreFlag]
     );
 
     const onConnect = (params) => setElements((els) => addEdge(params, els));
@@ -84,7 +86,10 @@ const DnDFlow = () => {
     const onClear = () => {
         setElements([]);
     };
-    
+    const onRestore = () => {
+        setElements([]); //TODO this a janky way of making it work but smoother way of matching positions should be possible 
+        setRestoreFlag(!restoreFlag)
+    };
 
 
 
@@ -140,6 +145,8 @@ const DnDFlow = () => {
                     <div className="save__controls">
                         <button onClick={onSave}>save</button>
                         <button onClick={onClear}>clear</button>
+                        <button onClick={onRestore}>restore</button>
+
                     </div>
                 </ReactFlowProvider>
                 {/*<button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Click to console log nodes JSON object and send to FLASK</button>*/}
