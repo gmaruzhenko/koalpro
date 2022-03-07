@@ -195,17 +195,6 @@ const sampledata = [
     }
 ];
 
-// const rows = [...sampledata,...sampledata,...sampledata,...sampledata,...sampledata];
-// function createData(id, dessert, calories, fat, carbs, protein) {
-//     return { id, dessert, calories, fat, carbs, protein };
-// }
-//
-// const rows = [];
-//
-// for (let i = 0; i < 200; i += 1) {
-//     const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-//     rows.push(createData(i, ...randomSelection));
-// }
 
 export default function Dashboard() {
 
@@ -232,12 +221,6 @@ export default function Dashboard() {
         },
         []
     );
-
-    //TODO miove somewhere else to avoid net::ERR_INSUFFICIENT_RESOURCES
-
-
-
-
 
     return (
         <Paper style={{ height: 400, width: '100%' }}>
