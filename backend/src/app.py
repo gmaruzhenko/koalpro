@@ -1,8 +1,9 @@
+from distutils.command.config import config
 from flask import Flask, render_template, jsonify, request
 from flask_restful import Resource, Api, reqparse
 from flask_cors import CORS, cross_origin
 # import pandas as pd
-import ast, json
+import ast, json, requests
 from types import SimpleNamespace
 from algebra import addition, subtraction, multiplication, division, load_csv
 
@@ -19,10 +20,10 @@ def send_cross_sell_data():
     #if cross-sell, 
     # TODO ship main function's data tabulation results instead of dummy below
     
-    response = jsonify(load_JSON())
+    response = load_JSON()
     response.headers.add("Access-Control-Allow-Origin", "*")
 
-    return response
+    return str(response)
 
 @app.route('/data/upsell', methods=['GET'])
 def send_upsell_data():
@@ -32,7 +33,7 @@ def send_upsell_data():
     '''
 
     # TODO ship main function's data tabulation results instead of dummy below
-    response = jsonify(load_JSON())
+    response = load_JSON()
     response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response
@@ -44,22 +45,25 @@ def process_config():
     if request.method == 'POST':
         new_config = request.get_json()
 
-        try:
-            with open('../../../resources/config_file', 'w') as config_file:
-                config_file.write(new_config)
-        except FileNotFoundError:
-            print("The file directory does not exist")
+        with open('../../resources/config_file,json', 'w') as config_file:
+                json.dumps(config_file.write(new_config))
 
         print(new_config)
-        return jsonify(new_config)
+        return str(new_config)
     else:
         '''
         GET /config
         After the user completes dragging and dropping nodes in the no-code workflow, 
         backend can request the node configuration from the JSON config file. 
         '''
-        curr_config = open('../../../resources/config_file', 'r')
-        return jsonify(curr_config)
+        with open('../../resources/config_file.json', 'r') as config_file:
+                try: 
+                    curr_config = json.load(config_file)
+                    print(curr_config)
+                except:
+                        print("File not Found")
+        
+        return json.dumps(curr_config)
 
 '''
 Parses JSON config file from Frontend
@@ -71,45 +75,46 @@ def load_JSON():
     operations_todo = {}  # Dictionary to keep track of connections. Key = node name, Value = type of operation
     edges = {}  # Dictionary to keep track of edges. Key = Target, Values = Sources
     results = {}  # Dictionary to keep track of connections. Key = node name, Value = result dict
-    json_data = process_config()
+    response = requests.get("http://127.0.0.1:5000/config")
+    json_data = response.json()
     for node in json_data:
         # Parse JSON into an object with attributes corresponding to dict keys.
 
-        if node['type'] == 'csv_data_import':
+        if node["type"] == "csv_data_import":
             # store new input dict
             nodelist.append(node)
 
             # load dict from csv
             # loadcsv(node.data) Returns dict obj with nodeid = {key,value}
-            data = load_csv(node.data)
-            results[node.id] = data
-        elif node['type'] in operations:
+            data = load_csv(node["data"])
+            results[node["id"]] = data
+        elif node["type"] in operations:
             # store in operations to do list
-            operations_todo[node['id']] = node['type']
+            operations_todo[node["id"]] = node["type"]
 
-        elif node['type'] == 'cross_sell_output' or node['type'] == 'up_sell_output':
-            results[node['id']] = {}
-            resultid = node['id']
-            if node['type'] == 'cross_sell_output':
+        elif node["type"] == "cross_sell_output" or node["type"] == "up_sell_output":
+            results[node["id"]] = {}
+            resultid = node["id"]
+            if node["type"] == "cross_sell_output":
                 cross_sell = True
-            if node['type'] == 'cross_sell_output':
+            if node["type"] == "cross_sell_output":
                 up_sell = True    
 
-        elif node['type'] == 'connection':
+        elif node["type"] == "default":
             # connection objects
-            if node['target'] not in edges:
-                edges[node['target']] = []
-                edges[node['target']].append(node['source'])
+            if node["target"] not in edges:
+                edges[node["target"]] = []
+                edges[node["target"]].append(node["source"])
 
-            elif node['target'] in edges:
-                if node['source'] not in edges[node['target']]:
-                    edges[node['target']].append(node['source'])
+            elif node["target"] in edges:
+                if node["source"] not in edges[node["target"]]:
+                    edges[node["target"]].append(node["source"])
 
-    # print(
-    #     "\nNodelist: \n", nodelist, "\n\n",
-    #     "Operations: \n", operations_todo, "\n\n",
-    #     "Edges \n", edges, "\n\n",
-    #     "Results: \n", results)
+    print(
+        "\nNodelist: \n", nodelist, "\n\n",
+        "Operations: \n", operations_todo, "\n\n",
+        "Edges \n", edges, "\n\n")
+#     "Results: \n", results)
 
     #Perform operations based on the todo list
     processOperations(operations_todo, edges, nodelist, results)
@@ -117,8 +122,11 @@ def load_JSON():
     # print("\n\nCompleting calculations...\n")
     # print("Modified Node List:\n", nodelist, "\n\n")
     # print("FINAL RESULTS:\n", results, "\n\n")
+
+    response = jsonify(results[resultid])
+    print(results[resultid])
     
-    return results[resultid]
+    return response
 
 # Params =  string: type of operation, inputs: list of input node names
 # Returns = result dict
@@ -163,8 +171,8 @@ RETURNS: Results from the operation in a dictionary
 '''
 def do_operation(string, inputs,result_db):
     operation_result = {}
-    dict1 = result_db[input[0]]
-    dict2 = result_db[input[1]]
+    dict1 = result_db[inputs[0]]
+    dict2 = result_db[inputs[1]]
     if string == "addition":
         # use add method
         operation_result = addition(dict1,dict2)
