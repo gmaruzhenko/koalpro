@@ -23,7 +23,7 @@ def send_cross_sell_data():
     response = load_JSON()
     response.headers.add("Access-Control-Allow-Origin", "*")
 
-    return str(response)
+    return response
 
 @app.route('/data/upsell', methods=['GET'])
 def send_upsell_data():
@@ -56,15 +56,17 @@ def process_config():
         After the user completes dragging and dropping nodes in the no-code workflow, 
         backend can request the node configuration from the JSON config file. 
         '''
-        with open('../../resources/config_file.json', 'r') as config_file:
-                try: 
-                    curr_config = json.load(config_file)
-                    print(curr_config)
-                except:
-                    curr_config = json.dump("", open('../../resources/config_file.json', 'w'))
-                    print(curr_config)
+        try: 
+            with open('../../resources/config_file.json', 'r') as config_file:
+                curr_config = json.load(config_file)
+                print(curr_config)
+            return json.dumps(curr_config)
+        except:
+            curr_config = json.dump("", open('../../resources/config_file.json', 'w'))
+            print(curr_config)
+            return json.dumps(curr_config)
         
-        return json.dumps(curr_config)
+    
 
 '''
 Parses JSON config file from Frontend
