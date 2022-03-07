@@ -14,7 +14,13 @@ CORS(app)
 def send_cross_sell_data():
     '''
     Sends aggregated cross sell tabulated data up to frontend
-    :return: json
+    :return: json with array of records where each record is in shape :
+    
+    {
+    "companyID": "United Parcel Service, Inc.", 
+    "cross_sell_value": 1086000
+    }
+
     '''
 
     # TODO ship main function's data tabulation results instead of dummy below
