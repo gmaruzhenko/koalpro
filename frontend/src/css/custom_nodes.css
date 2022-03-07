@@ -8,8 +8,50 @@
     color: #fbf9ff;
     padding: 10px;
 }
-.csv-data-import-node{
-    background: #247611;
-    color: #fbf9ff;
+
+.react-flow__node {
+    cursor: grab;
+}
+.csv-data-import-node, .csv-data-import-node, .react-flow__node-output {
     padding: 10px;
+    border-radius: 3px;
+    width: 150px;
+    font-size: 12px;
+    color: #222;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+}
+.react-flow__node-default.selectable:hover, .csv-data-import-node.selectable:hover, .react-flow__node-output.selectable:hover {
+    box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.08);
+}
+.csv-data-import-node {
+    background: #0ead6d;
+    border-color: #0041d0;
+}
+.csv-data-import-node.selected, .csv-data-import-node.selected:hover {
+    box-shadow: 0 0 0 0.5px #0041d0;
+}
+.csv-data-import-node .react-flow__handle {
+    background: #0041d0;
+}
+.react-flow__node-default {
+    background: #fff;
+    border-color: #1a192b;
+}
+.react-flow__node-default.selected, .react-flow__node-default.selected:hover {
+    box-shadow: 0 0 0 0.5px #1a192b;
+}
+.react-flow__node-default .react-flow__handle {
+    background: #1a192b;
+}
+.react-flow__node-output {
+    background: #fff;
+    border-color: #ff0072;
+}
+.react-flow__node-output.selected, .react-flow__node-output.selected:hover {
+    box-shadow: 0 0 0 0.5px #ff0072;
+}
+.react-flow__node-output .react-flow__handle {
+    background: #ff0072;
 }
