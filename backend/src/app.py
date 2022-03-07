@@ -23,7 +23,7 @@ def send_cross_sell_data():
     response = load_JSON()
     response.headers.add("Access-Control-Allow-Origin", "*")
 
-    return str(response)
+    return response
 
 @app.route('/data/upsell', methods=['GET'])
 def send_upsell_data():
@@ -45,7 +45,7 @@ def process_config():
     if request.method == 'POST':
         new_config = request.get_json()
 
-        with open('../../resources/config_file,json', 'w') as config_file:
+        with open('../../resources/config_file.json', 'w') as config_file:
                 json.dumps(config_file.write(new_config))
 
         print(new_config)
