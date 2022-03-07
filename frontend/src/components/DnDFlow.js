@@ -87,7 +87,7 @@ const DnDFlow = () => {
         setElements([]);
     };
     const onRestore = () => {
-        setElements([]); //TODO this a janky way of making it work but smoother way of matching positions should be possible 
+        setElements([]); //TODO this a janky way of making it work but smoother way of matching positions should be possible
         setRestoreFlag(!restoreFlag)
     };
 
@@ -140,17 +140,15 @@ const DnDFlow = () => {
                                    style={flowStyles}
                                    nodeTypes={nodeTypes}/>
                     </div>
-
-                <Sidebar />
-                    <div className="save__controls">
+                    <div>
                         <button onClick={onSave}>save</button>
                         <button onClick={onClear}>clear</button>
                         <button onClick={onRestore}>restore</button>
-
+                        <Sidebar />
                     </div>
-                </ReactFlowProvider>
-                {/*<button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Click to console log nodes JSON object and send to FLASK</button>*/}
 
+
+                </ReactFlowProvider>
             </div>
         </div>
 
