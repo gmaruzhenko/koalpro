@@ -49,7 +49,7 @@ def process_config():
                 json.dumps(config_file.write(new_config))
 
         print(new_config)
-        return str(new_config)
+        return json.dumps(new_config)
     else:
         '''
         GET /config
@@ -61,7 +61,8 @@ def process_config():
                     curr_config = json.load(config_file)
                     print(curr_config)
                 except:
-                        print("File not Found")
+                    curr_config = json.dump("", open('../../resources/config_file.json', 'w'))
+                    print(curr_config)
         
         return json.dumps(curr_config)
 
