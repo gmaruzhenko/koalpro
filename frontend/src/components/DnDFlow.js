@@ -87,7 +87,7 @@ const DnDFlow = () => {
         setElements([]);
     };
     const onRestore = () => {
-        setElements([]); //TODO this a janky way of making it work but smoother way of matching positions should be possible
+        setElements([]); //TODO this a janky way of making it work but smoother way of matching positions should be possible 
         setRestoreFlag(!restoreFlag)
     };
 
