@@ -1,0 +1,76 @@
+[
+    {
+        "id": "dndnode_824f5607-8e10-4c46-a36a-618a6e8d4cd8",
+        "type": "csv_data_import",
+        "position": {
+            "x": 47,
+            "y": 46.33332824707031
+        },
+        "data": {
+            "label": "csv_data_import node",
+            "csv_name": "C:\\Users\\Farah Fouly\\Desktop\\UNI\\YEAR 4\\NVD\\KoalPro\\koalpro-main\\koala\\koalpro\\resources\\SP500 by employees.xlsx - SP500 by Employees.csv",
+            "column_keys": "Name",
+            "column_values": "Price/Book"
+        }
+    },
+    {
+        "id": "dndnode_96287d3b-c28e-4a47-a657-d47b58b78651",
+        "type": "csv_data_import",
+        "position": {
+            "x": 47,
+            "y": 164.3333282470703
+        },
+        "data": {
+            "label": "csv_data_import node",
+            "csv_name": "C:\\Users\\Farah Fouly\\Desktop\\UNI\\YEAR 4\\NVD\\KoalPro\\koalpro-main\\koala\\koalpro\\resources\\SP500 by employees.xlsx - SP500 by Employees.csv",
+            "column_keys": "Name",
+            "column_values": "Price/Book"
+        }
+    },
+    {
+        "id": "dndnode_96556dda-499b-4edd-bcfc-97fbdad25050",
+        "type": "addition",
+        "position": {
+            "x": 730.5679920302961,
+            "y": 123.03664316341676
+        },
+        "data": {
+            "label": "addition node"
+        }
+    },
+    {
+        "id": "dndnode_4c1e0518-6b5e-4f35-bb73-00a672ad0cb8",
+        "type": "cross_sell_output",
+        "position": {
+            "x": 853.1008513735019,
+            "y": 124.03664316341676
+        },
+        "data": {
+            "label": "cross_sell_output node"
+        }
+    },
+    {
+        "source": "dndnode_824f5607-8e10-4c46-a36a-618a6e8d4cd8",
+        "sourceHandle": "a",
+        "target": "dndnode_96556dda-499b-4edd-bcfc-97fbdad25050",
+        "targetHandle": "input_1",
+        "id": "reactflow__edge-dndnode_824f5607-8e10-4c46-a36a-618a6e8d4cd8a-dndnode_96556dda-499b-4edd-bcfc-97fbdad25050input_1",
+        "type": "default"
+    },
+    {
+        "source": "dndnode_96287d3b-c28e-4a47-a657-d47b58b78651",
+        "sourceHandle": "a",
+        "target": "dndnode_96556dda-499b-4edd-bcfc-97fbdad25050",
+        "targetHandle": "input_2",
+        "id": "reactflow__edge-dndnode_96287d3b-c28e-4a47-a657-d47b58b78651a-dndnode_96556dda-499b-4edd-bcfc-97fbdad25050input_2",
+        "type": "default"
+    },
+    {
+        "source": "dndnode_96556dda-499b-4edd-bcfc-97fbdad25050",
+        "sourceHandle": "a",
+        "target": "dndnode_4c1e0518-6b5e-4f35-bb73-00a672ad0cb8",
+        "targetHandle": null,
+        "id": "reactflow__edge-dndnode_96556dda-499b-4edd-bcfc-97fbdad25050a-dndnode_4c1e0518-6b5e-4f35-bb73-00a672ad0cb8null",
+        "type": "default"
+    }
+]
