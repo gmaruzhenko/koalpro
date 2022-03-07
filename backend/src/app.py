@@ -5,8 +5,6 @@ from flask_cors import CORS, cross_origin
 # import pandas as pd
 import ast, json
 from types import SimpleNamespace
-import uuid
-
 
 app = Flask(__name__)
 CORS(app)
@@ -19,16 +17,8 @@ def send_cross_sell_data():
     :return: json
     '''
 
-    # TODO ship main function's data tabulation results instead of dummy below, Here it is merely hardcoded
-    df = pd.read_csv('../../resources\SP500 by employees.xlsx - SP500 by Employees.csv')
-    newdf = df[['Name','Number of Employees']].copy()
-    newdf.rename(columns = {'Name':'companyID', 'Number of Employees':'cross_sell_value'}, inplace = True)
-
-    newdf["cross_sell_value"] = newdf["cross_sell_value"].str.replace(',', '').astype(int)
-
-    records = newdf.to_dict('records')
-
-    response = jsonify(records)
+    # TODO ship main function's data tabulation results instead of dummy below
+    response = jsonify({'cross sell key1 ': 'value1', 'ross sell key2': 'value2'})
     response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response
@@ -57,10 +47,6 @@ def process_config():
     if request.method == 'POST':
         new_config = request.get_json()
         print(new_config)
-        unique_filename = 'sampleconfig/'+str(uuid.uuid4()) + '.json'
-        with open(unique_filename, 'w') as f:
-            json.dump(new_config, f)
-
         return jsonify('TODO implement config update')
     else:
         response = jsonify(json.load(open('example.json')))
