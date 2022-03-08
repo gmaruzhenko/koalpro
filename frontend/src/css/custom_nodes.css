@@ -1,18 +1,16 @@
-.addition-node{
-     background: #9CA8B3;
-     color: #FFF;
-     padding: 10px;
- }
-.cross-sell-output-node{
-    background: #252db3;
-    color: #fbf9ff;
-    padding: 10px;
+:root {
+    --navy:#444c5c;
+    --redpunch:#ce5a57;
+    --oceanbreezed:#78a5a3;
+    --warmorange:#e1b16a;
+    --boarderblue:#0041d0;
+    --whitebackground:#fff;
 }
 
 .react-flow__node {
     cursor: grab;
 }
-.csv-data-import-node, .csv-data-import-node, .react-flow__node-output {
+.addition-node, .csv-data-import-node, .cross-sell-output-node {
     padding: 10px;
     border-radius: 3px;
     width: 150px;
@@ -22,36 +20,37 @@
     border-width: 1px;
     border-style: solid;
 }
-.react-flow__node-default.selectable:hover, .csv-data-import-node.selectable:hover, .react-flow__node-output.selectable:hover {
+.addition-node.selectable:hover, .csv-data-import-node.selectable:hover, .cross-sell-output-node.selectable:hover {
     box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.08);
 }
+
 .csv-data-import-node {
-    background: #0ead6d;
-    border-color: #0041d0;
+    background: var(--whitebackground);
+    border-color: var(--oceanbreezed);
 }
 .csv-data-import-node.selected, .csv-data-import-node.selected:hover {
-    box-shadow: 0 0 0 0.5px #0041d0;
+    box-shadow: 0 0 0 0.5px var(--oceanbreezed);
 }
 .csv-data-import-node .react-flow__handle {
-    background: #0041d0;
+    background: var(--oceanbreezed);
 }
-.react-flow__node-default {
-    background: #fff;
+.addition-node {
+    background: var(--warmorange);
     border-color: #1a192b;
 }
-.react-flow__node-default.selected, .react-flow__node-default.selected:hover {
+.addition-node.selected, .addition-node.selected:hover {
     box-shadow: 0 0 0 0.5px #1a192b;
 }
-.react-flow__node-default .react-flow__handle {
+.addition-node .react-flow__handle {
     background: #1a192b;
 }
-.react-flow__node-output {
-    background: #fff;
-    border-color: #ff0072;
+.cross-sell-output-node {
+    background: var(--whitebackground);
+    border-color: var(--redpunch);
 }
-.react-flow__node-output.selected, .react-flow__node-output.selected:hover {
-    box-shadow: 0 0 0 0.5px #ff0072;
+.cross-sell-output-node.selected, .cross-sell-output-node.selected:hover {
+    box-shadow: 0 0 0 0.5px var(--redpunch);
 }
-.react-flow__node-output .react-flow__handle {
-    background: #ff0072;
+.cross-sell-output-node .react-flow__handle {
+    background: var(--redpunch);
 }
