@@ -223,7 +223,7 @@ export default function Dashboard() {
     );
 
     return (
-        <Paper style={{ height: 400, width: '100%' }}>
+        <Paper style={{ height: '100%', width: '100%' }}>
             <VirtualizedTable
                 rowCount={dashData.length}
                 rowGetter={({ index }) => dashData[index]}
