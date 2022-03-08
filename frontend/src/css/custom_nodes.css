@@ -24,26 +24,35 @@
     box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.08);
 }
 
+
+
+
 .csv-data-import-node {
+    background: var(--whitebackground);
+    border-color: var(--navy);
+}
+.csv-data-import-node.selected, .csv-data-import-node.selected:hover {
+    box-shadow: 0 0 0 0.5px var(--navy);
+}
+.csv-data-import-node .react-flow__handle {
+    background: var(--navy);
+}
+
+
+
+.addition-node {
     background: var(--whitebackground);
     border-color: var(--oceanbreezed);
 }
-.csv-data-import-node.selected, .csv-data-import-node.selected:hover {
+.addition-node.selected, .addition-node.selected:hover {
     box-shadow: 0 0 0 0.5px var(--oceanbreezed);
 }
-.csv-data-import-node .react-flow__handle {
+.addition-node .react-flow__handle {
     background: var(--oceanbreezed);
 }
-.addition-node {
-    background: var(--warmorange);
-    border-color: #1a192b;
-}
-.addition-node.selected, .addition-node.selected:hover {
-    box-shadow: 0 0 0 0.5px #1a192b;
-}
-.addition-node .react-flow__handle {
-    background: #1a192b;
-}
+
+
+
 .cross-sell-output-node {
     background: var(--whitebackground);
     border-color: var(--redpunch);
