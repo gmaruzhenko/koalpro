@@ -28,7 +28,6 @@ function flow_elements_to_config (elements) {
             node.type = 'connection'
         }
     });
-
     axios.post('http://127.0.0.1:5000/config', {
         elements
     })

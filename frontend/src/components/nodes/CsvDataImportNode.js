@@ -1,7 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react';
 import  { Handle, Position,useStoreState  } from 'react-flow-renderer';
+import Button from '@material-ui/core/Button';
 import '../../css/custom_nodes.css'
 import '../../css/dnd.css'
+import TextField from "@material-ui/core/TextField";
 
 
 
@@ -48,15 +50,15 @@ const CsvDataImportNode = ({ data }) => {
             />
             <div className="row-cols-1">
                 <div className="row">
-                    <button onClick={onButtonClick}>Open file upload window</button>
+                    <Button variant="outlined" onClick={onButtonClick}>Select File</Button>
                     <input type='file' id='file' ref={inputFile} onChange={handleUpdate} style={{display: 'none'}}/>
 
                 </div>
                 <div className="row">
-                <input className="text-input-field" type="text" value={columnKeys} onChange={handleColumnKeysChange} placeholder={"enter column letter with company names"}/>
+                <TextField className="text-input-field" type="text" value={columnKeys} onChange={handleColumnKeysChange} placeholder={"company name header"}/>
                 </div>
                     <div className="row">
-                <input className="text-input-field" type="text" value={columnValues} onChange={handleColumnValuesChange} placeholder={"enter column letter with associated data"}/>
+                <TextField className="text-input-field" type="text" value={columnValues} onChange={handleColumnValuesChange} placeholder={"associated data header"}/>
                     </div>
             </div>
         </div>
