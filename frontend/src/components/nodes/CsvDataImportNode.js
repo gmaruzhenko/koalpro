@@ -55,10 +55,10 @@ const CsvDataImportNode = ({ data }) => {
 
                 </div>
                 <div className="row">
-                <TextField className="text-input-field" type="text" value={columnKeys} onChange={handleColumnKeysChange} placeholder={"company name header"}/>
+                <TextField  label="company name header" className="text-input-field" type="text" value={columnKeys} onChange={handleColumnKeysChange} />
                 </div>
                     <div className="row">
-                <TextField className="text-input-field" type="text" value={columnValues} onChange={handleColumnValuesChange} placeholder={"associated data header"}/>
+                <TextField label="company name header" className="text-input-field" type="text" value={columnValues} onChange={handleColumnValuesChange} />
                     </div>
             </div>
         </div>

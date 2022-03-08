@@ -1,7 +1,7 @@
 :root {
     --navy:#444c5c;
     --redpunch:#ce5a57;
-    --oceanbreezed:#78a5a3;
+    --ocean:#78a5a3;
     --warmorange:#e1b16a;
     --boarderblue:#0041d0;
     --whitebackground:#fff;
@@ -42,13 +42,13 @@
 
 .addition-node {
     background: var(--whitebackground);
-    border-color: var(--oceanbreezed);
+    border-color: var(--ocean);
 }
 .addition-node.selected, .addition-node.selected:hover {
-    box-shadow: 0 0 0 0.5px var(--oceanbreezed);
+    box-shadow: 0 0 0 0.5px var(--ocean);
 }
 .addition-node .react-flow__handle {
-    background: var(--oceanbreezed);
+    background: var(--ocean);
 }
 
 

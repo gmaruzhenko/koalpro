@@ -7,17 +7,45 @@ import ReactFlow, {
 } from 'react-flow-renderer';
 import axios from 'axios';
 import { v4 as uuid } from 'uuid';
-
+import Button from '@material-ui/core/Button';
 import Sidebar from './Sidebar';
-
+import styled from '@material-ui/core/styles/styled'
 import '../css/dnd.css';
 import CustomNodeExample from "./CustomNodeExample";
 import AdditionNode from "./nodes/AdditionNode";
 import CrossSellOutputNode from "./nodes/CrossSellOutputNode";
 import CsvDataImportNode from "./nodes/CsvDataImportNode";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+
+const navy_color = '#444c5c';
+const ocean_color = '#78a5a3';
+const warmorange_color= '#e1b16a';
+const redpunch='#ce5a57';
+const greenery_color = '#6fb98f';
 
 
+const SaveButton =  styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(ocean_color),
+    backgroundColor: ocean_color,
+    '&:hover': {
+        backgroundColor: warmorange_color,
+    },
+}));
 
+const ClearButton =  styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(ocean_color),
+    backgroundColor: ocean_color,
+    '&:hover': {
+        backgroundColor: redpunch,
+    },
+}));
+const RestoreButton =  styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(ocean_color),
+    backgroundColor: ocean_color,
+    '&:hover': {
+        backgroundColor: greenery_color,
+    },
+}));
 
 
 
@@ -140,9 +168,11 @@ const DnDFlow = () => {
                                    nodeTypes={nodeTypes}/>
                     </div>
                     <div>
-                        <button onClick={onSave}>save</button>
-                        <button onClick={onClear}>clear</button>
-                        <button onClick={onRestore}>restore</button>
+                        <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                            <SaveButton  variant="outlined" onClick={onSave}>save</SaveButton>
+                            <ClearButton onClick={onClear}>clear</ClearButton>
+                            <RestoreButton onClick={onRestore}>restore</RestoreButton>
+                        </ButtonGroup>
                         <Sidebar />
                     </div>
 
