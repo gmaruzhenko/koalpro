@@ -12,7 +12,7 @@ export default () => {
 
     return (
         <aside>
-            <div className="description">You can drag these nodes to the pane on the right.</div>
+            <div className="description">Drag these nodes to the pane on the right.</div>
             <div className="addition-node" onDragStart={(event) => onDragStart(event, 'addition')} draggable>
                 Addition
             </div>
