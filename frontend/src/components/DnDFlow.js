@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, {useState, useRef, useCallback, useEffect} from 'react';
 import ReactFlow, {
     ReactFlowProvider,
     addEdge,
@@ -6,7 +6,7 @@ import ReactFlow, {
     Controls,
 } from 'react-flow-renderer';
 import axios from 'axios';
-
+import { v4 as uuid } from 'uuid';
 
 import Sidebar from './Sidebar';
 
@@ -18,21 +18,7 @@ import CsvDataImportNode from "./nodes/CsvDataImportNode";
 
 
 
-//Prep the initial state and load from backend using Axios
-let initialElements = [
-    // {
-    //     id: '2',
-    //     type: 'csv_data_import',
-    //     position: {x: 250, y: 100},
-    //     data: {csv_name: 'C:\\fakepath\\webex (1).exe',column_keys:'A'},
-    // }
-];
 
-axios.get('http://127.0.0.1:5000/config')
-    .then(function (response) {
-        // handle success
-        initialElements = response.data;
-    });
 
 
 //TODO decide on formal of config
@@ -65,18 +51,47 @@ const flowStyles = { height: 800 };
 
 
 let id = 0;
-const getId = () => `dndnode_${id++}`;
+const getId = () =>{
+    const unique_id = uuid();
+    return `dndnode_${unique_id}`};
+
 
 const DnDFlow = () => {
     const reactFlowWrapper = useRef(null);
     const [reactFlowInstance, setReactFlowInstance] = useState(null);
-    const [elements, setElements] = useState(initialElements);
+    const [elements, setElements] = useState([]);
+    const [restoreFlag, setRestoreFlag] = useState(false);
+
+    useEffect(() => {
+            axios.get('http://127.0.0.1:5000/config')
+                .then(function (response) {
+                    // handle success
+                   setElements(response.data);
+                });
+        },
+        [restoreFlag]
+    );
+
     const onConnect = (params) => setElements((els) => addEdge(params, els));
     const onElementsRemove = (elementsToRemove) =>
         setElements((els) => removeElements(elementsToRemove, els));
 
     const onLoad = (_reactFlowInstance) =>
         setReactFlowInstance(_reactFlowInstance);
+
+    const onSave = () => {
+            flow_elements_to_config(reactFlowInstance.toObject().elements)
+    };
+
+    const onClear = () => {
+        setElements([]);
+    };
+    const onRestore = () => {
+        setElements([]); //TODO this a janky way of making it work but smoother way of matching positions should be possible
+        setRestoreFlag(!restoreFlag)
+    };
+
+
 
     const onDragOver = (event) => {
         event.preventDefault();
@@ -125,11 +140,15 @@ const DnDFlow = () => {
                                    style={flowStyles}
                                    nodeTypes={nodeTypes}/>
                     </div>
+                    <div>
+                        <button onClick={onSave}>save</button>
+                        <button onClick={onClear}>clear</button>
+                        <button onClick={onRestore}>restore</button>
+                        <Sidebar />
+                    </div>
 
-                <Sidebar />
+
                 </ReactFlowProvider>
-                <button className="primary" onClick={() => console.log(flow_elements_to_config(elements))}>Click to console log nodes JSON object and send to FLASK</button>
-
             </div>
         </div>
 

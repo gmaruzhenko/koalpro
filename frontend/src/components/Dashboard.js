@@ -8,6 +8,9 @@ import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table } from 'react-virtualized';
 import {useState} from "react";
 import {useEffect} from "react";
+import axios from 'axios';
+
+
 
 const styles = (theme) => ({
     flexContainer: {
@@ -158,14 +161,6 @@ const VirtualizedTable = withStyles(styles, { defaultTheme })(MuiVirtualizedTabl
 
 // ---
 
-const sample = [
-    ['Frozen yoghurt', 159, 6.0, 24, 4.0],
-    ['Ice cream sandwich', 237, 9.0, 37, 4.3],
-    ['Eclair', 262, 16.0, 24, 6.0],
-    ['Cupcake', 305, 3.7, 67, 4.3],
-    ['Gingerbread', 356, 16.0, 49, 3.9],
-];
-
 
 const sampledata = [
     {
@@ -200,24 +195,13 @@ const sampledata = [
     }
 ];
 
-const rows = [...sampledata,...sampledata,...sampledata,...sampledata,...sampledata];
-
-
-// function createData(id, dessert, calories, fat, carbs, protein) {
-//     return { id, dessert, calories, fat, carbs, protein };
-// }
-//
-// const rows = [];
-//
-// for (let i = 0; i < 200; i += 1) {
-//     const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-//     rows.push(createData(i, ...randomSelection));
-// }
 
 export default function Dashboard() {
 
+
     const [width, setWidth] = useState(window.innerWidth);
     const [height, setHeight] = useState(window.innerHeight);
+    const [dashData, setDashData] = useState([]);
     const updateWidthAndHeight = () => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
@@ -228,12 +212,21 @@ export default function Dashboard() {
         window.addEventListener("resize", updateWidthAndHeight);
         return () => window.removeEventListener("resize", updateWidthAndHeight);
     });
+    useEffect(() => {
+            axios.get('http://127.0.0.1:5000/data/crosssell')
+                .then(function (response) {
+                    // handle success
+                    setDashData(response.data);
+                });
+        },
+        []
+    );
 
     return (
         <Paper style={{ height: 400, width: '100%' }}>
             <VirtualizedTable
-                rowCount={rows.length}
-                rowGetter={({ index }) => rows[index]}
+                rowCount={dashData.length}
+                rowGetter={({ index }) => dashData[index]}
                 columns={[
                     {
                         width: width/numberOfColumns,
