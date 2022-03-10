@@ -3,7 +3,7 @@ from flask import Flask, render_template, jsonify, request
 from flask_restful import Resource, Api, reqparse
 from flask_cors import CORS, cross_origin
 # import pandas as pd
-import ast, json
+import ast, json, requests
 from types import SimpleNamespace
 from algebra import addition, subtraction, multiplication, division, load_csv
 
@@ -63,8 +63,15 @@ def process_config():
         After the user completes dragging and dropping nodes in the no-code workflow, 
         backend can request the node configuration from the JSON config file. 
         '''
-        curr_config = open('../../../resources/config_file', 'r')
-        return jsonify(curr_config)
+        try: 
+            with open('../../resources/config_file.json', 'r') as config_file:
+                curr_config = json.load(config_file)
+                print(curr_config)
+            return json.dumps(curr_config)
+        except:
+            curr_config = json.dump("", open('../../resources/config_file.json', 'w'))
+            print(curr_config)
+            return json.dumps(curr_config)
 
 '''
 Parses JSON config file from Frontend
@@ -76,7 +83,12 @@ def load_JSON():
     operations_todo = {}  # Dictionary to keep track of connections. Key = node name, Value = type of operation
     edges = {}  # Dictionary to keep track of edges. Key = Target, Values = Sources
     results = {}  # Dictionary to keep track of connections. Key = node name, Value = result dict
-    json_data = process_config()
+
+    response = requests.get("http://127.0.0.1:5000/config")
+    json_data = response.json()
+    cross_sell = False
+    up_sell = False
+
     for node in json_data:
         # Parse JSON into an object with attributes corresponding to dict keys.
 
@@ -86,8 +98,8 @@ def load_JSON():
 
             # load dict from csv
             # loadcsv(node.data) Returns dict obj with nodeid = {key,value}
-            data = load_csv(node.data)
-            results[node.id] = data
+            csvdata = load_csv(node['data'])
+            results[node[id]] = csvdata
         elif node['type'] in operations:
             # store in operations to do list
             operations_todo[node['id']] = node['type']
@@ -97,7 +109,7 @@ def load_JSON():
             resultid = node['id']
             if node['type'] == 'cross_sell_output':
                 cross_sell = True
-            if node['type'] == 'cross_sell_output':
+            if node["type"] == "up_sell_output":
                 up_sell = True    
 
         elif node['type'] == 'connection':
@@ -122,8 +134,19 @@ def load_JSON():
     # print("\n\nCompleting calculations...\n")
     # print("Modified Node List:\n", nodelist, "\n\n")
     # print("FINAL RESULTS:\n", results, "\n\n")
+
+    dict_to_return = results[resultid]
+
+    if (cross_sell):
+        pd.DataFrame(dict_to_return.items(), columns=['companyID', 'cross_sell_value'])
+    elif (up_sell):
+        pd.DataFrame(dict_to_return.items(), columns=['companyID', 'up_sell_value'])
     
-    return results[resultid]
+    response = jsonify(dict_to_return)
+    print(dict_to_return)
+
+    
+    return dict_to_return
 
 # Params =  string: type of operation, inputs: list of input node names
 # Returns = result dict
