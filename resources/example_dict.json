@@ -1,0 +1,22 @@
+[
+    {
+        "companyID": "Apple",
+        "value": 1000   
+    },
+    {
+        "companyID": "Microsoft",
+        "value": 2000   
+    },
+    {
+        "companyID": "Tesla",
+        "value": 3000   
+    },
+    {
+        "companyID": "Google",
+        "value": 4000   
+    },
+    {
+        "companyID": "Urmom",
+        "value": 5000   
+    }
+]

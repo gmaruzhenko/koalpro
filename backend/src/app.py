@@ -1,4 +1,3 @@
-
 from distutils.command.config import config
 import pandas as pd
 from flask import Flask, render_template, jsonify, request
@@ -78,8 +77,6 @@ def process_config():
             curr_config = json.dump("", open('../../resources/config_file.json', 'w'))
             print(curr_config)
             return json.dumps(curr_config)
-        
-    
 
 '''
 Parses JSON config file from Frontend
@@ -91,8 +88,12 @@ def load_JSON():
     operations_todo = {}  # Dictionary to keep track of connections. Key = node name, Value = type of operation
     edges = {}  # Dictionary to keep track of edges. Key = Target, Values = Sources
     results = {}  # Dictionary to keep track of connections. Key = node name, Value = result dict
+
     response = requests.get("http://127.0.0.1:5000/config")
     json_data = response.json()
+    cross_sell = False
+    up_sell = False
+
     for node in json_data:
         # Parse JSON into an object with attributes corresponding to dict keys.
 
@@ -102,6 +103,7 @@ def load_JSON():
 
             # load dict from csv
             # loadcsv(node.data) Returns dict obj with nodeid = {key,value}
+
             data = load_csv(node["data"])
             results[node["id"]] = data
         elif node["type"] in operations:
@@ -113,7 +115,7 @@ def load_JSON():
             resultid = node["id"]
             if node["type"] == "cross_sell_output":
                 cross_sell = True
-            if node["type"] == "cross_sell_output":
+            if node["type"] == "up_sell_output":
                 up_sell = True    
 
         elif node["type"] == "default":
@@ -138,11 +140,17 @@ def load_JSON():
     # print("\n\nCompleting calculations...\n")
     # print("Modified Node List:\n", nodelist, "\n\n")
     # print("FINAL RESULTS:\n", results, "\n\n")
+    dict_to_return = results[resultid]
 
-    response = jsonify(results[resultid])
-    print(results[resultid])
+    if (cross_sell):
+        pd.DataFrame(dict_to_return.items(), columns=['companyID', 'cross_sell_value'])
+    elif (up_sell):
+        pd.DataFrame(dict_to_return.items(), columns=['companyID', 'up_sell_value'])
     
+    response = jsonify(dict_to_return)
+    print(response)
     return response
+
 
 # Params =  string: type of operation, inputs: list of input node names
 # Returns = result dict
