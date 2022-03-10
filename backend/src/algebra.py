@@ -84,6 +84,7 @@ def load_csv(data):
     valuesColumn = data["column_values"]
     df = pd.read_csv(path)
     print(df)
+
     keys = df[keysColumn]
     print(keys)
     values = df[valuesColumn]

@@ -1,3 +1,4 @@
+from distutils.command.config import config
 import pandas as pd
 from flask import Flask, render_template, jsonify, request
 from flask_restful import Resource, Api, reqparse
@@ -15,12 +16,19 @@ CORS(app)
 def send_cross_sell_data():
     '''
     Sends aggregated cross sell tabulated data up to frontend
-    :return: json
+    :return: json with array of records where each record is in shape :
+    
+    {
+    "companyID": "United Parcel Service, Inc.", 
+    "cross_sell_value": 1086000
+    }
+
     '''
     #if cross-sell, 
     # TODO ship main function's data tabulation results instead of dummy below
     
-    response = jsonify(load_JSON())
+    response = load_JSON()
+
     response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response
@@ -33,7 +41,7 @@ def send_upsell_data():
     '''
 
     # TODO ship main function's data tabulation results instead of dummy below
-    response = jsonify(load_JSON())
+    response = load_JSON()
     response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response
@@ -49,14 +57,11 @@ def process_config():
     if request.method == 'POST':
         new_config = request.get_json()
 
-        try:
-            with open('../../../resources/config_file', 'w') as config_file:
-                config_file.write(new_config)
-        except FileNotFoundError:
-            print("The file directory does not exist")
+        with open('../../resources/config_file.json', 'w') as config_file:
+                json.dumps(config_file.write(new_config))
 
         print(new_config)
-        return jsonify(new_config)
+        return json.dumps(new_config)
     else:
         '''
         GET /config
@@ -92,41 +97,42 @@ def load_JSON():
     for node in json_data:
         # Parse JSON into an object with attributes corresponding to dict keys.
 
-        if node['type'] == 'csv_data_import':
+        if node["type"] == "csv_data_import":
             # store new input dict
             nodelist.append(node)
 
             # load dict from csv
             # loadcsv(node.data) Returns dict obj with nodeid = {key,value}
-            csvdata = load_csv(node['data'])
-            results[node[id]] = csvdata
-        elif node['type'] in operations:
-            # store in operations to do list
-            operations_todo[node['id']] = node['type']
 
-        elif node['type'] == 'cross_sell_output' or node['type'] == 'up_sell_output':
-            results[node['id']] = {}
-            resultid = node['id']
-            if node['type'] == 'cross_sell_output':
+            data = load_csv(node["data"])
+            results[node["id"]] = data
+        elif node["type"] in operations:
+            # store in operations to do list
+            operations_todo[node["id"]] = node["type"]
+
+        elif node["type"] == "cross_sell_output" or node["type"] == "up_sell_output":
+            results[node["id"]] = {}
+            resultid = node["id"]
+            if node["type"] == "cross_sell_output":
                 cross_sell = True
             if node["type"] == "up_sell_output":
                 up_sell = True    
 
-        elif node['type'] == 'connection':
+        elif node["type"] == "default":
             # connection objects
-            if node['target'] not in edges:
-                edges[node['target']] = []
-                edges[node['target']].append(node['source'])
+            if node["target"] not in edges:
+                edges[node["target"]] = []
+                edges[node["target"]].append(node["source"])
 
-            elif node['target'] in edges:
-                if node['source'] not in edges[node['target']]:
-                    edges[node['target']].append(node['source'])
+            elif node["target"] in edges:
+                if node["source"] not in edges[node["target"]]:
+                    edges[node["target"]].append(node["source"])
 
-    # print(
-    #     "\nNodelist: \n", nodelist, "\n\n",
-    #     "Operations: \n", operations_todo, "\n\n",
-    #     "Edges \n", edges, "\n\n",
-    #     "Results: \n", results)
+    print(
+        "\nNodelist: \n", nodelist, "\n\n",
+        "Operations: \n", operations_todo, "\n\n",
+        "Edges \n", edges, "\n\n")
+#     "Results: \n", results)
 
     #Perform operations based on the todo list
     processOperations(operations_todo, edges, nodelist, results)
@@ -134,7 +140,6 @@ def load_JSON():
     # print("\n\nCompleting calculations...\n")
     # print("Modified Node List:\n", nodelist, "\n\n")
     # print("FINAL RESULTS:\n", results, "\n\n")
-
     dict_to_return = results[resultid]
 
     if (cross_sell):
@@ -143,10 +148,9 @@ def load_JSON():
         pd.DataFrame(dict_to_return.items(), columns=['companyID', 'up_sell_value'])
     
     response = jsonify(dict_to_return)
-    print(dict_to_return)
+    print(response)
+    return response
 
-    
-    return dict_to_return
 
 # Params =  string: type of operation, inputs: list of input node names
 # Returns = result dict
@@ -191,8 +195,8 @@ RETURNS: Results from the operation in a dictionary
 '''
 def do_operation(string, inputs,result_db):
     operation_result = {}
-    dict1 = result_db[input[0]]
-    dict2 = result_db[input[1]]
+    dict1 = result_db[inputs[0]]
+    dict2 = result_db[inputs[1]]
     if string == "addition":
         # use add method
         operation_result = addition(dict1,dict2)
