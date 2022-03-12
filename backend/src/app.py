@@ -23,17 +23,21 @@ def send_cross_sell_data():
     "cross_sell_value": 1086000
     }
     '''
-    is_crosssell = False
-    is_upsell = False
-    response,is_crosssell,is_upsell = load_JSON()
+    if(requests.get("http://127.0.0.1:5000/config") == ""):
+        return ("",204)
     
-    if(is_upsell):
-        response = ''
-        return (response, 204)
-    elif(is_crosssell):
-        response = jsonify(response)
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        return response
+    else:
+        is_crosssell = False
+        is_upsell = False
+        response,is_crosssell,is_upsell = load_JSON()
+    
+        if(is_upsell):
+            response = ''
+            return (response, 204)
+        elif(is_crosssell):
+            response =  jsonify(response)
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            return response
 
 @app.route('/data/upsell', methods=['GET'])
 def send_upsell_data():
@@ -41,19 +45,21 @@ def send_upsell_data():
     Sends aggregated upsell tabulated data up to frontend
     :return: json
     '''
-
-    # TODO ship main function's data tabulation results instead of dummy below
-    is_crosssell = False
-    is_upsell = False
-    response,is_crosssell,is_upsell = load_JSON()
+    if(requests.get("http://127.0.0.1:5000/config") == ""):
+        return ("",204)
     
-    if(is_crosssell):
-        response = ''
-        return (response, 204)
-    elif(is_upsell):
-        response = jsonify(response)
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        return response
+    else:
+        is_crosssell = False
+        is_upsell = False
+        response,is_crosssell,is_upsell = load_JSON()
+    
+        if(is_crosssell):
+            response = ''
+            return (response, 204)
+        elif(is_upsell):
+            response = jsonify(response)
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            return response
     
 @app.route('/postcsv', methods=['POST'])
 def send_csv():
@@ -65,12 +71,13 @@ def send_csv():
 def process_config():
     if request.method == 'POST':
         new_config = request.get_json()
+        new_config_dict = new_config["elements"]
 
         with open('../../resources/config_file.json', 'w') as config_file:
-                json.dumps(config_file.write(new_config))
+                json.dumps(config_file.write(str(new_config_dict)))
 
-        print(new_config)
-        return json.dumps(new_config)
+        print(new_config_dict)
+        return json.dumps(new_config_dict)
     else:
         '''
         GET /config
@@ -160,7 +167,7 @@ def load_JSON():
     
     #response = json.dumps(reformat_response)
     #print(reformat_response)
-    return json.dumps(reformat_response),cross_sell,up_sell
+    return reformat_response,cross_sell,up_sell
 
 
 # Params =  string: type of operation, inputs: list of input node names
