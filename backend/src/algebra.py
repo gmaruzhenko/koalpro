@@ -32,7 +32,7 @@ def addition(dict1, dict2):
     for key2 in dict2:
         if key2 not in resDict:
             resDict[key2] = dict2[key2]
-    print(resDict)
+    #print(resDict)
     return resDict
 
 def subtraction(dict1, dict2):
@@ -46,7 +46,7 @@ def subtraction(dict1, dict2):
     for key2 in dict2:
         if key2 not in resDict:
             resDict[key2] = dict2[key2]
-    print(resDict)
+    #print(resDict)
     return resDict
 
 def multiplication(dict1, dict2):
@@ -60,7 +60,7 @@ def multiplication(dict1, dict2):
     for key2 in dict2:
         if key2 not in resDict:
             resDict[key2] = dict2[key2]
-    print(resDict)
+    #print(resDict)
     return resDict
 
 def division(dict1, dict2):
@@ -74,7 +74,7 @@ def division(dict1, dict2):
     for key2 in dict2:
         if key2 not in resDict:
             resDict[key2] = dict2[key2]
-    print(resDict)
+    #print(resDict)
     return resDict
 
 # takes "data" and loads the CSV.
@@ -83,16 +83,16 @@ def load_csv(data):
     keysColumn = data["column_keys"]
     valuesColumn = data["column_values"]
     df = pd.read_csv(path)
-    print(df)
+    #print(df)
 
     keys = df[keysColumn]
-    print(keys)
+    #print(keys)
     values = df[valuesColumn]
-    print(values)
+    #print(values)
     res = {}
     for i in range(len(keys)):
         res[keys[i]] = values[i]
-    print(res)
+    #print(res)
     return res
 
 def load_initial(path):

@@ -1,4 +1,5 @@
 from distutils.command.config import config
+from urllib import response
 import pandas as pd
 from flask import Flask, render_template, jsonify, request
 from flask_restful import Resource, Api, reqparse
@@ -17,21 +18,22 @@ def send_cross_sell_data():
     '''
     Sends aggregated cross sell tabulated data up to frontend
     :return: json with array of records where each record is in shape :
-    
     {
     "companyID": "United Parcel Service, Inc.", 
     "cross_sell_value": 1086000
     }
-
     '''
-    #if cross-sell, 
-    # TODO ship main function's data tabulation results instead of dummy below
+    is_crosssell = False
+    is_upsell = False
+    response,is_crosssell,is_upsell = load_JSON()
     
-    response = load_JSON()
-
-    response.headers.add("Access-Control-Allow-Origin", "*")
-
-    return response
+    if(is_upsell):
+        response = ''
+        return (response, 204)
+    elif(is_crosssell):
+        response = jsonify(response)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
 
 @app.route('/data/upsell', methods=['GET'])
 def send_upsell_data():
@@ -41,11 +43,18 @@ def send_upsell_data():
     '''
 
     # TODO ship main function's data tabulation results instead of dummy below
-    response = load_JSON()
-    response.headers.add("Access-Control-Allow-Origin", "*")
-
-    return response
-
+    is_crosssell = False
+    is_upsell = False
+    response,is_crosssell,is_upsell = load_JSON()
+    
+    if(is_crosssell):
+        response = ''
+        return (response, 204)
+    elif(is_upsell):
+        response = jsonify(response)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
+    
 @app.route('/postcsv', methods=['POST'])
 def send_csv():
     response = jsonify(json.load(open(request.data)))
@@ -80,7 +89,7 @@ def process_config():
 
 '''
 Parses JSON config file from Frontend
-RETURNS: Result Dictionary for up-sell or cross-sell with {companyid, value}
+RETURNS: JSON str of Python Result Dictionary for up-sell or cross-sell with [{"companyid": "id", "value":1}]
 '''
 def load_JSON():
     operations = ["addition", "subtraction", "multiplication", "division"]
@@ -115,8 +124,10 @@ def load_JSON():
             resultid = node["id"]
             if node["type"] == "cross_sell_output":
                 cross_sell = True
+                up_sell = False
             if node["type"] == "up_sell_output":
-                up_sell = True    
+                up_sell = True  
+                cross_sell = False  
 
         elif node["type"] == "default":
             # connection objects
@@ -128,11 +139,11 @@ def load_JSON():
                 if node["source"] not in edges[node["target"]]:
                     edges[node["target"]].append(node["source"])
 
-    print(
-        "\nNodelist: \n", nodelist, "\n\n",
-        "Operations: \n", operations_todo, "\n\n",
-        "Edges \n", edges, "\n\n")
-#     "Results: \n", results)
+    # print(
+    #     "\nNodelist: \n", nodelist, "\n\n",
+    #     "Operations: \n", operations_todo, "\n\n",
+    #     "Edges \n", edges, "\n\n",
+    #     "Results: \n", results)
 
     #Perform operations based on the todo list
     processOperations(operations_todo, edges, nodelist, results)
@@ -142,14 +153,14 @@ def load_JSON():
     # print("FINAL RESULTS:\n", results, "\n\n")
     dict_to_return = results[resultid]
 
-    if (cross_sell):
-        pd.DataFrame(dict_to_return.items(), columns=['companyID', 'cross_sell_value'])
-    elif (up_sell):
-        pd.DataFrame(dict_to_return.items(), columns=['companyID', 'up_sell_value'])
+    if (cross_sell == True):
+        reformat_response = [ {'companyID' : k, 'cross_sell_value' : dict_to_return[k]} for k in dict_to_return]
+    elif (up_sell == True):
+        reformat_response = [ {'companyID' : k, 'up_sell_value' : dict_to_return[k]} for k in dict_to_return]
     
-    response = jsonify(dict_to_return)
-    print(response)
-    return response
+    #response = json.dumps(reformat_response)
+    #print(reformat_response)
+    return json.dumps(reformat_response),cross_sell,up_sell
 
 
 # Params =  string: type of operation, inputs: list of input node names
