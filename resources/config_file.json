@@ -10,7 +10,7 @@
             "label": "csv_data_import node",
             "csv_name": "/Users/pamira/koalpro/koalpro/resources/SP500 by employees.xlsx - SP500 by Employees.csv",
             "column_keys": "Name",
-            "column_values": "Price/Book"
+            "column_values": "Number of Employees"
         }
     },
     {
@@ -24,7 +24,7 @@
             "label": "csv_data_import node",
             "csv_name": "/Users/pamira/koalpro/koalpro/resources/SP500 by employees.xlsx - SP500 by Employees.csv",
             "column_keys": "Name",
-            "column_values": "Price/Book"
+            "column_values": "Number of Employees"
         }
     },
     {

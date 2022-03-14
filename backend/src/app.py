@@ -159,14 +159,14 @@ def load_JSON():
     # print("Modified Node List:\n", nodelist, "\n\n")
     # print("FINAL RESULTS:\n", results, "\n\n")
     dict_to_return = results[resultid]
-
+    print(dict_to_return)
     if (cross_sell == True):
         reformat_response = [ {'companyID' : k, 'cross_sell_value' : dict_to_return[k]} for k in dict_to_return]
     elif (up_sell == True):
         reformat_response = [ {'companyID' : k, 'up_sell_value' : dict_to_return[k]} for k in dict_to_return]
-    
     #response = json.dumps(reformat_response)
     #print(reformat_response)
+
     return reformat_response,cross_sell,up_sell
 
 

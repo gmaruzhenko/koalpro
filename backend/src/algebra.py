@@ -83,16 +83,16 @@ def load_csv(data):
     keysColumn = data["column_keys"]
     valuesColumn = data["column_values"]
     df = pd.read_csv(path)
-    #print(df)
+    df[valuesColumn] = df[valuesColumn].astype(str).str.replace(",", "").astype(int)
 
     keys = df[keysColumn]
-    #print(keys)
     values = df[valuesColumn]
-    #print(values)
+
     res = {}
     for i in range(len(keys)):
-        res[keys[i]] = values[i]
-    #print(res)
+        res[keys[i]] = int(values[i])
+
+    print(res)
     return res
 
 def load_initial(path):
