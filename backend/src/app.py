@@ -14,6 +14,7 @@ CORS(app)
 
 
 @app.route('/data/crosssell', methods=['GET'])
+@cross_origin()
 def send_cross_sell_data():
     '''
     Sends aggregated cross sell tabulated data up to frontend
@@ -36,10 +37,10 @@ def send_cross_sell_data():
             return (response, 204)
         elif(is_crosssell):
             response =  jsonify(response)
-            response.headers.add('Access-Control-Allow-Origin', '*')
             return response
 
 @app.route('/data/upsell', methods=['GET'])
+@cross_origin()
 def send_upsell_data():
     '''
     Sends aggregated upsell tabulated data up to frontend
@@ -57,14 +58,8 @@ def send_upsell_data():
             response = ''
             return (response, 204)
         elif(is_upsell):
-            response = jsonify(response)
-            response.headers.add('Access-Control-Allow-Origin', '*')
             return response
     
-@app.route('/postcsv', methods=['POST'])
-def send_csv():
-    response = jsonify(json.load(open(request.data)))
-    return response
 
 @app.route('/config', methods=['GET', 'POST'])
 @cross_origin()
