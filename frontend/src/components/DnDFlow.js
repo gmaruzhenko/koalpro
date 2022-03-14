@@ -11,10 +11,11 @@ import Button from '@material-ui/core/Button';
 import Sidebar from './Sidebar';
 import styled from '@material-ui/core/styles/styled'
 import '../css/dnd.css';
-import CustomNodeExample from "./CustomNodeExample";
 import AdditionNode from "./nodes/AdditionNode";
 import CrossSellOutputNode from "./nodes/CrossSellOutputNode";
 import CsvDataImportNode from "./nodes/CsvDataImportNode";
+import ButtonEdge from "./edges/ButtonEdge"
+
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -112,7 +113,7 @@ const DnDFlow = () => {
         [restoreFlag]
     );
 
-    const onConnect = (params) => setElements((els) => addEdge(params, els));
+    const onConnect = (params) => setElements((els) => addEdge({ ...params, type: 'button_edge' }, els));
     const onElementsRemove = (elementsToRemove) =>
         setElements((els) => removeElements(elementsToRemove, els));
 
@@ -163,6 +164,10 @@ const DnDFlow = () => {
 
     };
 
+    const edgeTypes = {
+        button_edge: ButtonEdge,
+    };
+
 
     return (
         <Paper style={{height: '100%', width: '100%'}}>
@@ -177,6 +182,7 @@ const DnDFlow = () => {
                                        onDragOver={onDragOver}
                                        onConnect={onConnect}
                                        style={flowStyles}
+                                       edgeTypes={edgeTypes}
                                        nodeTypes={nodeTypes}/>
                         </div>
                     </Grid>
