@@ -65,14 +65,14 @@ def send_upsell_data():
 @cross_origin()
 def process_config():
     if request.method == 'POST':
-        new_config = request.get_json()
-        new_config_dict = new_config["elements"]
+        # new_config = request.get_json()
+        # new_config_dict = new_config["elements"]
 
-        with open('../../resources/config_file.json', 'w') as config_file:
-                json.dumps(config_file.write(str(new_config_dict)))
+        # with open('../../resources/config_file.json', 'w') as config_file:
+        #         json.dumps(config_file.write(str(new_config_dict)))
 
-        print(new_config_dict)
-        return json.dumps(new_config_dict)
+        # print(new_config_dict)
+        return json.dumps(request.get_json())
     else:
         '''
         GET /config

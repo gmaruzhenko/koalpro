@@ -8,9 +8,9 @@ import {
 
 const foreignObjectSize = 40;
 
-const onEdgeClick = (evt, id) => {
+const onEdgeClick = (evt, id, data) => {
     evt.stopPropagation();
-    alert(`remove ${id}`);
+    data.remove(id);
 };
 
 export default function ButtonEdge({
@@ -62,7 +62,7 @@ export default function ButtonEdge({
                 <body>
                 <button
                     className="edgebutton"
-                    onClick={(event) => onEdgeClick(event, id)}
+                    onClick={(event) => onEdgeClick(event, id, data)}
                 >
                     ×
                 </button>

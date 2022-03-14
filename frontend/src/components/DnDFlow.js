@@ -1,4 +1,4 @@
-import React, {useState, useRef, useCallback, useEffect} from 'react';
+import React, {useState, useRef, useCallback, useEffect, useContext} from 'react';
 import ReactFlow, {
     ReactFlowProvider,
     addEdge,
@@ -113,9 +113,21 @@ const DnDFlow = () => {
         [restoreFlag]
     );
 
-    const onConnect = (params) => setElements((els) => addEdge({ ...params, type: 'button_edge' }, els));
+    const onConnect = (params) => setElements((els) => addEdge({ ...params, type: 'button_edge', data:{remove:deleteEdge}}, els));
     const onElementsRemove = (elementsToRemove) =>
         setElements((els) => removeElements(elementsToRemove, els));
+
+    const deleteEdge = (edge_id) =>{
+        let edge = {};
+        reactFlowInstance.toObject().elements.forEach(function (node) {
+            if (node.id == edge_id) {
+                edge = node
+                console.log(node);
+            }
+        });
+        console.log(edge)
+        setElements((els) => removeElements([edge], els));
+    };
 
     const onLoad = (_reactFlowInstance) =>
         setReactFlowInstance(_reactFlowInstance);
