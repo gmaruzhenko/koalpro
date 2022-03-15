@@ -83,14 +83,13 @@ def load_csv(data):
     keysColumn = data["column_keys"]
     valuesColumn = data["column_values"]
     df = pd.read_csv(path)
-    df[valuesColumn] = df[valuesColumn].astype(str).str.replace(",", "").astype(int)
-
+    df[valuesColumn] = df[valuesColumn].astype(str).str.replace(",", "").astype(float)
     keys = df[keysColumn]
     values = df[valuesColumn]
 
     res = {}
     for i in range(len(keys)):
-        res[keys[i]] = int(values[i])
+        res[keys[i]] = float(values[i])
 
     print(res)
     return res
