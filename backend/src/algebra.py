@@ -77,12 +77,19 @@ def division(dict1, dict2):
     #print(resDict)
     return resDict
 
+def discount(dict1,discount_decimal):
+    resDict = {}
+    for key in dict1:
+        resDict[key] = dict1[key] * discount_decimal
+    return resDict
+    
 # takes "data" and loads the CSV.
 def load_csv(data):
     path = data["csv_name"]
     keysColumn = data["column_keys"]
     valuesColumn = data["column_values"]
     df = pd.read_csv(path)
+    df[valuesColumn] = df[valuesColumn].fillna(0)
     df[valuesColumn] = df[valuesColumn].astype(str).str.replace(",", "").astype(float)
     keys = df[keysColumn]
     values = df[valuesColumn]
