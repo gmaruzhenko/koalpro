@@ -8,7 +8,7 @@
         },
         "data": {
             "label": "csv_data_import node",
-            "csv_name": "/Users/pamira/koalpro/koalpro/resources/SP500 by employees.xlsx - SP500 by Employees.csv",
+            "csv_name": "../../resources/SP500 by employees.xlsx - SP500 by Employees.csv",
             "column_keys": "Name",
             "column_values": "Price/Book"
         }
