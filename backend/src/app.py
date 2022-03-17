@@ -1,4 +1,5 @@
 from distutils.command.config import config
+from turtle import back
 from urllib import response
 import pandas as pd
 from flask import Flask, render_template, jsonify, request
@@ -67,11 +68,17 @@ def process_config():
     if request.method == 'POST':
         new_config = request.get_json(cache=True)
         new_config_dict = json.dumps(new_config["elements"])
-        print(type(new_config_dict))
-        with open('../../resources/config_file.json', 'w') as config_file:
+
+#if posted config is not null, update config and backup to cache the last saved post
+        if new_config and new_config_dict is not None:
+            with open('../../resources/config_file.json', 'w') as config_file:
                 json.dumps(config_file.write(new_config_dict))
-        print(new_config_dict)
-        config_file.close()
+            with open('../../resources/backup_config.json', 'w') as backup_file :
+                json.dumps(backup_file.write(new_config_dict))
+            
+            print(new_config_dict)
+            config_file.close()
+            backup_file.close()
         return json.dumps(new_config_dict)
     else:
         '''
@@ -79,13 +86,6 @@ def process_config():
         After the user completes dragging and dropping nodes in the no-code workflow, 
         backend can request the node configuration from the JSON config file. 
         '''
-        # json_data = response.json()
-        # get response
-        #if response not empty:
-        #write to config.json & update backup.json
-        #else
-        #pull from backup & overwrite config with backup
-
         try: #reading exisiting config file
             with open('../../resources/config_file.json', 'r') as config_file:
                 curr_config = json.load(config_file)
@@ -93,19 +93,29 @@ def process_config():
             config_file.close()
             return json.dumps(curr_config)
         except: 
-            #TODO: if no existing config file, overwrite config file with backup config file
-            with open('../../resources/backup_config.json', 'r') as file :
-                backup_data = file.read()
+            #if no existing config file, then create one and
+            # overwrite config file with backup config file
+            with open('../../resources/backup_config.json', 'r') as backup_file :
+                backup_data = backup_file.read()
+                if len(backup_data) < 1:
+                    backup_data = superbackup()
             
             with open('../../resources/config_file.json', 'w') as config_file :
                 json.dumps(config_file.write(backup_data))
 
             #curr_config = json.dump(backup_data, open('../../resources/config_file.json', 'w'))
             #print(curr_config)
-            file.close()
+            backup_file.close()
             config_file.close()
             return json.dumps(backup_data)
-
+def superbackup():
+    with open('../../resources/super_backup_config_DONOTTOUCH.json', 'r') as super_backup_file :
+        super_backup_data = super_backup_file.read()
+    with open('../../resources/backup_config.json', 'w') as backup_config :
+                json.dumps(backup_config.write(super_backup_data))
+    backup_config.close()
+    super_backup_file.close()
+    return super_backup_data
 '''
 Parses JSON config file from Frontend
 RETURNS: JSON str of Python Result Dictionary for up-sell or cross-sell with [{"companyid": "id", "value":1}]
