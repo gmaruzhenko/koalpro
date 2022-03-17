@@ -79,6 +79,13 @@ def process_config():
         After the user completes dragging and dropping nodes in the no-code workflow, 
         backend can request the node configuration from the JSON config file. 
         '''
+        # json_data = response.json()
+        # get response
+        #if response not empty:
+        #write to config.json & update backup.json
+        #else
+        #pull from backup & overwrite config with backup
+
         try: #reading exisiting config file
             with open('../../resources/config_file.json', 'r') as config_file:
                 curr_config = json.load(config_file)
@@ -128,7 +135,7 @@ def load_JSON():
 
             # load dict from csv
             # loadcsv(node.data) Returns dict obj with nodeid = {key,value}
-
+            inputid = node["id"]
             data = load_csv(node["data"])
             results[node["id"]] = data
         elif node["type"] in operations:
@@ -159,20 +166,19 @@ def load_JSON():
                 if node["source"] not in edges[node["target"]]:
                     edges[node["target"]].append(node["source"])
 
-    # print(
-    #     "\nNodelist: \n", nodelist, "\n\n",
-    #     "Operations: \n", operations_todo, "\n\n",
-    #     "Edges \n", edges, "\n\n",
-    #     "Results: \n", results)
+    #print("\nNodelist: \n", nodelist, "\n\n","Operations: \n", operations_todo, "\n\n","Edges \n", edges, "\n\n","Results: \n", results)
 
     #Perform operations based on the todo list
-    processOperations(operations_todo, edges, nodelist, results)
+    if len(operations_todo) <= 0:
+        resultid = inputid
+    else:
+        processOperations(operations_todo, edges, nodelist, results)
 
     # print("\n\nCompleting calculations...\n")
     # print("Modified Node List:\n", nodelist, "\n\n")
     # print("FINAL RESULTS:\n", results, "\n\n")
     dict_to_return = results[resultid]
-    
+    #print("DICT TO RETURN",dict_to_return)
     if (cross_sell == True):
         reformat_response = [ {'companyID' : k, 'cross_sell_value' : dict_to_return[k]} for k in dict_to_return]
     elif (up_sell == True):
