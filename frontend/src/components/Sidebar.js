@@ -16,8 +16,14 @@ export default () => {
             <div className="addition-node" onDragStart={(event) => onDragStart(event, 'addition')} draggable>
                 Addition
             </div>
+            <div className="discount-node" onDragStart={(event) => onDragStart(event, 'discount')} draggable>
+                Discount
+            </div>
             <div className="cross-sell-output-node" onDragStart={(event) => onDragStart(event, 'cross_sell_output')} draggable>
                 Cross Sell Dashboard Output
+            </div>
+            <div className="up-sell-output-node" onDragStart={(event) => onDragStart(event, 'up_sell_output')} draggable>
+                Up Sell Dashboard Output
             </div>
             <div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'csv_data_import')} draggable>
                 CSV Data Import

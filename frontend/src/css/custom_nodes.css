@@ -5,12 +5,14 @@
     --warmorange:#e1b16a;
     --boarderblue:#0041d0;
     --whitebackground:#fff;
+    --greenmedow: #598234;
+
 }
 
 .react-flow__node {
     cursor: grab;
 }
-.addition-node, .csv-data-import-node, .cross-sell-output-node {
+.addition-node, .csv-data-import-node, .cross-sell-output-node, .up-sell-output-node,.discount-node {
     padding: 10px;
     border-radius: 3px;
     width: 200px;
@@ -20,7 +22,7 @@
     border-width: 1px;
     border-style: solid;
 }
-.addition-node.selectable:hover, .csv-data-import-node.selectable:hover, .cross-sell-output-node.selectable:hover {
+.addition-node.selectable:hover, .csv-data-import-node.selectable:hover, .cross-sell-output-node.selectable:hover,.up-sell-output-node.selectable:hover,.discount-node.selectable:hover  {
     box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.08);
 }
 
@@ -51,6 +53,17 @@
     background: var(--ocean);
 }
 
+.discount-node {
+    background: var(--whitebackground);
+    border-color: var(--greenmedow);
+}
+.discount-node.selected, .discount-node.selected:hover {
+    box-shadow: 0 0 0 0.5px var(--greenmedow);
+}
+.discount-node .react-flow__handle {
+    background: var(--greenmedow);
+}
+
 
 
 .cross-sell-output-node {
@@ -62,4 +75,15 @@
 }
 .cross-sell-output-node .react-flow__handle {
     background: var(--redpunch);
+}
+
+.up-sell-output-node {
+    background: var(--whitebackground);
+    border-color: var(--warmorange);
+}
+.up-sell-output-node.selected, .up-sell-output-node.selected:hover {
+    box-shadow: 0 0 0 0.5px var(--warmorange);
+}
+.up-sell-output-node .react-flow__handle {
+    background: var(--warmorange);
 }
