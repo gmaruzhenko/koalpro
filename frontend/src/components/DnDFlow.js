@@ -19,6 +19,7 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import UpSellOutputNode from "./nodes/UpSellOutputNode";
+import DiscountNode from "./nodes/DiscountNode";
 
 const navy_color = '#444c5c';
 const ocean_color = '#78a5a3';
@@ -162,7 +163,8 @@ const DnDFlow = () => {
         addition: AdditionNode,
         cross_sell_output: CrossSellOutputNode,
         up_sell_output: UpSellOutputNode,
-        csv_data_import: CsvDataImportNode
+        csv_data_import: CsvDataImportNode,
+        discount: DiscountNode,
 
     };
 
