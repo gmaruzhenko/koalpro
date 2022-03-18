@@ -18,6 +18,7 @@ import CsvDataImportNode from "./nodes/CsvDataImportNode";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import UpSellOutputNode from "./nodes/UpSellOutputNode";
 
 const navy_color = '#444c5c';
 const ocean_color = '#78a5a3';
@@ -52,6 +53,7 @@ const RestoreButton = styled(Button)(({theme}) => ({
 
 //TODO decide on formal of config
 function flow_elements_to_config(elements) {
+    console.log(elements);
     elements.forEach(function (node, index, myArray) {
         if (node.type === undefined) {
             node.type = 'connection'
@@ -159,6 +161,7 @@ const DnDFlow = () => {
     const nodeTypes = {
         addition: AdditionNode,
         cross_sell_output: CrossSellOutputNode,
+        up_sell_output: UpSellOutputNode,
         csv_data_import: CsvDataImportNode
 
     };
