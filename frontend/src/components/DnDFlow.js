@@ -54,7 +54,6 @@ const RestoreButton = styled(Button)(({theme}) => ({
 
 //TODO decide on formal of config
 function flow_elements_to_config(elements) {
-    console.log(elements);
     elements.forEach(function (node, index, myArray) {
         if (node.type === undefined) {
             node.type = 'connection'
@@ -192,7 +191,7 @@ const DnDFlow = () => {
                                 <ClearButton onClick={onClear}>clear</ClearButton>
                                 <RestoreButton onClick={onRestore}>restore</RestoreButton>
                             </ButtonGroup>
-                            <Sidebar/>
+                            <Sidebar elements={elements}/>
                         </Paper>
                     </Grid>
 

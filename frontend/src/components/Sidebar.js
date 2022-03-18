@@ -1,14 +1,33 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Paper from "@material-ui/core/Paper";
 
 import '../css/dnd.css';
 import '../css/custom_nodes.css'
 
-export default () => {
+export default ({elements}) => {
+    const [crossSellCount, setCrossSellCount] = useState(0);
+    const [upSellCount, setUpSellCount] = useState(0);
     const onDragStart = (event, nodeType) => {
         event.dataTransfer.setData('application/reactflow', nodeType);
         event.dataTransfer.effectAllowed = 'move';
     };
+    useEffect(() => {
+            let upsellcount = 0;
+            let crosssellcount = 0;
+            elements.forEach(function (node) {
+                if (node.type === "cross_sell_output") {
+                    crosssellcount = crosssellcount+1;
+                }
+                if (node.type === "up_sell_output") {
+                    upsellcount = upsellcount+1
+                }
+            });
+            setCrossSellCount(crosssellcount);
+            setUpSellCount(upsellcount);
+        },
+        [elements]
+    );
+
 
     return (
         <aside>
@@ -19,13 +38,18 @@ export default () => {
             <div className="discount-node" onDragStart={(event) => onDragStart(event, 'discount')} draggable>
                 Discount
             </div>
-            <div className="cross-sell-output-node" onDragStart={(event) => onDragStart(event, 'cross_sell_output')} draggable>
+            {0 === crossSellCount &&
+            <div className="cross-sell-output-node" onDragStart={(event) => onDragStart(event, 'cross_sell_output')}
+                 draggable>
                 Cross Sell Dashboard Output
-            </div>
-            <div className="up-sell-output-node" onDragStart={(event) => onDragStart(event, 'up_sell_output')} draggable>
+            </div>}
+            {0 === upSellCount &&
+            <div className="up-sell-output-node" onDragStart={(event) => onDragStart(event, 'up_sell_output')}
+                 draggable>
                 Up Sell Dashboard Output
-            </div>
-            <div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'csv_data_import')} draggable>
+            </div>}
+            <div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'csv_data_import')}
+                 draggable>
                 CSV Data Import
             </div>
         </aside>
