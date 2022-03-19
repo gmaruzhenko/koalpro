@@ -212,7 +212,7 @@ const DnDFlow = () => {
                                 <ClearButton onClick={onClear}>clear</ClearButton>
                                 <RestoreButton onClick={onRestore}>restore</RestoreButton>
                             </ButtonGroup>
-                            <Sidebar/>
+                            <Sidebar nodes={nodes}/>
                         </Paper>
                     </Grid>
 

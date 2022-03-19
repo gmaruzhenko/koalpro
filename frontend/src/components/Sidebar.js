@@ -4,15 +4,13 @@ import ReactFlow, { useReactFlow } from 'react-flow-renderer';
 import '../css/dnd.css';
 import '../css/custom_nodes.css'
 
-export default () => {
+export default ({nodes}) => {
     const [crossSellCount, setCrossSellCount] = useState(0);
     const [upSellCount, setUpSellCount] = useState(0);
     const onDragStart = (event, nodeType) => {
         event.dataTransfer.setData('application/reactflow', nodeType);
         event.dataTransfer.effectAllowed = 'move';
     };
-    const reactFlowInstance = useReactFlow();
-    const nodes = reactFlowInstance.getNodes();
     useEffect(() => {
             let upsellcount = 0;
             let crosssellcount = 0;
