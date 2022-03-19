@@ -213,7 +213,7 @@ export default function Dashboard() {
         return () => window.removeEventListener("resize", updateWidthAndHeight);
     });
     useEffect(() => {
-            axios.get('http://127.0.0.1:5000/data/crosssell')
+            axios.get('http://127.0.0.1:5000/data')
                 .then(function (response) {
                     // handle success
                     setDashData(response.data);
