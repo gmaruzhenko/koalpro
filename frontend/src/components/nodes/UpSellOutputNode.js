@@ -3,12 +3,13 @@ import {Handle, Position, useReactFlow} from 'react-flow-renderer';
 import '../../css/custom_nodes.css'
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import IconButton from '@material-ui/core/IconButton';
+import defaultStartNodes from "../defaultStartNodes";
 
 const onEdgeClick = (evt, id,reactFlowInstance) => {
     evt.stopPropagation();
     let after_edges = reactFlowInstance.getNodes().filter(node => node.id!== id);
     if (reactFlowInstance.getNodes().length===1){
-        reactFlowInstance.setNodes([{}]);
+        reactFlowInstance.setNodes(defaultStartNodes);
 
     }else{
         reactFlowInstance.setNodes(after_edges);
