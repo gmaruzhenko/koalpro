@@ -170,7 +170,7 @@ const DnDFlow = () => {
                 id: getId(),
                 type,
                 position,
-                data: { label: `${type} node` },
+                data: { label: `${type} node`, },
             };
 
             setNodes((nds) => nds.concat(newNode));
@@ -191,13 +191,12 @@ const DnDFlow = () => {
                                        onNodesChange={onNodesChange}
                                        onEdgesChange={onEdgesChange}
                                        onConnect={onConnect}
-                                       onInit={setReactFlowInstance}
                                        onDrop={onDrop}
                                        onDragOver={onDragOver}
                                        style={flowStyles}
                                        edgeTypes={edgeTypes}
                                        nodeTypes={nodeTypes}
-                                       onInit={onInit}
+                                       onInit={setReactFlowInstance}
                                        nodesDraggable ={true}/>
                         </div>
                         <Controls />
