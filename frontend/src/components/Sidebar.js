@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Paper from "@material-ui/core/Paper";
-import ReactFlow, { useReactFlow, useStoreApi } from 'react-flow-renderer';
+import ReactFlow, { useStoreApi } from 'react-flow-renderer';
 import '../css/dnd.css';
 import '../css/custom_nodes.css'
 
@@ -11,12 +11,9 @@ export default () => {
         event.dataTransfer.setData('application/reactflow', nodeType);
         event.dataTransfer.effectAllowed = 'move';
     };
-    const reactFlowInstance = useReactFlow();
     const store = useStoreApi();
-
     const { nodeInternals } = store.getState();
     const nodes = Array.from(nodeInternals).map(([, node]) => node);
-    console.log(nodes)
     useEffect(() => {
             let upsellcount = 0;
             let crosssellcount = 0;
@@ -58,9 +55,6 @@ export default () => {
             <div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'csv_data_import')}
                  draggable>
                 CSV Data Import
-            </div>
-            <div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'input')} draggable>
-                Cinput
             </div>
         </aside>
     );
