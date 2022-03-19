@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import ReactFlow  from 'react-flow-renderer';
+import ReactFlow ,{useReactFlow} from 'react-flow-renderer';
 import {
     getBezierPath,
     getEdgeCenter,
@@ -9,9 +9,12 @@ import {
 
 const foreignObjectSize = 40;
 
-const onEdgeClick = (evt, id, data) => {
+const onEdgeClick = (evt, id,reactFlowInstance) => {
     evt.stopPropagation();
-    data.remove(id);
+    let after_edges = reactFlowInstance.getEdges().filter(edges => edges.id!== id);
+    console.log(reactFlowInstance.setEdges(after_edges));
+    console.log(after_edges);
+
 };
 
 export default function ButtonEdge({
@@ -23,10 +26,11 @@ export default function ButtonEdge({
                                        sourcePosition,
                                        targetPosition,
                                        style = {},
-                                       data,
                                        arrowHeadType,
                                        markerEndId,
                                    }) {
+    const reactFlowInstance = useReactFlow();
+
     const edgePath = getBezierPath({
         sourceX,
         sourceY,
@@ -35,7 +39,6 @@ export default function ButtonEdge({
         targetY,
         targetPosition,
     });
-
 
 
 
@@ -67,7 +70,7 @@ export default function ButtonEdge({
                 <body>
                 <button
                     className="edgebutton"
-                    onClick={(event) => onEdgeClick(event, id, data)}
+                    onClick={(event) => onEdgeClick(event, id,reactFlowInstance)}
                 >
                     ×
                 </button>

@@ -126,7 +126,7 @@ const DnDFlow = () => {
         [restoreFlag]
     );
 
-    const onConnect = (params) => setEdges((eds) => addEdge(params, eds))
+    const onConnect = (params) => setEdges((eds) => addEdge({ ...params, type: 'button_edge' }, eds));
 
 
     const deleteEdge = (edge_id) => {
