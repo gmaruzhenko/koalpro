@@ -57,6 +57,7 @@ const RestoreButton = styled(Button)(({theme}) => ({
 
 //TODO decide on formal of config
 function flow_elements_to_config(elements) {
+    console.log(elements)
     elements.forEach(function (node, index, myArray) {
         if (node.type === undefined) {
             node.type = 'connection'
@@ -135,7 +136,8 @@ const DnDFlow = () => {
         setReactFlowInstance(_reactFlowInstance);
 
     const onSave = () => {
-        flow_elements_to_config(reactFlowInstance.toObject().elements)
+        flow_elements_to_config([...reactFlowInstance.toObject().nodes,...reactFlowInstance.toObject().edges]
+        )
     };
 
     const onClear = () => {
