@@ -22,6 +22,9 @@ export default () => {
             <div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'csv_data_import')} draggable>
                 CSV Data Import
             </div>
+            <div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'input')} draggable>
+                Cinput
+            </div>
         </aside>
     );
 };

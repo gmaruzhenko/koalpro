@@ -2,7 +2,8 @@ import React, {useState, useRef, useCallback, useEffect, useContext} from 'react
 import ReactFlow, {
     ReactFlowProvider,
     addEdge,
-    removeElements,
+    useNodesState,
+    useEdgesState,
     Controls,
 } from 'react-flow-renderer';
 import axios from 'axios';
@@ -85,11 +86,31 @@ const getId = () => {
     const unique_id = uuid();
     return `dndnode_${unique_id}`
 };
+const initialNodes = [
+    {
+        id: '1',
+        type: 'input',
+        data: { label: 'input node' },
+        position: { x: 250, y: 5 },
+    },
+];
 
+const nodeTypes = {
+    addition: AdditionNode,
+    cross_sell_output: CrossSellOutputNode,
+    csv_data_import: CsvDataImportNode
+
+};
+
+const edgeTypes = {
+    button_edge: ButtonEdge,
+};
 
 const DnDFlow = () => {
     const reactFlowWrapper = useRef(null);
     const [reactFlowInstance, setReactFlowInstance] = useState(null);
+    const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+    const [edges, setEdges, onEdgesChange] = useEdgesState([]);
     const [elements, setElements] = useState([]);
     const [restoreFlag, setRestoreFlag] = useState(false);
     const [width, setWidth] = useState(window.innerWidth);
@@ -98,10 +119,6 @@ const DnDFlow = () => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
     };
-    useEffect(() => {
-        window.addEventListener("resize", updateWidthAndHeight);
-        return () => window.removeEventListener("resize", updateWidthAndHeight);
-    });
 
     useEffect(() => {
             axios.get('http://127.0.0.1:5000/config')
@@ -113,11 +130,10 @@ const DnDFlow = () => {
         [restoreFlag]
     );
 
-    const onConnect = (params) => setElements((els) => addEdge({ ...params, type: 'button_edge', data:{remove:deleteEdge}}, els));
-    const onElementsRemove = (elementsToRemove) =>
-        setElements((els) => removeElements(elementsToRemove, els));
+    const onConnect = (params) => setEdges((eds) => addEdge(params, eds))
 
-    const deleteEdge = (edge_id) =>{
+
+    const deleteEdge = (edge_id) => {
         let edge = {};
         reactFlowInstance.toObject().elements.forEach(function (node) {
             if (node.id == edge_id) {
@@ -126,10 +142,9 @@ const DnDFlow = () => {
             }
         });
         console.log(edge)
-        setElements((els) => removeElements([edge], els));
     };
 
-    const onLoad = (_reactFlowInstance) =>
+    const onInit = (_reactFlowInstance) =>
         setReactFlowInstance(_reactFlowInstance);
 
     const onSave = () => {
@@ -137,10 +152,12 @@ const DnDFlow = () => {
     };
 
     const onClear = () => {
-        setElements([]);
+        setNodes([]);
+        setEdges([]);
     };
     const onRestore = () => {
-        setElements([]); //TODO this a janky way of making it work but smoother way of matching positions should be possible
+        setNodes([]);
+        setEdges([]); //TODO this a janky way of making it work but smoother way of matching positions should be possible
         setRestoreFlag(!restoreFlag)
     };
 
@@ -150,35 +167,32 @@ const DnDFlow = () => {
         event.dataTransfer.dropEffect = 'move';
     };
 
-    const onDrop = (event) => {
-        event.preventDefault();
+    const onDrop =(event) => {
+            event.preventDefault();
 
-        const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
-        const type = event.dataTransfer.getData('application/reactflow');
-        const position = reactFlowInstance.project({
-            x: event.clientX - reactFlowBounds.left,
-            y: event.clientY - reactFlowBounds.top,
-        });
-        const newNode = {
-            id: getId(),
-            type,
-            position,
-            data: {label: `${type} node`},
+            const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
+            const type = event.dataTransfer.getData('application/reactflow');
+
+            // check if the dropped element is valid
+            if (typeof type === 'undefined' || !type) {
+                return;
+            }
+
+            const position = reactFlowInstance.project({
+                x: event.clientX - reactFlowBounds.left,
+                y: event.clientY - reactFlowBounds.top,
+            });
+            const newNode = {
+                id: getId(),
+                type,
+                position,
+                data: { label: `${type} node` },
+            };
+
+            setNodes((nds) => nds.concat(newNode));
         };
 
-        setElements((es) => es.concat(newNode));
-    };
 
-    const nodeTypes = {
-        addition: AdditionNode,
-        cross_sell_output: CrossSellOutputNode,
-        csv_data_import: CsvDataImportNode
-
-    };
-
-    const edgeTypes = {
-        button_edge: ButtonEdge,
-    };
 
 
     return (
@@ -186,17 +200,22 @@ const DnDFlow = () => {
             <div className="dndflow">
                 <ReactFlowProvider>
                     <Grid item xs={9} style={{display: "grid", alignItems: "stretch"}}>
-                        <div className="reactflow-wrapper" ref={reactFlowWrapper}>
-                            <ReactFlow elements={elements}
-                                       onElementsRemove={onElementsRemove}
-                                       onLoad={onLoad}
+                        <div className="reactflow-wrapper" ref={reactFlowWrapper} style={{height: '800px', width: '800px'}}>
+                            <ReactFlow nodes={nodes}
+                                       edges={edges}
+                                       onNodesChange={onNodesChange}
+                                       onEdgesChange={onEdgesChange}
+                                       onConnect={onConnect}
+                                       onInit={setReactFlowInstance}
                                        onDrop={onDrop}
                                        onDragOver={onDragOver}
-                                       onConnect={onConnect}
                                        style={flowStyles}
                                        edgeTypes={edgeTypes}
-                                       nodeTypes={nodeTypes}/>
+                                       nodeTypes={nodeTypes}
+                                       onInit={onInit}
+                                       nodesDraggable ={true}/>
                         </div>
+                        <Controls />
                     </Grid>
                     <Grid item xs={3} style={{display: "grid", alignItems: "stretch"}}>
                         <Paper elevation={10}>
