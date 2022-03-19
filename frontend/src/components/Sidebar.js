@@ -37,6 +37,7 @@ export default ({elements}) => {
             </div>
             <div className="discount-node" onDragStart={(event) => onDragStart(event, 'discount')} draggable>
                 Discount
+
             </div>
             {0 === crossSellCount &&
             <div className="cross-sell-output-node" onDragStart={(event) => onDragStart(event, 'cross_sell_output')}
