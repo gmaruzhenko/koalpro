@@ -57,7 +57,6 @@ const RestoreButton = styled(Button)(({theme}) => ({
 
 //TODO decide on formal of config
 function flow_elements_to_config(elements) {
-    console.log(elements)
     elements.forEach(function (node, index, myArray) {
         if (node.type === undefined) {
             node.type = 'connection'
@@ -105,13 +104,11 @@ const edgeTypes = {
 };
 
 
-
 const DnDFlow = () => {
     const reactFlowWrapper = useRef(null);
     const [reactFlowInstance, setReactFlowInstance] = useState(null);
     const [nodes, setNodes, onNodesChange] = useNodesState(defaultStartNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
-    const [elements, setElements] = useState([]);
     const [restoreFlag, setRestoreFlag] = useState(false);
     const [width, setWidth] = useState(window.innerWidth);
     const [height, setHeight] = useState(window.innerHeight);
@@ -124,7 +121,11 @@ const DnDFlow = () => {
             axios.get('http://127.0.0.1:5000/config')
                 .then(function (response) {
                     // handle success
-                    setElements(response.data);
+                    const elements = response.data;
+                    const nodesLoaded = elements.filter(elements => !elements.source);
+                    const edgesLoaded = elements.filter(elements => elements.source);
+                    setNodes(nodesLoaded);
+                    setEdges(edgesLoaded);
                 });
         },
         [restoreFlag]
@@ -136,7 +137,7 @@ const DnDFlow = () => {
         setReactFlowInstance(_reactFlowInstance);
 
     const onSave = () => {
-        flow_elements_to_config([...reactFlowInstance.toObject().nodes,...reactFlowInstance.toObject().edges]
+        flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...reactFlowInstance.toObject().edges]
         )
     };
 
@@ -211,7 +212,7 @@ const DnDFlow = () => {
                                 <ClearButton onClick={onClear}>clear</ClearButton>
                                 <RestoreButton onClick={onRestore}>restore</RestoreButton>
                             </ButtonGroup>
-                            <Sidebar />
+                            <Sidebar/>
                         </Paper>
                     </Grid>
 
