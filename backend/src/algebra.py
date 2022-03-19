@@ -80,7 +80,7 @@ def division(dict1, dict2):
 def discount(dict1,discount_decimal):
     resDict = {}
     for key in dict1:
-        resDict[key] = dict1[key] * discount_decimal
+        resDict[key] = dict1[key] * (1-discount_decimal)
     return resDict
     
 # takes "data" and loads the CSV.

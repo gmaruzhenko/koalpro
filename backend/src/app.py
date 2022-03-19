@@ -152,7 +152,7 @@ def load_JSON():
             # store in operations to do list
             if node["type"] == "discount":
                 node_data = node["data"]
-                operations_todo[node["id"]] = (node["type"],node_data["discount_from_list_price"])
+                operations_todo[node["id"]] = (node["type"],node_data["discount"])
             else:
                 operations_todo[node["id"]] = node["type"]
 
