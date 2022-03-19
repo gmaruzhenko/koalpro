@@ -83,19 +83,11 @@ function config_to_flow_elements(config) {
 const flowStyles = {height: 800};
 
 
-let id = 0;
 const getId = () => {
     const unique_id = uuid();
     return `dndnode_${unique_id}`
 };
-const initialNodes = [
-    {
-        id: '1',
-        type: 'input',
-        data: { label: 'input node' },
-        position: { x: 250, y: 5 },
-    },
-];
+
 
 const nodeTypes = {
     addition: AdditionNode,
@@ -113,7 +105,7 @@ const edgeTypes = {
 const DnDFlow = () => {
     const reactFlowWrapper = useRef(null);
     const [reactFlowInstance, setReactFlowInstance] = useState(null);
-    const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+    const [nodes, setNodes, onNodesChange] = useNodesState([]);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
     const [elements, setElements] = useState([]);
     const [restoreFlag, setRestoreFlag] = useState(false);
