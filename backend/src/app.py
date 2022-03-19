@@ -94,6 +94,9 @@ def load_JSON():
     response = requests.get("http://127.0.0.1:5000/config")
     json_data = response.json()
 
+    cross_sell = False
+    up_sell = False
+
     for node in json_data:
         # Parse JSON into an object with attributes corresponding to dict keys.
 
@@ -118,10 +121,12 @@ def load_JSON():
             if node["type"] == "cross_sell_output":
                 results[node["id"]] = {}
                 cross_sell_resultid = node["id"]
+                cross_sell = True
 
             elif node["type"] == "up_sell_output":
                 results[node["id"]] = {}
                 up_sell_resultid = node["id"]
+                up_sell = True 
 
         elif node["type"] == "default":
             # connection objects
@@ -138,9 +143,14 @@ def load_JSON():
     #Perform operations based on the todo list
 
     processOperations(operations_todo, edges, nodelist, results)
+    cross_sell_dict_to_return = {}
+    up_sell_dict_to_return = {}
 
-    cross_sell_dict_to_return = results[cross_sell_resultid]
-    up_sell_dict_to_return = results[up_sell_resultid]
+    if cross_sell:
+        cross_sell_dict_to_return = results[cross_sell_resultid]
+    if up_sell:
+        up_sell_dict_to_return = results[up_sell_resultid]
+    
     # print("\n\nCROSS SELL DICT", cross_sell_dict_to_return, "\n\nUP SELL DICT", up_sell_dict_to_return)
     #print("DICT TO RETURN",dict_to_return)
 
@@ -150,7 +160,17 @@ def load_JSON():
     # Combines cross sell and upsell dictionaries to format 
     # {'companyA': ['cross-sell', 'upsell'], 'companyB': ['cross-sell', 'upsell]}
     dict_to_return = {}
-    for key in set(list(cross_sell_dict_to_return.keys()) + list(up_sell_dict_to_return.keys())):
+    
+    if len(cross_sell_dict_to_return) == 0:
+        total_keys = list(up_sell_dict_to_return.keys())
+    elif len(up_sell_dict_to_return) == 0:
+        total_keys = list(cross_sell_dict_to_return.keys())
+    elif cross_sell_dict_to_return and up_sell_dict_to_return:
+        total_keys = list(cross_sell_dict_to_return.keys()) + list(up_sell_dict_to_return.keys())
+    else: 
+        print("NO ITEMS IN DICTIONARY")
+
+    for key in set(total_keys):
         try:
             dict_to_return.setdefault(key,[]).append(cross_sell_dict_to_return[key])        
         except KeyError:
@@ -169,15 +189,15 @@ def load_JSON():
         dollars = dict_to_return[k]
         dict_entry['companyID'] = k
         
-        if dollars[0] is not None:
+        if up_sell and cross_sell:
             dict_entry['cross_sell_value'] = dollars[0]
-        else:
-            dict_entry['cross_sell_value'] = None
-        
-        if dollars[1] is not None:
             dict_entry['up_sell_value'] = dollars[1]
-        else:
+        elif len(dollars) <= 1 and cross_sell:
+            dict_entry['cross_sell_value'] = dollars[0]
             dict_entry['up_sell_value'] = None
+        elif len(dollars) <= 1 and up_sell:
+            dict_entry['up_sell_value'] = dollars[0]
+            dict_entry['cross_sell_value'] = None   
 
         reformat_response.append(dict_entry)
 
