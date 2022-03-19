@@ -13,10 +13,9 @@ from algebra import addition, subtraction, multiplication, division, load_csv, d
 app = Flask(__name__)
 CORS(app)
 
-
-@app.route('/data/crosssell', methods=['GET'])
+@app.route('/data', methods=['GET'])
 @cross_origin()
-def send_cross_sell_data():
+def send_data():
     '''
     Sends aggregated cross sell tabulated data up to frontend
     :return: json with array of records where each record is in shape :
@@ -29,38 +28,9 @@ def send_cross_sell_data():
         return ("",204)
     
     else:
-        is_crosssell = False
-        is_upsell = False
-        response,is_crosssell,is_upsell = load_JSON()
-    
-        if(is_upsell):
-            response = ''
-            return (response, 204)
-        elif(is_crosssell):
-            response =  jsonify(response)
-            return response
-
-@app.route('/data/upsell', methods=['GET'])
-@cross_origin()
-def send_upsell_data():
-    '''
-    Sends aggregated upsell tabulated data up to frontend
-    :return: json
-    '''
-    if(requests.get("http://127.0.0.1:5000/config") == ""):
-        return ("",204)
-    
-    else:
-        is_crosssell = False
-        is_upsell = False
-        response,is_crosssell,is_upsell = load_JSON()
-    
-        if(is_crosssell):
-            response = ''
-            return (response, 204)
-        elif(is_upsell):
-            return response
-    
+        response = load_JSON()
+        response =  jsonify(response)
+        return response
 
 @app.route('/config', methods=['GET', 'POST'])
 @cross_origin()
@@ -133,6 +103,7 @@ def load_JSON():
 
     response = requests.get("http://127.0.0.1:5000/config")
     json_data = response.json()
+
     cross_sell = False
     up_sell = False
 
@@ -145,7 +116,7 @@ def load_JSON():
 
             # load dict from csv
             # loadcsv(node.data) Returns dict obj with nodeid = {key,value}
-            inputid = node["id"]
+            # inputid = node["id"]
             data = load_csv(node["data"])
             results[node["id"]] = data
         elif node["type"] in operations:
@@ -157,14 +128,15 @@ def load_JSON():
                 operations_todo[node["id"]] = node["type"]
 
         elif node["type"] == "cross_sell_output" or node["type"] == "up_sell_output":
-            results[node["id"]] = {}
-            resultid = node["id"]
             if node["type"] == "cross_sell_output":
+                results[node["id"]] = {}
+                cross_sell_resultid = node["id"]
                 cross_sell = True
-                up_sell = False
-            if node["type"] == "up_sell_output":
-                up_sell = True  
-                cross_sell = False  
+
+            elif node["type"] == "up_sell_output":
+                results[node["id"]] = {}
+                up_sell_resultid = node["id"]
+                up_sell = True 
 
         elif node["type"] == "default":
             # connection objects
@@ -176,27 +148,72 @@ def load_JSON():
                 if node["source"] not in edges[node["target"]]:
                     edges[node["target"]].append(node["source"])
 
-    #print("\nNodelist: \n", nodelist, "\n\n","Operations: \n", operations_todo, "\n\n","Edges \n", edges, "\n\n","Results: \n", results)
-
+    # print("\nNodelist: \n", nodelist, "\n\n","Operations: \n", operations_todo, "\n\n","Edges \n", edges, "\n\n","Results: \n", results)
+    # print("\n\nCROSS SELL",cross_sell_resultid,"\n\nUP SELL",up_sell_resultid )
     #Perform operations based on the todo list
-    if len(operations_todo) <= 0:
-        resultid = inputid
-    else:
-        processOperations(operations_todo, edges, nodelist, results)
 
-    # print("\n\nCompleting calculations...\n")
-    # print("Modified Node List:\n", nodelist, "\n\n")
-    # print("FINAL RESULTS:\n", results, "\n\n")
-    dict_to_return = results[resultid]
+    processOperations(operations_todo, edges, nodelist, results)
+    cross_sell_dict_to_return = {}
+    up_sell_dict_to_return = {}
+
+    if cross_sell:
+        cross_sell_dict_to_return = results[cross_sell_resultid]
+    if up_sell:
+        up_sell_dict_to_return = results[up_sell_resultid]
+    
+    # print("\n\nCROSS SELL DICT", cross_sell_dict_to_return, "\n\nUP SELL DICT", up_sell_dict_to_return)
     #print("DICT TO RETURN",dict_to_return)
-    if (cross_sell == True):
-        reformat_response = [ {'companyID' : k, 'cross_sell_value' : dict_to_return[k]} for k in dict_to_return]
-    elif (up_sell == True):
-        reformat_response = [ {'companyID' : k, 'up_sell_value' : dict_to_return[k]} for k in dict_to_return]
+
     #response = json.dumps(reformat_response)
     #print(reformat_response)
+    
+    # Combines cross sell and upsell dictionaries to format 
+    # {'companyA': ['cross-sell', 'upsell'], 'companyB': ['cross-sell', 'upsell]}
+    dict_to_return = {}
+    
+    if len(cross_sell_dict_to_return) == 0:
+        total_keys = list(up_sell_dict_to_return.keys())
+    elif len(up_sell_dict_to_return) == 0:
+        total_keys = list(cross_sell_dict_to_return.keys())
+    elif cross_sell_dict_to_return and up_sell_dict_to_return:
+        total_keys = list(cross_sell_dict_to_return.keys()) + list(up_sell_dict_to_return.keys())
+    else: 
+        print("NO ITEMS IN DICTIONARY")
 
-    return reformat_response,cross_sell,up_sell
+    for key in set(total_keys):
+        try:
+            dict_to_return.setdefault(key,[]).append(cross_sell_dict_to_return[key])        
+        except KeyError:
+            pass
+
+        try:
+            dict_to_return.setdefault(key,[]).append(up_sell_dict_to_return[key])          
+        except KeyError:
+            pass
+
+    # print("\n\nDICT TO RETURN",dict_to_return)
+
+    reformat_response = []
+    for k in dict_to_return:
+        dict_entry = {}
+        dollars = dict_to_return[k]
+        dict_entry['companyID'] = k
+        
+        if up_sell and cross_sell:
+            dict_entry['cross_sell_value'] = dollars[0]
+            dict_entry['up_sell_value'] = dollars[1]
+        elif len(dollars) <= 1 and cross_sell:
+            dict_entry['cross_sell_value'] = dollars[0]
+            dict_entry['up_sell_value'] = None
+        elif len(dollars) <= 1 and up_sell:
+            dict_entry['up_sell_value'] = dollars[0]
+            dict_entry['cross_sell_value'] = None   
+
+        reformat_response.append(dict_entry)
+
+    #reformat_response = [ {'companyID' : k, 'cross_sell_value' : dict_to_return[k][0], 'up_sell_value' : dict_to_return[k][1]} for k in dict_to_return]
+    # print('/n',"ANSWER",reformat_response)
+    return reformat_response
 
 
 # Params =  string: type of operation, inputs: list of input node names
@@ -217,17 +234,24 @@ def processOperations(operationslist,edges_list, node_list, results_data):
         if edge in operationslist:
             answer = do_operation(operationslist[edge], edges_list[edge],results_data)
             newnode = {
-                'id': edge,
-                'data': answer
+                "id": edge,
+                "type": "calculation_result",
+                "data": answer
             }
             node_list.append(newnode)
-        elif edge in results_data:
+            continue
+        elif edge in results_data: #if node is a calculated result or output node
             if (len(edges_list[edge]) == 1):
-                key = edges_list[edge][0]
+                inputid = edges_list[edge][0]
             for node in node_list:
-                currID = node['id']
-                if currID == key:
-                    data = node['data']
+                currID = node["id"]
+                #case: operation node from calculated result -> output node
+                if currID == inputid and node["type"] == "calculation_result":
+                    data = node["data"]
+                    results_data[edge] = data
+                #case: input node -> output node
+                elif currID == inputid and node["type"] == "csv_data_import":
+                    data = load_csv(node["data"])
                     results_data[edge] = data
 
 
