@@ -128,18 +128,6 @@ const DnDFlow = () => {
 
     const onConnect = (params) => setEdges((eds) => addEdge({ ...params, type: 'button_edge' }, eds));
 
-
-    const deleteEdge = (edge_id) => {
-        let edge = {};
-        reactFlowInstance.toObject().elements.forEach(function (node) {
-            if (node.id == edge_id) {
-                edge = node
-                console.log(node);
-            }
-        });
-        console.log(edge)
-    };
-
     const onInit = (_reactFlowInstance) =>
         setReactFlowInstance(_reactFlowInstance);
 
