@@ -189,7 +189,7 @@ const DnDFlow = () => {
                 <ReactFlowProvider>
                     <Grid item xs={9} style={{display: "grid", alignItems: "stretch"}}>
                         <div className="reactflow-wrapper" ref={reactFlowWrapper}
-                             style={{height: '800px', width: '800px'}}>
+                             style={{height: 'flex', width: 'flex'}}>
                             <ReactFlow nodes={nodes}
                                        edges={edges}
                                        onNodesChange={onNodesChange}
