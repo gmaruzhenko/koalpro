@@ -98,7 +98,7 @@ def load_csv(data):
     for i in range(len(keys)):
         res[keys[i]] = float(values[i])
 
-    print(res)
+    #print(res)
     return res
 
 def load_initial(path):
