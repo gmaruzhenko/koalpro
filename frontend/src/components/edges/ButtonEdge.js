@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import ReactFlow, {useStore,} from 'react-flow-renderer';
+import ReactFlow  from 'react-flow-renderer';
 import {
     getBezierPath,
     getEdgeCenter,
@@ -36,12 +36,7 @@ export default function ButtonEdge({
         targetPosition,
     });
 
-    const store = useStore();
-    const nodeInternals= store.getState(); //Todo see if this can be the ticket to edit react flow isntance from the node child
 
-    useEffect(() => {
-        console.log(nodeInternals);
-    }, []);
 
 
     const markerEnd = getMarkerEnd(arrowHeadType, markerEndId);
