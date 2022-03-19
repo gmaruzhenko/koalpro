@@ -79,7 +79,7 @@ export default function ButtonEdge({
                     className="edgebutton"
                     onClick={(event) => onEdgeClick(event, id,reactFlowInstance)}
                 >
-                    <HighlightOffIcon></HighlightOffIcon>
+                    <HighlightOffIcon/>
                 </IconButton>
                 </body>
             </foreignObject>
