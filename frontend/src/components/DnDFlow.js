@@ -22,6 +22,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import UpSellOutputNode from "./nodes/UpSellOutputNode";
 import DiscountNode from "./nodes/DiscountNode";
+import defaultStartNodes from "./defaultStartNodes";
 
 const navy_color = '#444c5c';
 const ocean_color = '#78a5a3';
@@ -102,10 +103,12 @@ const edgeTypes = {
     button_edge: ButtonEdge,
 };
 
+
+
 const DnDFlow = () => {
     const reactFlowWrapper = useRef(null);
     const [reactFlowInstance, setReactFlowInstance] = useState(null);
-    const [nodes, setNodes, onNodesChange] = useNodesState([]);
+    const [nodes, setNodes, onNodesChange] = useNodesState(defaultStartNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
     const [elements, setElements] = useState([]);
     const [restoreFlag, setRestoreFlag] = useState(false);
@@ -126,7 +129,7 @@ const DnDFlow = () => {
         [restoreFlag]
     );
 
-    const onConnect = (params) => setEdges((eds) => addEdge({ ...params, type: 'button_edge' }, eds));
+    const onConnect = (params) => setEdges((eds) => addEdge({...params, type: 'button_edge'}, eds));
 
     const onInit = (_reactFlowInstance) =>
         setReactFlowInstance(_reactFlowInstance);
@@ -151,33 +154,30 @@ const DnDFlow = () => {
         event.dataTransfer.dropEffect = 'move';
     };
 
-    const onDrop =(event) => {
-            event.preventDefault();
+    const onDrop = (event) => {
+        event.preventDefault();
 
-            const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
-            const type = event.dataTransfer.getData('application/reactflow');
+        const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
+        const type = event.dataTransfer.getData('application/reactflow');
 
-            // check if the dropped element is valid
-            if (typeof type === 'undefined' || !type) {
-                return;
-            }
+        // check if the dropped element is valid
+        if (typeof type === 'undefined' || !type) {
+            return;
+        }
 
-            const position = reactFlowInstance.project({
-                x: event.clientX - reactFlowBounds.left,
-                y: event.clientY - reactFlowBounds.top,
-            });
-            const newNode = {
-                id: getId(),
-                type,
-                position,
-                data: { label: `${type} node`, },
-            };
-
-            setNodes((nds) => nds.concat(newNode));
+        const position = reactFlowInstance.project({
+            x: event.clientX - reactFlowBounds.left,
+            y: event.clientY - reactFlowBounds.top,
+        });
+        const newNode = {
+            id: getId(),
+            type,
+            position,
+            data: {label: `${type} node`,},
         };
 
-
-
+        setNodes((nds) => nds.concat(newNode));
+    };
 
 
     return (
@@ -185,7 +185,8 @@ const DnDFlow = () => {
             <div className="dndflow">
                 <ReactFlowProvider>
                     <Grid item xs={9} style={{display: "grid", alignItems: "stretch"}}>
-                        <div className="reactflow-wrapper" ref={reactFlowWrapper} style={{height: '800px', width: '800px'}}>
+                        <div className="reactflow-wrapper" ref={reactFlowWrapper}
+                             style={{height: '800px', width: '800px'}}>
                             <ReactFlow nodes={nodes}
                                        edges={edges}
                                        onNodesChange={onNodesChange}
@@ -197,9 +198,9 @@ const DnDFlow = () => {
                                        edgeTypes={edgeTypes}
                                        nodeTypes={nodeTypes}
                                        onInit={setReactFlowInstance}
-                                       nodesDraggable ={true}/>
+                                       nodesDraggable={true}/>
                         </div>
-                        <Controls />
+                        <Controls/>
                     </Grid>
                     <Grid item xs={3} style={{display: "grid", alignItems: "stretch"}}>
                         <Paper elevation={10}>
@@ -208,7 +209,7 @@ const DnDFlow = () => {
                                 <ClearButton onClick={onClear}>clear</ClearButton>
                                 <RestoreButton onClick={onRestore}>restore</RestoreButton>
                             </ButtonGroup>
-                            <Sidebar />
+                            {/*<Sidebar />*/}
                         </Paper>
                     </Grid>
 
