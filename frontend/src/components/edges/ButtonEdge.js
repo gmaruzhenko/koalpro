@@ -11,17 +11,14 @@ const foreignObjectSize = 40;
 
 const onEdgeClick = (evt, id,reactFlowInstance) => {
     evt.stopPropagation();
-    console.log(id);
     let after_edges = reactFlowInstance.getEdges().filter(edges => edges.id!== id);
     if (after_edges===[{}]){
-        console.log(reactFlowInstance.setEdges([{}]));
+        reactFlowInstance.setEdges([{}]);
 
     }else{
-        console.log(reactFlowInstance.setEdges(after_edges));
+        reactFlowInstance.setEdges(after_edges);
 
     }
-    console.log(after_edges);
-    console.log(reactFlowInstance.getEdges());
 
 };
 
