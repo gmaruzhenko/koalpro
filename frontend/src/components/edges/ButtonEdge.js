@@ -5,6 +5,8 @@ import {
     getEdgeCenter,
     getMarkerEnd,
 } from 'react-flow-renderer';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import IconButton from '@material-ui/core/IconButton';
 
 
 const foreignObjectSize = 40;
@@ -73,12 +75,12 @@ export default function ButtonEdge({
                 requiredExtensions="http://www.w3.org/1999/xhtml"
             >
                 <body>
-                <button
+                <IconButton
                     className="edgebutton"
                     onClick={(event) => onEdgeClick(event, id,reactFlowInstance)}
                 >
-                    ×
-                </button>
+                    <HighlightOffIcon></HighlightOffIcon>
+                </IconButton>
                 </body>
             </foreignObject>
         </>

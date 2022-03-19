@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 
 const onEdgeClick = (evt, id,reactFlowInstance) => {
     evt.stopPropagation();
-    let after_edges = reactFlowInstance.getNodes().filter(edges => edges.id!== id);
+    let after_edges = reactFlowInstance.getNodes().filter(node => node.id!== id);
     if (reactFlowInstance.getNodes().length===1){
         reactFlowInstance.setNodes([{}]);
 
