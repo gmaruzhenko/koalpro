@@ -140,7 +140,7 @@ def load_JSON():
                 up_sell_resultid = node["id"]
                 up_sell = True 
 
-        elif node["type"] == "default":
+        elif node["type"] == "button_edge":
             # connection objects
             if node["target"] not in edges:
                 edges[node["target"]] = []
