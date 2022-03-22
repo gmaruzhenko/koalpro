@@ -24,6 +24,11 @@ import Grid from "@material-ui/core/Grid";
 import UpSellOutputNode from "./nodes/UpSellOutputNode";
 import DiscountNode from "./nodes/DiscountNode";
 import defaultStartNodes from "./defaultStartNodes";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogActions from "@material-ui/core/DialogActions";
 
 const navy_color = '#444c5c';
 const ocean_color = '#78a5a3';
@@ -149,7 +154,7 @@ const DnDFlow = () => {
             }
         });
         if (!okToSaveFlag){
-            alert("please connect all nodes")
+            setOpen(true)
         }else{        flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...reactFlowInstance.toObject().edges])
         }
 
@@ -196,10 +201,39 @@ const DnDFlow = () => {
         setNodes((nds) => nds.concat(newNode));
     };
 
+    const [open, setOpen] = React.useState(false);
+
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
 
     return (
         <Paper style={{height: '100%', width: '100%'}}>
             <div className="dndflow">
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                        {"Use Google's location service?"}
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            Let Google help apps determine location. This means sending anonymous
+                            location data to Google, even when no apps are running.
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose}>Disagree</Button>
+                        <Button onClick={handleClose} autoFocus>
+                            Agree
+                        </Button>
+                    </DialogActions>
+                </Dialog>
                 <ReactFlowProvider>
                     <Grid item xs={9} style={{display: "grid", alignItems: "stretch"}}>
                         <div className="reactflow-wrapper" ref={reactFlowWrapper}
