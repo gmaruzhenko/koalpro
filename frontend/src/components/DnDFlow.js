@@ -5,6 +5,7 @@ import ReactFlow, {
     useNodesState,
     useEdgesState,
     Controls,
+    getConnectedEdges
 } from 'react-flow-renderer';
 import axios from 'axios';
 import {v4 as uuid} from 'uuid';
@@ -137,8 +138,21 @@ const DnDFlow = () => {
         setReactFlowInstance(_reactFlowInstance);
 
     const onSave = () => {
-        flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...reactFlowInstance.toObject().edges]
-        )
+        let okToSaveFlag = true;
+        // console.log(reactFlowInstance.getNodes()[0])
+        // console.log(getConnectedEdges([reactFlowInstance.getNodes()[0]],reactFlowInstance.toObject().edges));
+        reactFlowInstance.getNodes().forEach(function (node) {
+            // console.log(getConnectedEdges([node],reactFlowInstance.getEdges()))
+            if (getConnectedEdges([node],reactFlowInstance.getEdges()).length === 0) {
+                console.log("empty connection");
+                okToSaveFlag = false;
+            }
+        });
+        if (!okToSaveFlag){
+            alert("please connect all nodes")
+        }else{        flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...reactFlowInstance.toObject().edges])
+        }
+
     };
 
     const onClear = () => {
