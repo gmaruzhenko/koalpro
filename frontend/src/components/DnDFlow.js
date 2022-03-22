@@ -29,6 +29,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogActions from "@material-ui/core/DialogActions";
+import deleteNodeHelper from "./deleteNodeHelper";
 
 const navy_color = '#444c5c';
 const ocean_color = '#78a5a3';
@@ -144,22 +145,26 @@ const DnDFlow = () => {
         setReactFlowInstance(_reactFlowInstance);
 
     const onSave = () => {
-        let okToSaveFlag = true;
-        // console.log(reactFlowInstance.getNodes()[0])
-        // console.log(getConnectedEdges([reactFlowInstance.getNodes()[0]],reactFlowInstance.toObject().edges));
-        reactFlowInstance.getNodes().forEach(function (node) {
-            // console.log(getConnectedEdges([node],reactFlowInstance.getEdges()))
-            if (getConnectedEdges([node],reactFlowInstance.getEdges()).length === 0) {
-                console.log("empty connection");
-                okToSaveFlag = false;
-            }
-        });
-        if (!okToSaveFlag){
+        if (getUnconnectedNodes().length>0){
             setOpenUnconnectedNodeDialog(true)
         }else{        flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...reactFlowInstance.toObject().edges])
         }
 
     };
+
+    function getUnconnectedNodes() {
+        let unconnectedNodes = [];
+        // console.log(reactFlowInstance.getNodes()[0])
+        // console.log(getConnectedEdges([reactFlowInstance.getNodes()[0]],reactFlowInstance.toObject().edges));
+        reactFlowInstance.getNodes().forEach(function (node) {
+            // console.log(getConnectedEdges([node],reactFlowInstance.getEdges()))
+            if (getConnectedEdges([node],reactFlowInstance.getEdges()).length === 0) {
+                // console.log("empty connection");
+                unconnectedNodes.push(node) ;
+            }
+        });
+        return unconnectedNodes
+    }
 
     const onClear = () => {
         setNodes([]);
@@ -207,6 +212,16 @@ const DnDFlow = () => {
     const handleClose = () => {
         setOpenUnconnectedNodeDialog(false);
     };
+    const handleAutoRemoveUnconnectedNodesClose = () => {
+            const nodesToDelete = getUnconnectedNodes();
+            const nodesToDeleteIds = nodesToDelete.map(n => n.id);
+
+            const after_nodes = reactFlowInstance.getNodes().filter(function(node) {
+                return nodesToDeleteIds.indexOf(node.id) === -1;
+            });
+            reactFlowInstance.setNodes(after_nodes);
+            setOpenUnconnectedNodeDialog(false);
+    };
 
 
     return (
@@ -228,7 +243,7 @@ const DnDFlow = () => {
                     {/*    </DialogContentText>*/}
                     {/*</DialogContent>*/}
                     <DialogActions>
-                        <RestoreButton onClick={handleClose}>Remove unconnected nodes for me and Save</RestoreButton>
+                        <RestoreButton onClick={handleAutoRemoveUnconnectedNodesClose}>Remove unconnected nodes for me and Save</RestoreButton>
                         <SaveButton onClick={handleClose} autoFocus>
                             Take me back to editor without saving to review
                         </SaveButton>
