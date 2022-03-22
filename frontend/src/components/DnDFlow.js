@@ -156,7 +156,18 @@ const DnDFlow = () => {
     function getUnconnectedNodes() {
         let unconnectedNodes = [];
         reactFlowInstance.getNodes().forEach(function (node) {
-            if (getConnectedEdges([node], reactFlowInstance.getEdges()).length === 0) {
+            let sources = node.handleBounds.source;
+            let targets = node.handleBounds.target;
+            if (sources===null){
+                sources=[]
+            }
+            if (targets===null){
+                targets=[]
+            }
+
+            const numEdgesShouldBeConnected = sources.length+targets.length;
+            if (getConnectedEdges([node], reactFlowInstance.getEdges()).length <= numEdgesShouldBeConnected) {
+
                 unconnectedNodes.push(node);
             }
         });
@@ -232,7 +243,7 @@ const DnDFlow = () => {
                     aria-describedby="alert-dialog-description"
                 >
                     <DialogTitle id="alert-dialog-title">
-                        {"You left unconnected Nodes, did you mean to connect them?"}
+                        {"Some Nodes still not connected, did you mean to connect them?"}
                     </DialogTitle>
                     <DialogActions>
                         <RestoreButton onClick={handleAutoRemoveUnconnectedNodesClose}>Remove unconnected nodes for me
