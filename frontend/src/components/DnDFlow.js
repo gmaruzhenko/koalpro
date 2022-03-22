@@ -116,6 +116,7 @@ const DnDFlow = () => {
     const [nodes, setNodes, onNodesChange] = useNodesState(defaultStartNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
     const [restoreFlag, setRestoreFlag] = useState(false);
+    const [openUnconnectedNodeDialog, setOpenUnconnectedNodeDialog] = React.useState(false);
     const [width, setWidth] = useState(window.innerWidth);
     const [height, setHeight] = useState(window.innerHeight);
     const updateWidthAndHeight = () => {
@@ -154,7 +155,7 @@ const DnDFlow = () => {
             }
         });
         if (!okToSaveFlag){
-            setOpen(true)
+            setOpenUnconnectedNodeDialog(true)
         }else{        flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...reactFlowInstance.toObject().edges])
         }
 
@@ -201,39 +202,39 @@ const DnDFlow = () => {
         setNodes((nds) => nds.concat(newNode));
     };
 
-    const [open, setOpen] = React.useState(false);
 
 
     const handleClose = () => {
-        setOpen(false);
+        setOpenUnconnectedNodeDialog(false);
     };
 
 
     return (
         <Paper style={{height: '100%', width: '100%'}}>
             <div className="dndflow">
+
+
                 <Dialog
-                    open={open}
+                    open={openUnconnectedNodeDialog}
                     onClose={handleClose}
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
                 >
                     <DialogTitle id="alert-dialog-title">
-                        {"Use Google's location service?"}
+                        {"You left unconnected Nodes, did you mean to connect them?"}
                     </DialogTitle>
-                    <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
-                            Let Google help apps determine location. This means sending anonymous
-                            location data to Google, even when no apps are running.
-                        </DialogContentText>
-                    </DialogContent>
+                    {/*<DialogContent>*/}
+                    {/*    <DialogContentText id="alert-dialog-description">*/}
+                    {/*    </DialogContentText>*/}
+                    {/*</DialogContent>*/}
                     <DialogActions>
-                        <Button onClick={handleClose}>Disagree</Button>
-                        <Button onClick={handleClose} autoFocus>
-                            Agree
-                        </Button>
+                        <RestoreButton onClick={handleClose}>Remove unconnected nodes for me and Save</RestoreButton>
+                        <SaveButton onClick={handleClose} autoFocus>
+                            Take me back to editor without saving to review
+                        </SaveButton>
                     </DialogActions>
                 </Dialog>
+
                 <ReactFlowProvider>
                     <Grid item xs={9} style={{display: "grid", alignItems: "stretch"}}>
                         <div className="reactflow-wrapper" ref={reactFlowWrapper}
