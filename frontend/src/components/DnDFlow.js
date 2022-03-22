@@ -145,22 +145,19 @@ const DnDFlow = () => {
         setReactFlowInstance(_reactFlowInstance);
 
     const onSave = () => {
-        if (getUnconnectedNodes().length>0){
+        if (getUnconnectedNodes().length > 0) {
             setOpenUnconnectedNodeDialog(true)
-        }else{        flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...reactFlowInstance.toObject().edges])
+        } else {
+            flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...reactFlowInstance.toObject().edges])
         }
 
     };
 
     function getUnconnectedNodes() {
         let unconnectedNodes = [];
-        // console.log(reactFlowInstance.getNodes()[0])
-        // console.log(getConnectedEdges([reactFlowInstance.getNodes()[0]],reactFlowInstance.toObject().edges));
         reactFlowInstance.getNodes().forEach(function (node) {
-            // console.log(getConnectedEdges([node],reactFlowInstance.getEdges()))
-            if (getConnectedEdges([node],reactFlowInstance.getEdges()).length === 0) {
-                // console.log("empty connection");
-                unconnectedNodes.push(node) ;
+            if (getConnectedEdges([node], reactFlowInstance.getEdges()).length === 0) {
+                unconnectedNodes.push(node);
             }
         });
         return unconnectedNodes
@@ -208,19 +205,18 @@ const DnDFlow = () => {
     };
 
 
-
     const handleClose = () => {
         setOpenUnconnectedNodeDialog(false);
     };
     const handleAutoRemoveUnconnectedNodesClose = () => {
-            const nodesToDelete = getUnconnectedNodes();
-            const nodesToDeleteIds = nodesToDelete.map(n => n.id);
+        const nodesToDelete = getUnconnectedNodes();
+        const nodesToDeleteIds = nodesToDelete.map(n => n.id);
 
-            const after_nodes = reactFlowInstance.getNodes().filter(function(node) {
-                return nodesToDeleteIds.indexOf(node.id) === -1;
-            });
-            reactFlowInstance.setNodes(after_nodes);
-            setOpenUnconnectedNodeDialog(false);
+        const after_nodes = reactFlowInstance.getNodes().filter(function (node) {
+            return nodesToDeleteIds.indexOf(node.id) === -1;
+        });
+        reactFlowInstance.setNodes(after_nodes);
+        setOpenUnconnectedNodeDialog(false);
     };
 
 
@@ -238,12 +234,9 @@ const DnDFlow = () => {
                     <DialogTitle id="alert-dialog-title">
                         {"You left unconnected Nodes, did you mean to connect them?"}
                     </DialogTitle>
-                    {/*<DialogContent>*/}
-                    {/*    <DialogContentText id="alert-dialog-description">*/}
-                    {/*    </DialogContentText>*/}
-                    {/*</DialogContent>*/}
                     <DialogActions>
-                        <RestoreButton onClick={handleAutoRemoveUnconnectedNodesClose}>Remove unconnected nodes for me and Save</RestoreButton>
+                        <RestoreButton onClick={handleAutoRemoveUnconnectedNodesClose}>Remove unconnected nodes for me
+                            and Save</RestoreButton>
                         <SaveButton onClick={handleClose} autoFocus>
                             Take me back to editor without saving to review
                         </SaveButton>
