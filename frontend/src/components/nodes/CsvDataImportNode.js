@@ -8,13 +8,13 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import IconButton from '@material-ui/core/IconButton';
 import defaultStartNodes from "../defaultStartNodes";
 
-const onEdgeClick = (evt, id,reactFlowInstance) => {
+const onEdgeClick = (evt, id, reactFlowInstance) => {
     evt.stopPropagation();
-    let after_edges = reactFlowInstance.getNodes().filter(node => node.id!== id);
-    if (reactFlowInstance.getNodes().length===1){
+    let after_edges = reactFlowInstance.getNodes().filter(node => node.id !== id);
+    if (reactFlowInstance.getNodes().length === 1) {
         reactFlowInstance.setNodes(defaultStartNodes);
 
-    }else{
+    } else {
         reactFlowInstance.setNodes(after_edges);
 
     }
@@ -22,7 +22,7 @@ const onEdgeClick = (evt, id,reactFlowInstance) => {
 };
 
 
-const CsvDataImportNode = ({ data,id }) => {
+const CsvDataImportNode = ({data, id}) => {
     const inputFile = useRef(null);
     const [fileName, setFileName] = useState(data.csv_name);//TODO hook this up to data and default "None Selected"
     const [columnKeys, setColumnKeys] = useState(data.column_keys);
@@ -33,8 +33,10 @@ const CsvDataImportNode = ({ data,id }) => {
         inputFile.current.click();
     };
 
-    const handleUpdate = e => setFileName(e.target.value);
-    const handleColumnKeysChange = e => {setColumnKeys(e.target.value)};
+    const handleUpdate = e => setFileName(e.target.value.replace("C:\\fakepath\\", "../../resources/"));
+    const handleColumnKeysChange = e => {
+        setColumnKeys(e.target.value)
+    };
     const handleColumnValuesChange = e => setColumnValues(e.target.value);
 
     //Update data using effect after file browser or input text
@@ -57,15 +59,16 @@ const CsvDataImportNode = ({ data,id }) => {
 
     return (
         <div className="csv-data-import-node">
-            <IconButton aria-label="delete" style={{float:'right',vertical_align: 'top',padding:'0px'}} size="small" onClick={(event) => onEdgeClick(event, id,reactFlowInstance)}>
-                <HighlightOffIcon fontSize="inherit" />
+            <IconButton aria-label="delete" style={{float: 'right', vertical_align: 'top', padding: '0px'}} size="small"
+                        onClick={(event) => onEdgeClick(event, id, reactFlowInstance)}>
+                <HighlightOffIcon fontSize="inherit"/>
             </IconButton>
             <div>CSV Data Import From {fileName}</div>
             <Handle
                 type="source"
                 position={Position.Right}
                 id="a"
-                style={{ borderRadius: 0 }}
+                style={{borderRadius: 0}}
             />
             <div className="row-cols-1">
                 <div className="row">
@@ -74,11 +77,13 @@ const CsvDataImportNode = ({ data,id }) => {
 
                 </div>
                 <div className="row">
-                <TextField  label="company name header" className="text-input-field" type="text" value={columnKeys} onChange={handleColumnKeysChange} />
+                    <TextField label="company name header" className="text-input-field" type="text" value={columnKeys}
+                               onChange={handleColumnKeysChange}/>
                 </div>
-                    <div className="row">
-                <TextField label="company name header" className="text-input-field" type="text" value={columnValues} onChange={handleColumnValuesChange} />
-                    </div>
+                <div className="row">
+                    <TextField label="company name header" className="text-input-field" type="text" value={columnValues}
+                               onChange={handleColumnValuesChange}/>
+                </div>
             </div>
         </div>
     );
