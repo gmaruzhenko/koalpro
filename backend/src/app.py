@@ -1,4 +1,5 @@
 from distutils.command.config import config
+from turtle import back
 from urllib import response
 import pandas as pd
 from flask import Flask, render_template, jsonify, request
@@ -8,6 +9,7 @@ from flask_cors import CORS, cross_origin
 import ast, json, requests
 from types import SimpleNamespace
 from algebra import addition, subtraction, multiplication, division, load_csv, discount
+from topsort import Graph, make_graph, process_edges
 
 app = Flask(__name__)
 CORS(app)
@@ -35,27 +37,28 @@ def send_data():
 @cross_origin()
 def process_config():
     if request.method == 'POST':
+
         new_config = request.get_json(cache=True)
         new_config_dict = json.dumps(new_config["elements"])
-        print(type(new_config_dict))
-        with open('../../resources/config_file.json', 'w') as config_file:
+
+#if posted config is not null, update config and backup to cache the last saved post
+        if new_config and new_config_dict is not None:
+            with open('../../resources/config_file.json', 'w') as config_file:
                 json.dumps(config_file.write(new_config_dict))
-        print(new_config_dict)
-        config_file.close()
+            with open('../../resources/backup_config.json', 'w') as backup_file :
+                json.dumps(backup_file.write(new_config_dict))
+            
+            print(new_config_dict)
+            config_file.close()
+            backup_file.close()
         return json.dumps(new_config_dict)
+
     else:
         '''
         GET /config
         After the user completes dragging and dropping nodes in the no-code workflow, 
         backend can request the node configuration from the JSON config file. 
         '''
-        # json_data = response.json()
-        # get response
-        #if response not empty:
-        #write to config.json & update backup.json
-        #else
-        #pull from backup & overwrite config with backup
-
         try: #reading exisiting config file
             with open('../../resources/config_file.json', 'r') as config_file:
                 curr_config = json.load(config_file)
@@ -63,19 +66,29 @@ def process_config():
             config_file.close()
             return json.dumps(curr_config)
         except: 
-            #TODO: if no existing config file, overwrite config file with backup config file
-            with open('../../resources/backup_config.json', 'r') as file :
-                backup_data = file.read()
+            #if no existing config file, then create one and
+            # overwrite config file with backup config file
+            with open('../../resources/backup_config.json', 'r') as backup_file :
+                backup_data = backup_file.read()
+                if len(backup_data) < 1:
+                    backup_data = superbackup()
             
             with open('../../resources/config_file.json', 'w') as config_file :
                 json.dumps(config_file.write(backup_data))
 
             #curr_config = json.dump(backup_data, open('../../resources/config_file.json', 'w'))
             #print(curr_config)
-            file.close()
+            backup_file.close()
             config_file.close()
             return json.dumps(backup_data)
-
+def superbackup():
+    with open('../../resources/super_backup_config_DONOTTOUCH.json', 'r') as super_backup_file :
+        super_backup_data = super_backup_file.read()
+    with open('../../resources/backup_config.json', 'w') as backup_config :
+                json.dumps(backup_config.write(super_backup_data))
+    backup_config.close()
+    super_backup_file.close()
+    return super_backup_data
 '''
 Parses JSON config file from Frontend
 RETURNS: JSON str of Python Result Dictionary for up-sell or cross-sell with [{"companyid": "id", "value":1}]
@@ -113,7 +126,7 @@ def load_JSON():
             # store in operations to do list
             if node["type"] == "discount":
                 node_data = node["data"]
-                operations_todo[node["id"]] = (node["type"],node_data["discount_from_list_price"])
+                operations_todo[node["id"]] = (node["type"],node_data["discount"])
             else:
                 operations_todo[node["id"]] = node["type"]
 
@@ -128,7 +141,7 @@ def load_JSON():
                 up_sell_resultid = node["id"]
                 up_sell = True 
 
-        elif node["type"] == "default":
+        elif node["type"] == "button_edge":
             # connection objects
             if node["target"] not in edges:
                 edges[node["target"]] = []
@@ -138,11 +151,14 @@ def load_JSON():
                 if node["source"] not in edges[node["target"]]:
                     edges[node["target"]].append(node["source"])
 
-    # print("\nNodelist: \n", nodelist, "\n\n","Operations: \n", operations_todo, "\n\n","Edges \n", edges, "\n\n","Results: \n", results)
-    # print("\n\nCROSS SELL",cross_sell_resultid,"\n\nUP SELL",up_sell_resultid )
+    edge_graph = make_graph(edges) #Perform topological sort on the list of edges
+    topsorted_list = edge_graph.topologicalSort() #returns list of the order of indexes of edgelist
+    #print("\n\nTOPSORT",topsorted_list)
+    processed_edges = process_edges(topsorted_list, edges) #Returns correct dictionary of edges after top sort
+    #print("FINAL EDGES",processed_edges)
+    
     #Perform operations based on the todo list
-
-    processOperations(operations_todo, edges, nodelist, results)
+    processOperations(operations_todo, processed_edges, nodelist, results)
     cross_sell_dict_to_return = {}
     up_sell_dict_to_return = {}
 
@@ -151,7 +167,8 @@ def load_JSON():
     if up_sell:
         up_sell_dict_to_return = results[up_sell_resultid]
     
-    # print("\n\nCROSS SELL DICT", cross_sell_dict_to_return, "\n\nUP SELL DICT", up_sell_dict_to_return)
+    print("\nNodelist: \n", nodelist, "\n\n","Operations: \n", operations_todo, "\n\n","Edges: \n", edges,"\n\nSorted Edges:\n",process_edges, "\n\n","Results: \n", results)
+    print("\n\nCROSS SELL DICT", cross_sell_dict_to_return, "\n\nUP SELL DICT", up_sell_dict_to_return)
     #print("DICT TO RETURN",dict_to_return)
 
     #response = json.dumps(reformat_response)
@@ -181,7 +198,7 @@ def load_JSON():
         except KeyError:
             pass
 
-    # print("\n\nDICT TO RETURN",dict_to_return)
+    print("\n\nDICT TO RETURN",dict_to_return)
 
     reformat_response = []
     for k in dict_to_return:
@@ -200,6 +217,7 @@ def load_JSON():
             dict_entry['cross_sell_value'] = None   
 
         reformat_response.append(dict_entry)
+        print(reformat_response)
 
     #reformat_response = [ {'companyID' : k, 'cross_sell_value' : dict_to_return[k][0], 'up_sell_value' : dict_to_return[k][1]} for k in dict_to_return]
     # print('/n',"ANSWER",reformat_response)

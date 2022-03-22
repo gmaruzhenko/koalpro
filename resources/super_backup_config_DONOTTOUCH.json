@@ -1,0 +1,35 @@
+[
+    {
+        "id": "dndnode_c0b038ae-c18d-41a9-b76d-27bdce3a5e77",
+        "type": "csv_data_import",
+        "position": {
+            "x": 15,
+            "y": 71.33332824707031
+        },
+        "data": {
+            "label": "csv_data_import node",
+            "csv_name": "../../resources/SP500 by employees.xlsx - SP500 by Employees.csv",
+            "column_keys": "Name",
+            "column_values": "Price/Book"
+        }
+    },
+    {
+        "id": "dndnode_7a4d9dc4-2cff-4617-af77-401a2ed2fbe1",
+        "type": "cross_sell_output",
+        "position": {
+            "x": 682,
+            "y": 104.33332824707031
+        },
+        "data": {
+            "label": "cross_sell_output node"
+        }
+    },
+    {
+        "source": "dndnode_c0b038ae-c18d-41a9-b76d-27bdce3a5e77",
+        "sourceHandle": "a",
+        "target": "dndnode_7a4d9dc4-2cff-4617-af77-401a2ed2fbe1",
+        "targetHandle": null,
+        "id": "reactflow__edge-dndnode_c0b038ae-c18d-41a9-b76d-27bdce3a5e77a-dndnode_7a4d9dc4-2cff-4617-af77-401a2ed2fbe1null",
+        "type": "button_edge"
+    }
+ ]
