@@ -158,16 +158,15 @@ const DnDFlow = () => {
         reactFlowInstance.getNodes().forEach(function (node) {
             let sources = node.handleBounds.source;
             let targets = node.handleBounds.target;
-            if (sources===null){
-                sources=[]
+            if (sources === null) {
+                sources = []
             }
-            if (targets===null){
-                targets=[]
+            if (targets === null) {
+                targets = []
             }
 
-            const numEdgesShouldBeConnected = sources.length+targets.length;
-            if (getConnectedEdges([node], reactFlowInstance.getEdges()).length <= numEdgesShouldBeConnected) {
-
+            const numEdgesShouldBeConnected = sources.length + targets.length;
+            if (getConnectedEdges([node], reactFlowInstance.getEdges()).length < numEdgesShouldBeConnected) {
                 unconnectedNodes.push(node);
             }
         });
@@ -223,10 +222,13 @@ const DnDFlow = () => {
         const nodesToDelete = getUnconnectedNodes();
         const nodesToDeleteIds = nodesToDelete.map(n => n.id);
 
-        const after_nodes = reactFlowInstance.getNodes().filter(function (node) {
+        let afterEdges = reactFlowInstance.getEdges().filter(edge => nodesToDeleteIds.indexOf(edge.source) === -1 || nodesToDeleteIds.indexOf(edge.target) === -1);
+        console.log(afterEdges);
+        const afterNodes = reactFlowInstance.getNodes().filter(function (node) {
             return nodesToDeleteIds.indexOf(node.id) === -1;
         });
-        reactFlowInstance.setNodes(after_nodes);
+        reactFlowInstance.setNodes(afterNodes);
+        reactFlowInstance.setEdges(afterEdges);
         setOpenUnconnectedNodeDialog(false);
     };
 
