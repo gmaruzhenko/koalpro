@@ -64,11 +64,11 @@ const RestoreButton = styled(Button)(({theme}) => ({
 
 //TODO decide on formal of config
 function flow_elements_to_config(elements) {
-    elements.forEach(function (node, index, myArray) {
-        if (node.type === undefined) {
-            node.type = 'connection'
-        }
-    });
+    // elements.forEach(function (node, index, myArray) {
+    //     if (node.type === undefined) {
+    //         node.type = 'connection'
+    //     }
+    // });
     axios.post('http://127.0.0.1:5000/config', {
         elements
     })
@@ -148,7 +148,8 @@ const DnDFlow = () => {
         if (getUnconnectedNodes().length > 0) {
             setOpenUnconnectedNodeDialog(true)
         } else {
-            flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...reactFlowInstance.toObject().edges])
+            const cleanedEdges = reactFlowInstance.toObject().edges.filter(edge => edge !== {}); // workaround the {} edges from button edge last edge removal
+            flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...cleanedEdges])
         }
 
     };
