@@ -148,7 +148,11 @@ const DnDFlow = () => {
         if (getUnconnectedNodes().length > 0) {
             setOpenUnconnectedNodeDialog(true)
         } else {
-            const cleanedEdges = reactFlowInstance.toObject().edges.filter(edge => edge !== {}); // workaround the {} edges from button edge last edge removal
+            const cleanedEdges = reactFlowInstance.getEdges().filter(function(edge){
+                console.log(edge.type !== undefined);
+                return edge.type !== undefined}); // workaround the {} edges from button edge last edge removal
+            // console.log(cleanedEdges)
+            console.log(cleanedEdges)
             flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...cleanedEdges])
         }
 
