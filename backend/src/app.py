@@ -9,6 +9,7 @@ from flask_cors import CORS, cross_origin
 import ast, json, requests
 from types import SimpleNamespace
 from algebra import addition, subtraction, multiplication, division, load_csv, discount
+from topsort import Graph, make_graph, process_edges
 
 app = Flask(__name__)
 CORS(app)
@@ -36,6 +37,7 @@ def send_data():
 @cross_origin()
 def process_config():
     if request.method == 'POST':
+
         new_config = request.get_json(cache=True)
         new_config_dict = json.dumps(new_config["elements"])
 
@@ -50,6 +52,7 @@ def process_config():
             config_file.close()
             backup_file.close()
         return json.dumps(new_config_dict)
+
     else:
         '''
         GET /config
@@ -138,7 +141,7 @@ def load_JSON():
                 up_sell_resultid = node["id"]
                 up_sell = True 
 
-        elif node["type"] == "default":
+        elif node["type"] == "button_edge":
             # connection objects
             if node["target"] not in edges:
                 edges[node["target"]] = []
@@ -148,11 +151,17 @@ def load_JSON():
                 if node["source"] not in edges[node["target"]]:
                     edges[node["target"]].append(node["source"])
 
-    # print("\nNodelist: \n", nodelist, "\n\n","Operations: \n", operations_todo, "\n\n","Edges \n", edges, "\n\n","Results: \n", results)
-    # print("\n\nCROSS SELL",cross_sell_resultid,"\n\nUP SELL",up_sell_resultid )
+    #lookup dict to convert nodeid strings to ints
+    #  Key: Int node number, Value: string name
+    lookup_dict = {}
+    edge_graph = make_graph(edges,lookup_dict) #Perform topological sort on the list of edges
+    topsorted_list = edge_graph.topologicalSort() #returns list of the order of indexes of edgelist
+    print("\n\nTOPSORT",topsorted_list)
+    processed_edges = process_edges(topsorted_list, edges, lookup_dict) #Returns correct dictionary of edges after top sort
+    print("FINAL EDGES",processed_edges)
+    
     #Perform operations based on the todo list
-
-    processOperations(operations_todo, edges, nodelist, results)
+    processOperations(operations_todo, processed_edges, nodelist, results)
     cross_sell_dict_to_return = {}
     up_sell_dict_to_return = {}
 
@@ -161,7 +170,8 @@ def load_JSON():
     if up_sell:
         up_sell_dict_to_return = results[up_sell_resultid]
     
-    # print("\n\nCROSS SELL DICT", cross_sell_dict_to_return, "\n\nUP SELL DICT", up_sell_dict_to_return)
+    #print("\nNodelist: \n", nodelist, "\n\n","Operations: \n", operations_todo, "\n\n","Edges: \n", edges,"\n\nSorted Edges:\n",processed_edges, "\n\n","Results: \n", results)
+    #print("\n\nCROSS SELL DICT", cross_sell_dict_to_return, "\n\nUP SELL DICT", up_sell_dict_to_return)
     #print("DICT TO RETURN",dict_to_return)
 
     #response = json.dumps(reformat_response)
@@ -191,7 +201,7 @@ def load_JSON():
         except KeyError:
             pass
 
-    # print("\n\nDICT TO RETURN",dict_to_return)
+    #print("\n\nDICT TO RETURN",dict_to_return)
 
     reformat_response = []
     for k in dict_to_return:
@@ -210,6 +220,7 @@ def load_JSON():
             dict_entry['cross_sell_value'] = None   
 
         reformat_response.append(dict_entry)
+        #print(reformat_response)
 
     #reformat_response = [ {'companyID' : k, 'cross_sell_value' : dict_to_return[k][0], 'up_sell_value' : dict_to_return[k][1]} for k in dict_to_return]
     # print('/n',"ANSWER",reformat_response)

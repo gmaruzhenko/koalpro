@@ -1,13 +1,22 @@
 import React, {useEffect, useRef, useState} from 'react';
-import  { Handle, Position,useStoreState  } from 'react-flow-renderer';
+import {Handle, Position, useReactFlow, useStoreState} from 'react-flow-renderer';
 import Button from '@material-ui/core/Button';
 import '../../css/custom_nodes.css'
 import '../../css/dnd.css'
 import TextField from "@material-ui/core/TextField";
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import IconButton from '@material-ui/core/IconButton';
+import defaultStartNodes from "../defaultStartNodes";
+import deleteNodeHelper from "../deleteNodeHelper";
+
+const onEdgeClick = (evt, id,reactFlowInstance) => {
+    evt.stopPropagation();
+    deleteNodeHelper(reactFlowInstance,id);
+
+};
 
 
-
-const CsvDataImportNode = ({ data }) => {
+const CsvDataImportNode = ({ data,id }) => {
     const inputFile = useRef(null);
     const [fileName, setFileName] = useState(data.csv_name);//TODO hook this up to data and default "None Selected"
     const [columnKeys, setColumnKeys] = useState(data.column_keys);
@@ -38,9 +47,13 @@ const CsvDataImportNode = ({ data }) => {
         },
         [columnValues]
     );
+    const reactFlowInstance = useReactFlow();
 
     return (
         <div className="csv-data-import-node">
+            <IconButton aria-label="delete" style={{float:'right',vertical_align: 'top',padding:'0px'}} size="small" onClick={(event) => onEdgeClick(event, id,reactFlowInstance)}>
+                <HighlightOffIcon fontSize="inherit" />
+            </IconButton>
             <div>CSV Data Import From {fileName}</div>
             <Handle
                 type="source"

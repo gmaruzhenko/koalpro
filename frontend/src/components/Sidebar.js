@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import Paper from "@material-ui/core/Paper";
-
+import ReactFlow, { useReactFlow } from 'react-flow-renderer';
 import '../css/dnd.css';
 import '../css/custom_nodes.css'
 
-export default ({elements}) => {
+export default ({nodes}) => {
     const [crossSellCount, setCrossSellCount] = useState(0);
     const [upSellCount, setUpSellCount] = useState(0);
     const onDragStart = (event, nodeType) => {
@@ -14,7 +14,8 @@ export default ({elements}) => {
     useEffect(() => {
             let upsellcount = 0;
             let crosssellcount = 0;
-            elements.forEach(function (node) {
+
+            nodes&&nodes.forEach(function (node) {
                 if (node.type === "cross_sell_output") {
                     crosssellcount = crosssellcount+1;
                 }
@@ -25,7 +26,7 @@ export default ({elements}) => {
             setCrossSellCount(crosssellcount);
             setUpSellCount(upsellcount);
         },
-        [elements]
+        [nodes]
     );
 
 
