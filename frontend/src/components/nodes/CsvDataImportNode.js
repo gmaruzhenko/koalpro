@@ -59,7 +59,6 @@ const CsvDataImportNode = ({ data,id }) => {
                 type="source"
                 position={Position.Right}
                 id="a"
-                style={{ borderRadius: 0 }}
             />
             <div className="row-cols-1">
                 <div className="row">

@@ -1,19 +1,32 @@
 :root {
-    --navy:#444c5c;
-    --redpunch:#ce5a57;
-    --ocean:#78a5a3;
-    --warmorange:#e1b16a;
-    --boarderblue:#0041d0;
-    --whitebackground:#fff;
+    --navy: #444c5c;
+    --redpunch: #ce5a57;
+    --ocean: #78a5a3;
+    --warmorange: #e1b16a;
+    --boarderblue: #0041d0;
+    --whitebackground: #fff;
     --greenmedow: #598234;
-    --earthbrown: #7D4427
+    --earthbrown: #7D4427;
 
+}
+
+.react-flow__handle {
+    background-image: url(output.svg);
+    background-color: #f8f8f0;
+    border-radius: 0px;
+    height: 8px;
+    width: 8px;
+    padding: 2px;
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .react-flow__node {
     cursor: grab;
 }
-.addition-node, .csv-data-import-node, .cross-sell-output-node, .up-sell-output-node,.discount-node,.product-node {
+
+.addition-node, .csv-data-import-node, .cross-sell-output-node, .up-sell-output-node, .discount-node, .product-node {
     padding: 10px;
     border-radius: 3px;
     width: 200px;
@@ -23,57 +36,63 @@
     border-width: 1px;
     border-style: solid;
 }
-.addition-node.selectable:hover, .csv-data-import-node.selectable:hover, .cross-sell-output-node.selectable:hover,.up-sell-output-node.selectable:hover,.discount-node.selectable:hover,.product-node.selectable:hover  {
+
+.addition-node.selectable:hover, .csv-data-import-node.selectable:hover, .cross-sell-output-node.selectable:hover, .up-sell-output-node.selectable:hover, .discount-node.selectable:hover, .product-node.selectable:hover {
     box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.08);
 }
-
-
 
 
 .csv-data-import-node {
     background: var(--whitebackground);
     border-color: var(--navy);
 }
+
 .csv-data-import-node.selected, .csv-data-import-node.selected:hover {
     box-shadow: 0 0 0 0.5px var(--navy);
 }
-.csv-data-import-node .react-flow__handle {
-    background: var(--navy);
-}
 
+.csv-data-import-node .react-flow__handle {
+    border-color: var(--navy)
+}
 
 
 .addition-node {
     background: var(--whitebackground);
     border-color: var(--ocean);
 }
+
 .addition-node.selected, .addition-node.selected:hover {
     box-shadow: 0 0 0 0.5px var(--ocean);
 }
+
 .addition-node .react-flow__handle {
-    background: var(--ocean);
+    border-color: var(--ocean)
 }
 
 .discount-node {
     background: var(--whitebackground);
     border-color: var(--greenmedow);
 }
+
 .discount-node.selected, .discount-node.selected:hover {
     box-shadow: 0 0 0 0.5px var(--greenmedow);
 }
+
 .discount-node .react-flow__handle {
-    background: var(--greenmedow);
+    border-color: var(--greenmedow);
 }
 
 .product-node {
     background: var(--whitebackground);
     border-color: var(--earthbrown);
 }
+
 .product-node.selected, .product-node.selected:hover {
     box-shadow: 0 0 0 0.5px var(--earthbrown);
 }
+
 .product-node .react-flow__handle {
-    background: var(--earthbrown);
+    border-color: var(--earthbrown);
 }
 
 
@@ -81,21 +100,25 @@
     background: var(--whitebackground);
     border-color: var(--redpunch);
 }
+
 .cross-sell-output-node.selected, .cross-sell-output-node.selected:hover {
     box-shadow: 0 0 0 0.5px var(--redpunch);
 }
+
 .cross-sell-output-node .react-flow__handle {
-    background: var(--redpunch);
+    border-color: var(--redpunch);
 }
 
 .up-sell-output-node {
     background: var(--whitebackground);
     border-color: var(--warmorange);
 }
+
 .up-sell-output-node.selected, .up-sell-output-node.selected:hover {
     box-shadow: 0 0 0 0.5px var(--warmorange);
 }
+
 .up-sell-output-node .react-flow__handle {
-    background: var(--warmorange);
+    border-color: var(--warmorange);
 }
 
