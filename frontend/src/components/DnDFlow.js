@@ -231,8 +231,21 @@ const DnDFlow = () => {
         const afterNodes = reactFlowInstance.getNodes().filter(function (node) {
             return nodesToDeleteIds.indexOf(node.id) === -1;
         });
-        reactFlowInstance.setNodes(afterNodes);
-        reactFlowInstance.setEdges(afterEdges);
+        console.log(afterNodes);
+
+        if (afterNodes.length===0){
+            reactFlowInstance.setNodes(defaultStartNodes);
+            reactFlowInstance.setEdges([{}]);
+            // console.log(reactFlowInstance.getEdges())
+
+        }else if (afterEdges.length ===0){
+            reactFlowInstance.setNodes(afterNodes);
+            reactFlowInstance.setEdges([{}]);
+        }
+        else{
+            reactFlowInstance.setNodes(afterNodes);
+            reactFlowInstance.setEdges(afterEdges);
+        }
         setOpenUnconnectedNodeDialog(false);
     };
 
