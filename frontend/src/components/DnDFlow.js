@@ -5,6 +5,7 @@ import ReactFlow, {
     useNodesState,
     useEdgesState,
     Controls,
+    getConnectedEdges
 } from 'react-flow-renderer';
 import axios from 'axios';
 import {v4 as uuid} from 'uuid';
@@ -23,6 +24,12 @@ import Grid from "@material-ui/core/Grid";
 import UpSellOutputNode from "./nodes/UpSellOutputNode";
 import DiscountNode from "./nodes/DiscountNode";
 import defaultStartNodes from "./defaultStartNodes";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogActions from "@material-ui/core/DialogActions";
+import deleteNodeHelper from "./deleteNodeHelper";
 
 const navy_color = '#444c5c';
 const ocean_color = '#78a5a3';
@@ -57,11 +64,12 @@ const RestoreButton = styled(Button)(({theme}) => ({
 
 //TODO decide on formal of config
 function flow_elements_to_config(elements) {
-    elements.forEach(function (node, index, myArray) {
-        if (node.type === undefined) {
-            node.type = 'connection'
-        }
-    });
+    // elements.forEach(function (node, index, myArray) {
+    //     if (node.type === undefined) {
+    //         node.type = 'connection'
+    //     }
+    // });
+    // console.log(elements)
     axios.post('http://127.0.0.1:5000/config', {
         elements
     })
@@ -110,6 +118,7 @@ const DnDFlow = () => {
     const [nodes, setNodes, onNodesChange] = useNodesState(defaultStartNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
     const [restoreFlag, setRestoreFlag] = useState(false);
+    const [openUnconnectedNodeDialog, setOpenUnconnectedNodeDialog] = React.useState(false);
     const [width, setWidth] = useState(window.innerWidth);
     const [height, setHeight] = useState(window.innerHeight);
     const updateWidthAndHeight = () => {
@@ -137,13 +146,40 @@ const DnDFlow = () => {
         setReactFlowInstance(_reactFlowInstance);
 
     const onSave = () => {
-        flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...reactFlowInstance.toObject().edges]
-        )
+        if (getUnconnectedNodes().length > 0) {
+            setOpenUnconnectedNodeDialog(true)
+        } else {
+            const cleanedEdges = reactFlowInstance.getEdges().filter(function(edge){
+                return edge.type !== undefined}); // workaround the {} edges from button edge last edge removal
+            flow_elements_to_config([...reactFlowInstance.toObject().nodes, ...cleanedEdges])
+        }
+
     };
+
+    function getUnconnectedNodes() {
+        let unconnectedNodes = [];
+        reactFlowInstance.getNodes().forEach(function (node) {
+            let sources = node.handleBounds.source;
+            let targets = node.handleBounds.target;
+            if (sources === null) {
+                sources = []
+            }
+            if (targets === null) {
+                targets = []
+            }
+
+            const numEdgesShouldBeConnected = sources.length + targets.length;
+            if (getConnectedEdges([node], reactFlowInstance.getEdges()).length < numEdgesShouldBeConnected) {
+                unconnectedNodes.push(node);
+            }
+        });
+        return unconnectedNodes
+    }
 
     const onClear = () => {
         setNodes([]);
         setEdges([]);
+
     };
     const onRestore = () => {
         setNodes([]);
@@ -183,9 +219,60 @@ const DnDFlow = () => {
     };
 
 
+    const handleClose = () => {
+        setOpenUnconnectedNodeDialog(false);
+    };
+    const handleAutoRemoveUnconnectedNodesClose = () => {
+        const nodesToDelete = getUnconnectedNodes();
+        const nodesToDeleteIds = nodesToDelete.map(n => n.id);
+
+        let afterEdges = reactFlowInstance.getEdges().filter(edge => nodesToDeleteIds.indexOf(edge.source) === -1 || nodesToDeleteIds.indexOf(edge.target) === -1);
+        console.log(afterEdges);
+        const afterNodes = reactFlowInstance.getNodes().filter(function (node) {
+            return nodesToDeleteIds.indexOf(node.id) === -1;
+        });
+        console.log(afterNodes);
+
+        if (afterNodes.length===0){
+            reactFlowInstance.setNodes(defaultStartNodes);
+            reactFlowInstance.setEdges([{}]);
+            // console.log(reactFlowInstance.getEdges())
+
+        }else if (afterEdges.length ===0){
+            reactFlowInstance.setNodes(afterNodes);
+            reactFlowInstance.setEdges([{}]);
+        }
+        else{
+            reactFlowInstance.setNodes(afterNodes);
+            reactFlowInstance.setEdges(afterEdges);
+        }
+        setOpenUnconnectedNodeDialog(false);
+    };
+
+
     return (
         <Paper style={{height: '100%', width: '100%'}}>
             <div className="dndflow">
+
+
+                <Dialog
+                    open={openUnconnectedNodeDialog}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                        {"Some Nodes still not connected, did you mean to connect them?"}
+                    </DialogTitle>
+                    <DialogActions style={{justifyContent: "center"}}>
+                        {/*<RestoreButton onClick={handleAutoRemoveUnconnectedNodesClose}>Remove unconnected nodes for me*/}
+                        {/*    and Save</RestoreButton>*/}
+                        <SaveButton onClick={handleClose} autoFocus>
+                            Take me back to editor without saving to review
+                        </SaveButton>
+                    </DialogActions>
+                </Dialog>
+
                 <ReactFlowProvider>
                     <Grid item xs={9} style={{display: "grid", alignItems: "stretch"}}>
                         <div className="reactflow-wrapper" ref={reactFlowWrapper}
