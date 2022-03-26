@@ -74,7 +74,7 @@ const CsvDataImportNode = ({data, id}) => {
                                onChange={handleColumnKeysChange}/>
                 </div>
                 <div className="row">
-                    <TextField label="company name header" className="text-input-field" type="text" value={columnValues}
+                    <TextField label="import value header" className="text-input-field" type="text" value={columnValues}
                                onChange={handleColumnValuesChange}/>
                 </div>
             </div>
