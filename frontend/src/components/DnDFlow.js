@@ -152,7 +152,7 @@ const DnDFlow = () => {
         setReactFlowInstance(_reactFlowInstance);
 
     const onSave = () => {
-        if (getUnconnectedNodes().length > 0) {
+        if (getUnconnectedNodes().length < 0) {
             setOpenUnconnectedNodeDialog(true)
         } else {
             const cleanedEdges = reactFlowInstance.getEdges().filter(function(edge){

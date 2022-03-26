@@ -17,9 +17,9 @@ const onEdgeClick = (evt, id, reactFlowInstance) => {
 
 const CsvDataImportNode = ({data, id}) => {
     const inputFile = useRef(null);
-    const [fileName, setFileName] = useState(data.csv_name);//TODO hook this up to data and default "None Selected"
-    const [columnKeys, setColumnKeys] = useState(data.column_keys);
-    const [columnValues, setColumnValues] = useState(data.column_values);
+    const [fileName, setFileName] = useState();//TODO hook this up to data and default "None Selected"
+    const [columnKeys, setColumnKeys] = useState("Company Name");
+    const [columnValues, setColumnValues] = useState("Number of Players");
 
     const onButtonClick = () => {
         // `current` points to the mounted file input element
@@ -56,7 +56,8 @@ const CsvDataImportNode = ({data, id}) => {
                         onClick={(event) => onEdgeClick(event, id, reactFlowInstance)}>
                 <HighlightOffIcon fontSize="inherit"/>
             </IconButton>
-            <div>CSV Data Import From {fileName}</div>
+            <div>CSV Data import from : </div>
+            <div>{fileName}</div>
             <Handle
                 type="source"
                 position={Position.Right}
@@ -70,11 +71,11 @@ const CsvDataImportNode = ({data, id}) => {
                 </div>
                 <div className="row">
                     <TextField label="company name header" className="text-input-field" type="text" value={columnKeys}
-                               onChange={handleColumnKeysChange}/>
+                               />
                 </div>
                 <div className="row">
                     <TextField label="import value header" className="text-input-field" type="text" value={columnValues}
-                               onChange={handleColumnValuesChange}/>
+                               />
                 </div>
             </div>
         </div>

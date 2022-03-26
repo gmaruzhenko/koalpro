@@ -55,7 +55,7 @@ const DummySalesforceImport = ({ data,id }) => {
                 <HighlightOffIcon fontSize="inherit" />
             </IconButton>
             <div>Salesforce CRM import from:</div>
-            <div>Region 1 British Columbia</div>
+            <div>Region 1 Stick purchased British Columbia</div>
 
 
                 <Handle
@@ -70,10 +70,10 @@ const DummySalesforceImport = ({ data,id }) => {
 
                 {/*</div>*/}
                 <div className="row">
-                <TextField  label="company name header" className="text-input-field" type="text" disabled value={columnKeys} onChange={handleColumnKeysChange} />
+                <TextField  label="company name header" className="text-input-field" type="text"  value={columnKeys}  />
                 </div>
                     <div className="row">
-                <TextField label="input value header" className="text-input-field" type="text" disabled value={columnValues} onChange={handleColumnValuesChange} />
+                <TextField label="input value header" className="text-input-field" type="text"  value={columnValues}  />
                     </div>
             </div>
         </div>

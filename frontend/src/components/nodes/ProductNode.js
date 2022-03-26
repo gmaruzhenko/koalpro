@@ -36,7 +36,6 @@ const productLibrary = {
 
 const ProductNode = ({data, id}) => {
     // const price = data.product[0].unit_price
-    console.log(data)
     if (data.product === undefined){
         data.product = productLibrary.product;
     }

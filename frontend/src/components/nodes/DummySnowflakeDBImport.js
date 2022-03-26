@@ -68,10 +68,10 @@ const DummySnowflakeDBImport = ({ data,id }) => {
 
                 {/*</div>*/}
                 <div className="row">
-                <TextField  label="company name header" className="text-input-field" type="text" disabled value={columnKeys} onChange={handleColumnKeysChange} />
+                <TextField  label="company name header" className="text-input-field" type="text"  value={columnKeys} />
                 </div>
                     <div className="row">
-                <TextField label="input value header" className="text-input-field" type="text" disabled value={columnValues} onChange={handleColumnValuesChange} />
+                <TextField label="input value header" className="text-input-field" type="text"  value={columnValues}  />
                     </div>
             </div>
         </div>
