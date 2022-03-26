@@ -31,6 +31,8 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogActions from "@material-ui/core/DialogActions";
 import deleteNodeHelper from "./deleteNodeHelper";
+import DummySnowflakeDBImport from "./nodes/DummySnowflakeDBImport";
+import DummySalesforceImport from "./nodes/DummySalesforceImport";
 
 const navy_color = '#444c5c';
 const ocean_color = '#78a5a3';
@@ -106,6 +108,8 @@ const nodeTypes = {
     csv_data_import: CsvDataImportNode,
     discount: DiscountNode,
     product: ProductNode,
+    DummySnowflakeDBImport: DummySnowflakeDBImport, //TODO wire up dummy snowflake
+    DummySalesforceImport:DummySalesforceImport,
 
 };
 

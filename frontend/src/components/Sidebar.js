@@ -58,6 +58,15 @@ export default ({nodes}) => {
                  draggable>
                 Product
             </div>
+            <div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'DummySnowflakeDBImport')}
+                 draggable>
+                SnowFlake DB instance
+            </div>
+            <div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'DummySalesforceImport')}
+                 draggable>
+                Salesforce CRM instance
+            </div>
+
         </aside>
     );
 };
