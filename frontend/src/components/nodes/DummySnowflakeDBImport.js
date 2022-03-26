@@ -20,7 +20,7 @@ const DummySnowflakeDBImport = ({ data,id }) => {
     const inputFile = useRef(null);
     const [fileName, setFileName] = useState(data.csv_name);//TODO hook this up to data and default "None Selected"
     const [columnKeys, setColumnKeys] = useState("Company Name");
-    const [columnValues, setColumnValues] = useState("Worldwide # of players");
+    const [columnValues, setColumnValues] = useState("Number of Players");
 
     const onButtonClick = () => {
         // `current` points to the mounted file input element
@@ -55,7 +55,7 @@ const DummySnowflakeDBImport = ({ data,id }) => {
                 <HighlightOffIcon fontSize="inherit" />
             </IconButton>
             <div>SnowflakeDB import from: </div>
-            <div>Product Analytics Worldwide</div>
+            <div>Worldwide Stick Sales Analytics </div>
             <Handle
                 type="source"
                 position={Position.Right}
