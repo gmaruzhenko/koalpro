@@ -7,17 +7,11 @@ import IconButton from '@material-ui/core/IconButton';
 import defaultStartNodes from "../defaultStartNodes";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
+import deleteNodeHelper from "../deleteNodeHelper";
 
 const onEdgeClick = (evt, id, reactFlowInstance) => {
     evt.stopPropagation();
-    let after_edges = reactFlowInstance.getNodes().filter(node => node.id !== id);
-    if (reactFlowInstance.getNodes().length === 1) {
-        reactFlowInstance.setNodes(defaultStartNodes);
-
-    } else {
-        reactFlowInstance.setNodes(after_edges);
-
-    }
+    deleteNodeHelper(reactFlowInstance,id);
 
 };
 
@@ -41,7 +35,7 @@ const productLibrary = {
 };
 
 const ProductNode = ({data, id}) => {
-    const [productPrice, setProductPrice] = useState(data.product.unit_price || ''); //default to a state to ensure controlled
+    const [productPrice, setProductPrice] = useState(data.product || 2); //default to a state to ensure controlled
     const handleChange = (event) => {
         setProductPrice(event.target.value);
     };
