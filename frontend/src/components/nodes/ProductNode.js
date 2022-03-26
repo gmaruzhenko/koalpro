@@ -35,7 +35,12 @@ const productLibrary = {
 };
 
 const ProductNode = ({data, id}) => {
-    const [productPrice, setProductPrice] = useState(data.product || 2); //default to a state to ensure controlled
+    // const price = data.product[0].unit_price
+    console.log(data)
+    if (data.product === undefined){
+        data.product = productLibrary.product;
+    }
+    const [productPrice, setProductPrice] = useState(data.product[0].unit_price); //default to a state to ensure controlled
     const handleChange = (event) => {
         setProductPrice(event.target.value);
     };
