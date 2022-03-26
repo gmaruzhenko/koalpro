@@ -69,15 +69,16 @@ function flow_elements_to_config(elements) {
     //         node.type = 'connection'
     //     }
     // });
-    axios.post('http://127.0.0.1:5000/config', {
-        elements
-    })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    console.log(elements)
+    // axios.post('http://127.0.0.1:5000/config', {
+    //     elements
+    // })
+    //     .then(function (response) {
+    //         console.log(response);
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
     return elements
 
 }
@@ -178,6 +179,7 @@ const DnDFlow = () => {
     const onClear = () => {
         setNodes([]);
         setEdges([]);
+
     };
     const onRestore = () => {
         setNodes([]);
