@@ -264,9 +264,9 @@ const DnDFlow = () => {
                     <DialogTitle id="alert-dialog-title">
                         {"Some Nodes still not connected, did you mean to connect them?"}
                     </DialogTitle>
-                    <DialogActions>
-                        <RestoreButton onClick={handleAutoRemoveUnconnectedNodesClose}>Remove unconnected nodes for me
-                            and Save</RestoreButton>
+                    <DialogActions style={{justify_content: "center"}}>
+                        {/*<RestoreButton onClick={handleAutoRemoveUnconnectedNodesClose}>Remove unconnected nodes for me*/}
+                        {/*    and Save</RestoreButton>*/}
                         <SaveButton onClick={handleClose} autoFocus>
                             Take me back to editor without saving to review
                         </SaveButton>
