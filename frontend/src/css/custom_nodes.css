@@ -29,7 +29,7 @@
 .addition-node, .csv-data-import-node, .cross-sell-output-node, .up-sell-output-node, .discount-node, .product-node {
     padding: 10px;
     border-radius: 3px;
-    width: 200px;
+    width: 240px;
     font-size: 12px;
     color: #222;
     text-align: center;
