@@ -8,6 +8,7 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import IconButton from '@material-ui/core/IconButton';
 import defaultStartNodes from "../defaultStartNodes";
 import deleteNodeHelper from "../deleteNodeHelper";
+import Typography from "@material-ui/core/Typography";
 
 const onEdgeClick = (evt, id, reactFlowInstance) => {
     evt.stopPropagation();
@@ -56,8 +57,11 @@ const CsvDataImportNode = ({data, id}) => {
                         onClick={(event) => onEdgeClick(event, id, reactFlowInstance)}>
                 <HighlightOffIcon fontSize="inherit"/>
             </IconButton>
-            <div>CSV Data import from : </div>
-            <div>{fileName}</div>
+            <Typography variant="h6" component="div" gutterBottom>
+
+            <div>CSV Data import from :{fileName}</div>
+            </Typography>
+
             <Handle
                 type="source"
                 position={Position.Right}
@@ -70,11 +74,11 @@ const CsvDataImportNode = ({data, id}) => {
 
                 </div>
                 <div className="row">
-                    <TextField label="company name header" className="text-input-field" type="text" value={columnKeys}
+                    <TextField label="company name header" className="text-input-field" disabled type="text" value={columnKeys}
                                />
                 </div>
                 <div className="row">
-                    <TextField label="import value header" className="text-input-field" type="text" value={columnValues}
+                    <TextField label="import value header" className="text-input-field" disabled type="text" value={columnValues}
                                />
                 </div>
             </div>

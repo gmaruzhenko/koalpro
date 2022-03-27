@@ -6,6 +6,7 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import IconButton from '@material-ui/core/IconButton';
 import defaultStartNodes from "../defaultStartNodes";
 import deleteNodeHelper from "../deleteNodeHelper";
+import Typography from "@material-ui/core/Typography";
 
 const onEdgeClick = (evt, id,reactFlowInstance) => {
     evt.stopPropagation();
@@ -36,7 +37,9 @@ const DiscountNode = ({data,id}) => {
             </IconButton>
             <Handle type="target" id="input_1" position={Position.Left} style={{  top: '50%',borderRadius: 0 }} />
 
-            <div>Discount</div>
+            <Typography variant="h6" component="div" gutterBottom>
+                Discount
+            </Typography>
             <TextField  label="% discount from list price" onKeyDown={ (evt) => evt.key === 'e' && evt.preventDefault() }className="text-input-field" type="number" value={discount} onChange={handleColumnKeysChange} />
 
             <Handle

@@ -8,6 +8,7 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import IconButton from '@material-ui/core/IconButton';
 import defaultStartNodes from "../defaultStartNodes";
 import deleteNodeHelper from "../deleteNodeHelper";
+import Typography from "@material-ui/core/Typography";
 
 const onEdgeClick = (evt, id,reactFlowInstance) => {
     evt.stopPropagation();
@@ -54,8 +55,10 @@ const DummySalesforceImport = ({ data,id }) => {
             <IconButton aria-label="delete" style={{float:'right',vertical_align: 'top',padding:'0px'}} size="small" onClick={(event) => onEdgeClick(event, id,reactFlowInstance)}>
                 <HighlightOffIcon fontSize="inherit" />
             </IconButton>
-            <div>Salesforce CRM import from:</div>
-            <div>Region 1 Stick purchased British Columbia</div>
+            <Typography variant="h6" component="div" gutterBottom>
+                <div>Salesforce CRM import from: Region 1 Stick purchased British Columbia</div>
+            </Typography>
+
 
 
                 <Handle
@@ -70,10 +73,10 @@ const DummySalesforceImport = ({ data,id }) => {
 
                 {/*</div>*/}
                 <div className="row">
-                <TextField  label="company name header" className="text-input-field" type="text"  value={columnKeys}  />
+                <TextField  label="company name header" className="text-input-field" type="text" disabled value={columnKeys}  />
                 </div>
                     <div className="row">
-                <TextField label="input value header" className="text-input-field" type="text"  value={columnValues}  />
+                <TextField label="input value header" className="text-input-field" type="text" disabled value={columnValues}  />
                     </div>
             </div>
         </div>

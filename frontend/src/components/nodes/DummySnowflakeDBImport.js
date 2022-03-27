@@ -8,15 +8,16 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import IconButton from '@material-ui/core/IconButton';
 import defaultStartNodes from "../defaultStartNodes";
 import deleteNodeHelper from "../deleteNodeHelper";
+import Typography from "@material-ui/core/Typography";
 
-const onEdgeClick = (evt, id,reactFlowInstance) => {
+const onEdgeClick = (evt, id, reactFlowInstance) => {
     evt.stopPropagation();
-    deleteNodeHelper(reactFlowInstance,id);
+    deleteNodeHelper(reactFlowInstance, id);
 
 };
 
 
-const DummySnowflakeDBImport = ({ data,id }) => {
+const DummySnowflakeDBImport = ({data, id}) => {
     const inputFile = useRef(null);
     const [fileName, setFileName] = useState(data.csv_name);//TODO hook this up to data and default "None Selected"
     const [columnKeys, setColumnKeys] = useState("Company Name");
@@ -28,7 +29,9 @@ const DummySnowflakeDBImport = ({ data,id }) => {
     };
 
     const handleUpdate = e => setFileName(e.target.value);
-    const handleColumnKeysChange = e => {setColumnKeys(e.target.value)};
+    const handleColumnKeysChange = e => {
+        setColumnKeys(e.target.value)
+    };
     const handleColumnValuesChange = e => setColumnValues(e.target.value);
 
     //Update data using effect after file browser or input text
@@ -51,11 +54,13 @@ const DummySnowflakeDBImport = ({ data,id }) => {
 
     return (
         <div className="csv-data-import-node">
-            <IconButton aria-label="delete" style={{float:'right',vertical_align: 'top',padding:'0px'}} size="small" onClick={(event) => onEdgeClick(event, id,reactFlowInstance)}>
-                <HighlightOffIcon fontSize="inherit" />
+            <IconButton aria-label="delete" style={{float: 'right', vertical_align: 'top', padding: '0px'}} size="small"
+                        onClick={(event) => onEdgeClick(event, id, reactFlowInstance)}>
+                <HighlightOffIcon fontSize="inherit"/>
             </IconButton>
-            <div>SnowflakeDB import from: </div>
-            <div>Worldwide Stick Sales Analytics </div>
+            <Typography variant="h6" component="div" gutterBottom>
+                <div>SnowflakeDB import from: Worldwide Stick Sales Analytics</div>
+            </Typography>
             <Handle
                 type="source"
                 position={Position.Right}
@@ -68,11 +73,13 @@ const DummySnowflakeDBImport = ({ data,id }) => {
 
                 {/*</div>*/}
                 <div className="row">
-                <TextField  label="company name header" className="text-input-field" type="text"  value={columnKeys} />
+                    <TextField label="company name header" className="text-input-field" type="text" disabled
+                               value={columnKeys}/>
                 </div>
-                    <div className="row">
-                <TextField label="input value header" className="text-input-field" type="text"  value={columnValues}  />
-                    </div>
+                <div className="row">
+                    <TextField label="input value header" className="text-input-field" type="text" disabled
+                               value={columnValues}/>
+                </div>
             </div>
         </div>
     );
