@@ -8,6 +8,7 @@ import defaultStartNodes from "../defaultStartNodes";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import deleteNodeHelper from "../deleteNodeHelper";
+import Typography from "@material-ui/core/Typography";
 
 const onEdgeClick = (evt, id, reactFlowInstance) => {
     evt.stopPropagation();
@@ -59,8 +60,9 @@ const ProductNode = ({data, id}) => {
                 <HighlightOffIcon fontSize="inherit"/>
             </IconButton>
             <Handle type="target" id="input_1" position={Position.Left} style={{top: '50%', borderRadius: 0}}/>
-
-            <div>Product</div>
+            <Typography variant="h6" component="div" gutterBottom>
+                Product Sales Opportunity
+            </Typography>
             <div className="row-cols-1">
                 <Select
                     value={productPrice}
