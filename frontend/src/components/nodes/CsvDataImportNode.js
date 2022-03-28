@@ -18,7 +18,7 @@ const onEdgeClick = (evt, id, reactFlowInstance) => {
 
 const CsvDataImportNode = ({data, id}) => {
     const inputFile = useRef(null);
-    const [fileName, setFileName] = useState();//TODO hook this up to data and default "None Selected"
+    const [fileName, setFileName] = useState(data.csv_name);//TODO hook this up to data and default "None Selected"
     const [columnKeys, setColumnKeys] = useState("Company Name");
     const [columnValues, setColumnValues] = useState("Number of Sticks Sold");
 
