@@ -30,7 +30,10 @@ def send_data():
     
     else:
         response = load_JSON()
-        response =  jsonify(response)
+        unsorted = pd.DataFrame.from_records(response)
+        sorted_df = unsorted.sort_values(by='cross_sell_value',ascending=False)
+        records = sorted_df.to_dict('records')
+        response =  jsonify(records)
         return response
 
 @app.route('/config', methods=['GET', 'POST'])
