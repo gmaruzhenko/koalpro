@@ -9,6 +9,7 @@ import { AutoSizer, Column, Table } from 'react-virtualized';
 import {useState} from "react";
 import {useEffect} from "react";
 import axios from 'axios';
+import Typography from "@material-ui/core/Typography";
 
 
 
@@ -79,7 +80,9 @@ class MuiVirtualizedTable extends React.PureComponent {
                         : 'left'
                 }
             >
+                <Typography variant="h6" component="div" gutterBottom>
                 {cellData}
+                </Typography>
             </TableCell>
         );
     };
@@ -223,7 +226,7 @@ export default function Dashboard() {
     );
 
     return (
-        <Paper style={{ height: 400, width: '100%' }}>
+        <Paper style={{ height: 800, width: '100%' }}>
             <VirtualizedTable
                 rowCount={dashData.length}
                 rowGetter={({ index }) => dashData[index]}
