@@ -113,9 +113,10 @@ def load_JSON():
     for node in json_data:
         # Parse JSON into an object with attributes corresponding to dict keys.
 
-        if node["type"] == "csv_data_import":
+        if node["type"] == "csv_data_import" or node["type"] == "DummySnowflakeDBImport" or node["type"] == "DummySalesforceImport":
             # store new input dict
             nodelist.append(node)
+            print(node)
 
             # load dict from csv
             # loadcsv(node.data) Returns dict obj with nodeid = {key,value}
@@ -260,7 +261,7 @@ def processOperations(operationslist,edges_list, node_list, results_data):
                     data = node["data"]
                     results_data[edge] = data
                 #case: input node -> output node
-                elif currID == inputid and node["type"] == "csv_data_import":
+                elif currID == inputid and (node["type"] == "csv_data_import"or node["type"] == "DummySnowflakeDBImport" or node["type"] == "DummySalesforceImport"):
                     data = load_csv(node["data"])
                     results_data[edge] = data
 

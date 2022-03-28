@@ -154,12 +154,12 @@ const DnDFlow = () => {
             const cleanedEdges = reactFlowInstance.getEdges().filter(function(edge){
                 return edge.type !== undefined}); // workaround the {} edges from button edge last edge removal
             let nodes = reactFlowInstance.toObject().nodes;
-            nodes.forEach(function (node) {
-                if (node.type === "DummySnowflakeDBImport" || "DummySalesforceImport") {
-                    console.log(node.data)
-                    node.data.label = "csv_data_import node"
-                }
-            });
+            // nodes.forEach(function (node) {
+            //     if (node.type === "DummySnowflakeDBImport" || "DummySalesforceImport") {
+            //         console.log(node.data)
+            //         node.data.label = "csv_data_import node"
+            //     }
+            // });
             flow_elements_to_config([...nodes, ...cleanedEdges])
         }
 
