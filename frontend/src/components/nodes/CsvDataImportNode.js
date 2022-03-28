@@ -20,7 +20,7 @@ const CsvDataImportNode = ({data, id}) => {
     const inputFile = useRef(null);
     const [fileName, setFileName] = useState();//TODO hook this up to data and default "None Selected"
     const [columnKeys, setColumnKeys] = useState("Company Name");
-    const [columnValues, setColumnValues] = useState("Number of Players");
+    const [columnValues, setColumnValues] = useState("Number of Sticks Sold");
 
     const onButtonClick = () => {
         // `current` points to the mounted file input element
@@ -59,7 +59,7 @@ const CsvDataImportNode = ({data, id}) => {
             </IconButton>
             <Typography variant="h6" component="div" gutterBottom>
 
-            <div>CSV Data import from :{fileName}</div>
+            <div>CSV import {fileName}</div>
             </Typography>
 
             <Handle
@@ -74,11 +74,11 @@ const CsvDataImportNode = ({data, id}) => {
 
                 </div>
                 <div className="row">
-                    <TextField label="company name header" className="text-input-field" disabled type="text" value={columnKeys}
+                    <TextField  className="text-input-field" disabled type="text" value={columnKeys} onChange={handleColumnKeysChange}
                                />
                 </div>
                 <div className="row">
-                    <TextField label="import value header" className="text-input-field" disabled type="text" value={columnValues}
+                    <TextField className="text-input-field" disabled type="text" value={columnValues} onChange={handleColumnValuesChange}
                                />
                 </div>
             </div>
