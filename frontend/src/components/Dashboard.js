@@ -235,13 +235,13 @@ export default function Dashboard() {
                     },
                     {
                         width:  width/numberOfColumns,
-                        label: 'Cross-Sell Value',
+                        label: 'Cross-Sell $ Value',
                         dataKey: 'cross_sell_value',
                         numeric: true,
                     },
                     {
                         width:  width/numberOfColumns,
-                        label: 'Up-Sell Value',
+                        label: 'Up-Sell $ Value',
                         dataKey: 'up_sell_value',
                         numeric: true,
                     },

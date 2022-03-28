@@ -5,21 +5,21 @@ import Tabs from "@material-ui/core/Tabs";
 import DnDFlow from "./components/DnDFlow";
 import KoalproLogo from './images/logo.svg';
 import Dashboard from "./components/Dashboard";
+import Grid from "@material-ui/core/Grid";
 
 
 const App = () => {
     const [tabValue, setTabValue] = React.useState(0);
     return (
         <div>
-            <div className="row">
-                <div className="col">
+            <Grid container spacing={2}>
+                <Grid item xs={6} md={4}>
                     <img src={KoalproLogo} alt="React Logo" style={{width: 200}}/>
-                </div>
-                <div className="col">
-
+                </Grid>
+                <Grid item xs={6} md={8}>
                     <h2>Koalpro Sales Data Hub</h2>
-                </div>
-            </div>
+                </Grid>
+            </Grid>
             <Paper square>
                 <Tabs
                     value={tabValue}
