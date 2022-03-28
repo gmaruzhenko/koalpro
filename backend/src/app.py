@@ -161,10 +161,10 @@ def load_JSON():
     lookup_dict = {}
     edge_graph = make_graph(edges,lookup_dict) #Perform topological sort on the list of edges
     topsorted_list = edge_graph.topologicalSort() #returns list of the order of indexes of edgelist
-    print("\n\nTOPSORT",topsorted_list)
+    #print("\n\nTOPSORT",topsorted_list)
     processed_edges = process_edges(topsorted_list, edges, lookup_dict) #Returns correct dictionary of edges after top sort
-    print("FINAL EDGES",processed_edges)
-    
+    #print("FINAL EDGES",processed_edges)
+    #print("\nNodelist: \n", nodelist, "\n\n","Operations: \n", operations_todo, "\n\n","Edges: \n", edges,"\n\nSorted Edges:\n",processed_edges, "\n\n","Results: \n", results)
     #Perform operations based on the todo list
     processOperations(operations_todo, processed_edges, nodelist, results)
     cross_sell_dict_to_return = {}
@@ -175,7 +175,6 @@ def load_JSON():
     if up_sell:
         up_sell_dict_to_return = results[up_sell_resultid]
     
-    #print("\nNodelist: \n", nodelist, "\n\n","Operations: \n", operations_todo, "\n\n","Edges: \n", edges,"\n\nSorted Edges:\n",processed_edges, "\n\n","Results: \n", results)
     #print("\n\nCROSS SELL DICT", cross_sell_dict_to_return, "\n\nUP SELL DICT", up_sell_dict_to_return)
     #print("DICT TO RETURN",dict_to_return)
 
@@ -248,6 +247,8 @@ RETURNS: void
 def processOperations(operationslist,edges_list, node_list, results_data):
     for edge in edges_list:
         if edge in operationslist:
+            #print("\n\nedge", edge)
+            #print("\n\noperationslist[edge]", operationslist[edge], "\n\nedges_list[edge]",edges_list[edge],"\n\nresults", results_data)
             answer = do_operation(operationslist[edge], edges_list[edge],results_data)
             newnode = {
                 "id": edge,
@@ -255,6 +256,7 @@ def processOperations(operationslist,edges_list, node_list, results_data):
                 "data": answer
             }
             node_list.append(newnode)
+            results_data[edge] = answer
             continue
         elif edge in results_data: #if node is a calculated result or output node
             if (len(edges_list[edge]) == 1):
