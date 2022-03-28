@@ -80,7 +80,7 @@ class MuiVirtualizedTable extends React.PureComponent {
                         : 'left'
                 }
             >
-                <Typography variant="h6" component="div" gutterBottom>
+                <Typography variant="h6" component="div" >
                 {cellData}
                 </Typography>
             </TableCell>
@@ -98,7 +98,9 @@ class MuiVirtualizedTable extends React.PureComponent {
                 style={{ height: headerHeight }}
                 align={columns[columnIndex].numeric || false ? 'right' : 'left'}
             >
-                <span>{label}</span>
+                <Typography variant="h5" component="div" gutterBottom>
+                    {label}
+                </Typography>
             </TableCell>
         );
     };

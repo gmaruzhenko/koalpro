@@ -33,6 +33,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import deleteNodeHelper from "./deleteNodeHelper";
 import DummySnowflakeDBImport from "./nodes/DummySnowflakeDBImport";
 import DummySalesforceImport from "./nodes/DummySalesforceImport";
+import demodayRestoreState from "./demodayRestoreState";
 
 const navy_color = '#444c5c';
 const ocean_color = '#78a5a3';
@@ -185,9 +186,10 @@ const DnDFlow = () => {
         return unconnectedNodes
     }
 
-    const onClear = () => {
-        setNodes([]);
-        setEdges([]);
+    const onRestartDemo = () => {
+           console.log(reactFlowInstance.toObject())
+        setNodes(demodayRestoreState.nodes);
+        setEdges(demodayRestoreState.edges);
 
     };
     const onRestore = () => {
@@ -305,7 +307,7 @@ const DnDFlow = () => {
                         <Paper elevation={10}>
                             <ButtonGroup variant="contained" aria-label="outlined primary button group">
                                 <SaveButton variant="outlined" onClick={onSave}>save</SaveButton>
-                                <ClearButton onClick={onClear}>clear</ClearButton>
+                                <ClearButton onClick={onRestartDemo}>RestartDemo</ClearButton>
                                 <RestoreButton onClick={onRestore}>restore</RestoreButton>
                             </ButtonGroup>
                             <Sidebar nodes={nodes}/>
