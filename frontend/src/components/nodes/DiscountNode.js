@@ -15,7 +15,7 @@ const onEdgeClick = (evt, id,reactFlowInstance) => {
 };
 
 const DiscountNode = ({data,id}) => {
-    const [discount, setDiscount] = useState(data.discount);
+    const [discount, setDiscount] = useState(data.discount*100);
     const handleColumnKeysChange = e => {
         const value = e.target.value.replace(/\D/g, "");
         //ensure no more than 100% discount
