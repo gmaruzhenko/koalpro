@@ -1,4 +1,4 @@
-Symbol,Name,Sector,Number of Sticks Sold,Price,Price/Earnings,Dividend Yield,Earnings/Share,52 Week Low,52 Week High,Market Cap,EBITDA,Price/Sales,Price/Book,SEC Filings
+Symbol,Company Name,Sector,Number of Sticks Sold,Price,Price/Earnings,Dividend Yield,Earnings/Share,52 Week Low,52 Week High,Market Cap,EBITDA,Price/Sales,Price/Book,SEC Filings
 WMT,Walmart Inc.,Retail Trade,"2,300,000",100.02,23.1,1.983471,4.39,109.98,66.89,3.05E+11,30721000000,0.82099426,3.89,http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=WMT
 AMZN,"Amazon.com, Inc.",Retail Trade,"1,298,000",1350.5,296.16,0,6.16,1498,812.5,6.86E+11,16132000000,3.927053,24.28,http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=AMZN
 ACN,Accenture plc,Technology Services,"624,000",150.51,25.47,1.7144699,5.44,162.6,114.82,98765855553,5643228000,2.604117,10.62,http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=ACN

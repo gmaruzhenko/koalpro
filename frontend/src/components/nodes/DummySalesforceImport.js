@@ -19,7 +19,7 @@ const onEdgeClick = (evt, id, reactFlowInstance) => {
 
 const DummySalesforceImport = ({data, id}) => {
     const inputFile = useRef(null);
-    const [fileName, setFileName] = useState(data.csv_name);//TODO hook this up to data and default "None Selected"
+    const [fileName, setFileName] = useState("../../resources/Region 1 British Columbia Current purchased sticks.csv");//TODO hook this up to data and default "None Selected"
     const [columnKeys, setColumnKeys] = useState("Company Name");
     const [columnValues, setColumnValues] = useState("Number of Sticks Sold");
 
