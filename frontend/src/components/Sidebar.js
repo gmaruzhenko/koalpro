@@ -36,10 +36,10 @@ export default ({nodes}) => {
             <div className="addition-node" onDragStart={(event) => onDragStart(event, 'addition')} draggable>
                 Addition
             </div>
-            <div className="discount-node" onDragStart={(event) => onDragStart(event, 'discount')} draggable>
-                Discount
+            {/*<div className="discount-node" onDragStart={(event) => onDragStart(event, 'discount')} draggable>*/}
+            {/*    Discount*/}
 
-            </div>
+            {/*</div>*/}
             {0 === crossSellCount &&
             <div className="cross-sell-output-node" onDragStart={(event) => onDragStart(event, 'cross_sell_output')}
                  draggable>
@@ -50,22 +50,22 @@ export default ({nodes}) => {
                  draggable>
                 Up Sell Dashboard Output
             </div>}
-            <div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'csv_data_import')}
-                 draggable>
-                CSV Data Import
-            </div>
+            {/*<div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'csv_data_import')}*/}
+            {/*     draggable>*/}
+            {/*    CSV Data Import*/}
+            {/*</div>*/}
             <div className="product-node" onDragStart={(event) => onDragStart(event, 'product')}
                  draggable>
                 Product
             </div>
-            <div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'DummySnowflakeDBImport')}
-                 draggable>
-                SnowFlake DB instance
-            </div>
-            <div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'DummySalesforceImport')}
-                 draggable>
-                Salesforce CRM instance
-            </div>
+            {/*<div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'DummySnowflakeDBImport')}*/}
+            {/*     draggable>*/}
+            {/*    SnowFlake DB instance*/}
+            {/*</div>*/}
+            {/*<div className="csv-data-import-node" onDragStart={(event) => onDragStart(event, 'DummySalesforceImport')}*/}
+            {/*     draggable>*/}
+            {/*    Salesforce CRM instance*/}
+            {/*</div>*/}
 
         </aside>
     );
