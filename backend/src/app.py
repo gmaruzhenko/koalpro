@@ -287,6 +287,8 @@ def do_operation(string_or_tuple, inputs,result_db):
     length = len(inputs)
     if length >= 1:
         dict1 = result_db[inputs[0]]
+        if isinstance(string_or_tuple, str):
+            dict2 = result_db[inputs[0]]
     if length >=2:
         dict2 = result_db[inputs[1]]
     
