@@ -8,7 +8,7 @@ from flask_cors import CORS, cross_origin
 # import pandas as pd
 import ast, json, requests
 from types import SimpleNamespace
-from algebra import addition, subtraction, multiplication, division, load_csv, discount
+from algebra import addition, subtraction, multiplication, division, load_csv, discount, product
 from topsort import Graph, make_graph, process_edges
 
 app = Flask(__name__)
@@ -97,7 +97,7 @@ Parses JSON config file from Frontend
 RETURNS: JSON str of Python Result Dictionary for up-sell or cross-sell with [{"companyid": "id", "value":1}]
 '''
 def load_JSON():
-    operations = ["addition", "subtraction", "multiplication", "division", "discount"]
+    operations = ["addition", "subtraction", "multiplication", "division", "discount", "product"]
     nodelist = []  # Keep track of nodes
     
     # Dictionary to keep track of connections. Key = node name, Value = type of operation
@@ -131,6 +131,11 @@ def load_JSON():
             if node["type"] == "discount":
                 node_data = node["data"]
                 operations_todo[node["id"]] = (node["type"],node_data["discount"])
+            elif node["type"] == "product":
+                node_data = node["data"]
+                node_product = node_data["product"] #Product is a list of len = 1 e.g. "product": [{"unit_price": 30, "product_name": "Helmet"}]
+                productlist = node_product[0]
+                operations_todo[node["id"]] = (node["type"],productlist["unit_price"])
             else:
                 operations_todo[node["id"]] = node["type"]
 
@@ -246,6 +251,8 @@ RETURNS: void
 def processOperations(operationslist,edges_list, node_list, results_data):
     for edge in edges_list:
         if edge in operationslist:
+            #print("\n\nedge", edge)
+            #print("\n\noperationslist[edge]", operationslist[edge], "\n\nedges_list[edge]",edges_list[edge],"\n\nresults", results_data)
             answer = do_operation(operationslist[edge], edges_list[edge],results_data)
             newnode = {
                 "id": edge,
@@ -253,6 +260,7 @@ def processOperations(operationslist,edges_list, node_list, results_data):
                 "data": answer
             }
             node_list.append(newnode)
+            results_data[edge] = answer
             continue
         elif edge in results_data: #if node is a calculated result or output node
             if (len(edges_list[edge]) == 1):
@@ -304,6 +312,10 @@ def do_operation(string_or_tuple, inputs,result_db):
         # use division method
         discount_num = string_or_tuple[1]
         operation_result = discount(dict1,discount_num)
+    if string_or_tuple[0] == "product":
+        # use division method
+        unit_price = string_or_tuple[1]
+        operation_result = product(dict1,unit_price)
     return operation_result
 
 if __name__ == '__main__':
