@@ -68,7 +68,7 @@ const ProductNode = ({data, id}) => {
                     value={productPrice}
                     onChange={handleChange}
                 >
-                    <MenuItem value={2}>5 Pucks per Stick at 2$/unit</MenuItem>
+                    {/*<MenuItem value={2}>5 Pucks per Stick at 2$/unit</MenuItem>*/}
                     <MenuItem value={30}>1 Helmet per Stick at 30$/unit</MenuItem>
                     <MenuItem value={10}>1 Sticks per Stick at 10$/unit</MenuItem>
                 </Select>
