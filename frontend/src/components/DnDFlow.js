@@ -374,7 +374,7 @@ const DnDFlow = () => {
 
     const onRestartDemo = () => {
         //    console.log(reactFlowInstance.toObject())
-        config_to_flow_elements(UpSellOutputNode);
+        config_to_flow_elements(demodayUpsell);
         setNodes(demodayRestoreState.nodes);
         setEdges(demodayRestoreState.edges);
 
