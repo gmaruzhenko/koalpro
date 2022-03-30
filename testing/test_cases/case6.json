@@ -1,0 +1,84 @@
+{
+    "elements": 
+    [
+        {
+            "id": "dndnode_7fa62c64-081b-4ff1-95de-abbab7ad05d5",
+            "type": "csv_data_import",
+            "position": {"x": 158, "y": 46.359375},
+            "data": {
+                "label": "csv_data_import node",
+                "csv_name": "../../resources/SP500 by employees.xlsx - SP500 by Employees.csv",
+                "column_keys": "Name ",
+                "column_values": "Price"
+                }
+        },
+        {
+            "id": "dndnode_e79249d0-0aea-45d4-8899-9bf95dd8705b",
+            "type": "discount",
+            "position": {"x": 439, "y": 107.359375},
+            "data": {
+                "label": "discount node",
+                "discount": 0.2
+                }
+        },
+        {
+            "id": "dndnode_9444254e-0804-4f08-8c15-12297b98b4e4",
+            "type": "addition",
+            "position": {"x": 716, "y": 202.359375},
+            "data": {
+                "label": "addition node"
+                }
+        },
+        {
+            "id": "dndnode_31a23fde-5cd8-49db-9aba-2f67ee840a7f",
+            "type": "cross_sell_output",
+            "position": {"x": 992, "y": 208.359375},
+            "data": {
+                "label": "cross_sell_output node"
+                }
+        },
+        {
+            "id": "dndnode_b52795e7-d081-4b2c-b3f3-7609c5d85fed",
+            "type": "csv_data_import",
+            "position": {"x": 220, "y": 296.359375},
+            "data": {
+                "label": "csv_data_import node",
+                "csv_name": "../../resources/SP500 by employees.xlsx - SP500 by Employees.csv",
+                "column_keys": "Name",
+                "column_values": "Price"
+                }
+        },
+        {
+            "source": "dndnode_7fa62c64-081b-4ff1-95de-abbab7ad05d5",
+            "sourceHandle": "a",
+            "target": "dndnode_e79249d0-0aea-45d4-8899-9bf95dd8705b",
+            "targetHandle": "input_1",
+            "id": "reactflow__edge-dndnode_7fa62c64-081b-4ff1-95de-abbab7ad05d5a-dndnode_e79249d0-0aea-45d4-8899-9bf95dd8705binput_1",
+            "type": "default"
+        },
+        {
+            "source": "dndnode_e79249d0-0aea-45d4-8899-9bf95dd8705b",
+            "sourceHandle": "a",
+            "target": "dndnode_9444254e-0804-4f08-8c15-12297b98b4e4",
+            "targetHandle": "input_1",
+            "id": "reactflow__edge-dndnode_e79249d0-0aea-45d4-8899-9bf95dd8705ba-dndnode_9444254e-0804-4f08-8c15-12297b98b4e4input_1",
+            "type": "default"
+        },
+        {
+            "source": "dndnode_9444254e-0804-4f08-8c15-12297b98b4e4",
+            "sourceHandle": "a",
+            "target": "dndnode_31a23fde-5cd8-49db-9aba-2f67ee840a7f",
+            "targetHandle": null,
+            "id": "reactflow__edge-dndnode_9444254e-0804-4f08-8c15-12297b98b4e4a-dndnode_31a23fde-5cd8-49db-9aba-2f67ee840a7fnull",
+            "type": "default"
+        },
+        {
+            "source": "dndnode_b52795e7-d081-4b2c-b3f3-7609c5d85fed",
+            "sourceHandle": "a",
+            "target": "dndnode_9444254e-0804-4f08-8c15-12297b98b4e4",
+            "targetHandle": "input_2",
+            "id": "reactflow__edge-dndnode_b52795e7-d081-4b2c-b3f3-7609c5d85feda-dndnode_9444254e-0804-4f08-8c15-12297b98b4e4input_2",
+            "type": "default"
+        }
+    ]
+}

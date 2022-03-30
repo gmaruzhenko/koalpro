@@ -1,0 +1,2472 @@
+[
+  {
+    "companyID": "Prologis, Inc.", 
+    "cross_sell_value": 2003.33, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Delta Air Lines, Inc.", 
+    "cross_sell_value": 74051.23, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Analog Devices, Inc.", 
+    "cross_sell_value": 24782.68, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Arthur J. Gallagher & Co.", 
+    "cross_sell_value": 32465.4, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Ralph Lauren Corporation", 
+    "cross_sell_value": 20401.32, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Hess Corporation", 
+    "cross_sell_value": 1664.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Valero Energy Corporation", 
+    "cross_sell_value": 10050.77, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Gartner, Inc.", 
+    "cross_sell_value": 15714.26, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Home Depot, Inc. (The)", 
+    "cross_sell_value": 504981.22, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Advance Auto Parts Inc.", 
+    "cross_sell_value": 68109.63, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "ServiceNow, Inc.", 
+    "cross_sell_value": 13096.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Marathon Oil Corporation", 
+    "cross_sell_value": 1687.68, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Waters Corporation", 
+    "cross_sell_value": 7591.79, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Textron Inc.", 
+    "cross_sell_value": 33055.54, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Ford Motor Company", 
+    "cross_sell_value": 186010.43, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Fidelity National Information Services, Inc.", 
+    "cross_sell_value": 62092.74, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Otis Worldwide Corporation", 
+    "cross_sell_value": 69000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "BorgWarner Inc.", 
+    "cross_sell_value": 49751.94, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "DBA Sempra", 
+    "cross_sell_value": 14809.36, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Synchrony Financial", 
+    "cross_sell_value": 16534.98, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "3M Company", 
+    "cross_sell_value": 95209.89, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "State Street Corporation", 
+    "cross_sell_value": 39537.54, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Garmin Ltd.", 
+    "cross_sell_value": 16061.13, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Align Technology, Inc.", 
+    "cross_sell_value": 18290.71, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "FIRST REPUBLIC BANK", 
+    "cross_sell_value": 5483.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Xilinx, Inc.", 
+    "cross_sell_value": 4952.82, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Cisco Systems, Inc.", 
+    "cross_sell_value": 79538.77, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Extra Space Storage Inc", 
+    "cross_sell_value": 4090.56, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Teradyne, Inc.", 
+    "cross_sell_value": 5500.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "NVIDIA Corporation", 
+    "cross_sell_value": 19192.52, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Ventas, Inc.", 
+    "cross_sell_value": 498.92, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Albemarle Corporation", 
+    "cross_sell_value": 6005.18, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "ConAgra Brands, Inc.", 
+    "cross_sell_value": 18635.49, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "ConocoPhillips", 
+    "cross_sell_value": 9753.24, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Robert Half International Inc.", 
+    "cross_sell_value": 163552.26, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "KLA Corporation", 
+    "cross_sell_value": 11398.54, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Duke Realty Corporation", 
+    "cross_sell_value": 374.52, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Exelon Corporation", 
+    "cross_sell_value": 32375.98, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "ABIOMED, Inc.", 
+    "cross_sell_value": 1725.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Chipotle Mexican Grill, Inc.", 
+    "cross_sell_value": 88266.01, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "ANSYS, Inc.", 
+    "cross_sell_value": 4948.84, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Eastman Chemical Company", 
+    "cross_sell_value": 14593.57, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Costco Wholesale Corporation", 
+    "cross_sell_value": 288178.61, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Archer-Daniels-Midland Company", 
+    "cross_sell_value": 39129.35, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Regeneron Pharmaceuticals, Inc.", 
+    "cross_sell_value": 9445.62, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Laboratory Corporation of America Holdings", 
+    "cross_sell_value": 72565.46, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Realty Income Corporation", 
+    "cross_sell_value": 257.56, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "DuPont de Nemours, Inc.", 
+    "cross_sell_value": 34000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Meta Platforms, Inc.", 
+    "cross_sell_value": 58775.58, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Monolithic Power Systems, Inc.", 
+    "cross_sell_value": 2209.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Caterpillar, Inc.", 
+    "cross_sell_value": 97445.99, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Keysight Technologies Inc.", 
+    "cross_sell_value": 14300.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Howmet Aerospace Inc.", 
+    "cross_sell_value": 19700.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Altria Group, Inc.", 
+    "cross_sell_value": 7164.05, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Genuine Parts Company", 
+    "cross_sell_value": 50096.31, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "MarketAxess Holdings, Inc.", 
+    "cross_sell_value": 606.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Williams Companies, Inc. (The)", 
+    "cross_sell_value": 4767.56, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Ecolab Inc.", 
+    "cross_sell_value": 44127.76, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Qorvo, Inc.", 
+    "cross_sell_value": 8476.85, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Aon plc", 
+    "cross_sell_value": 50136.05, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Cigna Corporation", 
+    "cross_sell_value": 73889.27, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Amazon.com, Inc.", 
+    "cross_sell_value": 1299350.5, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "T-Mobile US, Inc.", 
+    "cross_sell_value": 75000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Whirlpool Corporation", 
+    "cross_sell_value": 78164.95, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Mohawk Industries, Inc.", 
+    "cross_sell_value": 42256.57, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Clorox Company (The)", 
+    "cross_sell_value": 9127.76, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Entergy Corporation", 
+    "cross_sell_value": 13472.02, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Martin Marietta Materials, Inc.", 
+    "cross_sell_value": 8908.42, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Deere & Company", 
+    "cross_sell_value": 75753.66, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Public Storage", 
+    "cross_sell_value": 5580.49, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Brown Forman Inc", 
+    "cross_sell_value": 4763.33, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Mettler-Toledo International, Inc.", 
+    "cross_sell_value": 17101.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Pioneer Natural Resources Company", 
+    "cross_sell_value": 2022.16, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Micron Technology, Inc.", 
+    "cross_sell_value": 43040.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Omnicom Group Inc.", 
+    "cross_sell_value": 64175.91, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Sysco Corporation", 
+    "cross_sell_value": 58057.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Fortune Brands Home & Security, Inc.", 
+    "cross_sell_value": 27562.44, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Snap-On Incorporated", 
+    "cross_sell_value": 12456.72, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Diamondback Energy, Inc. \u2013 Commmon Stock", 
+    "cross_sell_value": 732.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "J.M. Smucker Company (The) New", 
+    "cross_sell_value": 7218.37, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Monster Beverage Corporation", 
+    "cross_sell_value": 3727.99, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Digital Realty Trust, Inc.", 
+    "cross_sell_value": 2976.96, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "CME Group Inc.", 
+    "cross_sell_value": 4523.04, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Centene Corporation", 
+    "cross_sell_value": 71400.36, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Lam Research Corporation", 
+    "cross_sell_value": 14262.23, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Fortinet, Inc.", 
+    "cross_sell_value": 8238.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "M&T Bank Corporation", 
+    "cross_sell_value": 17254.35, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Charter Communications, Inc.", 
+    "cross_sell_value": 96448.65, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Moody\u2019s Corporation", 
+    "cross_sell_value": 11642.14, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Progressive Corporation (The)", 
+    "cross_sell_value": 43377.07, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Masco Corporation", 
+    "cross_sell_value": 18040.7, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Citigroup, Inc.", 
+    "cross_sell_value": 210071.87, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Activision Blizzard, Inc", 
+    "cross_sell_value": 9565.83, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Alexandria Real Estate Equities, Inc.", 
+    "cross_sell_value": 584.58, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Mondelez International, Inc.", 
+    "cross_sell_value": 79042.68, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Wynn Resorts, Limited", 
+    "cross_sell_value": 27669.28, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "General Dynamics Corporation", 
+    "cross_sell_value": 100906.05, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Danaher Corporation", 
+    "cross_sell_value": 69092.16, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Cummins Inc.", 
+    "cross_sell_value": 57990.73, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "W.R. Berkley Corporation", 
+    "cross_sell_value": 7495.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Dollar Tree, Inc.", 
+    "cross_sell_value": 199428.58, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "S&P Global Inc.", 
+    "cross_sell_value": 23173.31, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Bristol-Myers Squibb Company", 
+    "cross_sell_value": 30312.69, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "T. Rowe Price Group, Inc.", 
+    "cross_sell_value": 7779.99, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Baxter International Inc.", 
+    "cross_sell_value": 50062.56, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Wells Fargo & Company", 
+    "cross_sell_value": 268586.4, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "UDR, Inc.", 
+    "cross_sell_value": 1303.92, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Southern Company (The)", 
+    "cross_sell_value": 27743.4, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Norwegian Cruise Line Holdings Ltd.", 
+    "cross_sell_value": 34356.01, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Jacobs Engineering Group Inc.", 
+    "cross_sell_value": 55000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "AT&T Inc.", 
+    "cross_sell_value": 230035.57, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "The Travelers Companies, Inc.", 
+    "cross_sell_value": 30735.01, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Trimble Inc.", 
+    "cross_sell_value": 11402.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Darden Restaurants, Inc.", 
+    "cross_sell_value": 156974.33, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Pfizer, Inc.", 
+    "cross_sell_value": 78533.63, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Phillips 66", 
+    "cross_sell_value": 14392.44, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Devon Energy Corporation", 
+    "cross_sell_value": 1434.94, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Coterra Energy Inc.", 
+    "cross_sell_value": 503.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Fastenal Company", 
+    "cross_sell_value": 20417.15, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Invesco Ltd", 
+    "cross_sell_value": 8543.92, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Loews Corporation", 
+    "cross_sell_value": 12246.05, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Vertex Pharmaceuticals Incorporated", 
+    "cross_sell_value": 3551.6, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "NXP Semiconductors N.V.", 
+    "cross_sell_value": 29000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Air Products and Chemicals, Inc.", 
+    "cross_sell_value": 21027.8, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Essex Property Trust, Inc.", 
+    "cross_sell_value": 2017.28, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "NVR, Inc.", 
+    "cross_sell_value": 6100.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Domino\u2019s Pizza Inc", 
+    "cross_sell_value": 14400.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Quest Diagnostics Incorporated", 
+    "cross_sell_value": 49096.42, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Ameren Corporation", 
+    "cross_sell_value": 9235.59, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Westinghouse Air Brake Technologies Corporation", 
+    "cross_sell_value": 27000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Nielsen N.V.", 
+    "cross_sell_value": 43033.9, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Amcor plc", 
+    "cross_sell_value": 46000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Netflix, Inc.", 
+    "cross_sell_value": 9650.1, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Ball Corporation", 
+    "cross_sell_value": 21538.44, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Biogen Inc.", 
+    "cross_sell_value": 9411.79, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "American Electric Power Company, Inc.", 
+    "cross_sell_value": 16850.38, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "CenterPoint Energy, Inc (Holding Co)", 
+    "cross_sell_value": 13009.85, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Sealed Air Corporation", 
+    "cross_sell_value": 16542.62, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Bank of America Corporation", 
+    "cross_sell_value": 213029.74, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Coca-Cola Company (The)", 
+    "cross_sell_value": 80343.1, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "News Corporation", 
+    "cross_sell_value": 24015.85, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Vulcan Materials Company (Holding Company)", 
+    "cross_sell_value": 8552.47, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Bio-Rad Laboratories, Inc.", 
+    "cross_sell_value": 8000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Vornado Realty Trust", 
+    "cross_sell_value": 2965.18, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Take-Two Interactive Software, Inc.", 
+    "cross_sell_value": 6495.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Advanced Micro Devices, Inc.", 
+    "cross_sell_value": 12611.22, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "DENTSPLY SIRONA Inc.", 
+    "cross_sell_value": 15056.85, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Assurant, Inc.", 
+    "cross_sell_value": 14185.16, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Dover Corporation", 
+    "cross_sell_value": 23096.2, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "SBA Communications Corporation", 
+    "cross_sell_value": 1642.85, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Agilent Technologies, Inc.", 
+    "cross_sell_value": 17065.05, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Discovery, Inc. \u2013 Series C", 
+    "cross_sell_value": 9821.58, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "The Cooper Companies, Inc.", 
+    "cross_sell_value": 12223.17, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Equity Residential", 
+    "cross_sell_value": 2655.26, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "AvalonBay Communities, Inc.", 
+    "cross_sell_value": 3244.94, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "PerkinElmer, Inc.", 
+    "cross_sell_value": 14072.06, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "West Pharmaceutical Services, Inc.", 
+    "cross_sell_value": 9200.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "The AES Corporation", 
+    "cross_sell_value": 8210.06, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Schlumberger N.V.", 
+    "cross_sell_value": 86067.4, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Welltower Inc.", 
+    "cross_sell_value": 423.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "eBay Inc.", 
+    "cross_sell_value": 12741.02, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Northrop Grumman Corporation", 
+    "cross_sell_value": 97324.01, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Aptiv PLC", 
+    "cross_sell_value": 151089.27, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "CDW Corporation", 
+    "cross_sell_value": 10000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Dow Inc.", 
+    "cross_sell_value": 35700.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "F5, Inc.", 
+    "cross_sell_value": 6598.25, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Estee Lauder Companies, Inc. (The)", 
+    "cross_sell_value": 62131.46, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Crown Castle International Corp. (REIT)", 
+    "cross_sell_value": 5003.81, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "American Water Works Company, Inc.", 
+    "cross_sell_value": 7076.06, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "FMC Corporation", 
+    "cross_sell_value": 6480.87, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Anthem, Inc.", 
+    "cross_sell_value": 83630.57, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "International Paper Company", 
+    "cross_sell_value": 49356.05, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Teledyne Technologies Incorporated", 
+    "cross_sell_value": 10670.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "HCA Healthcare, Inc.", 
+    "cross_sell_value": 275095.97, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Corteva, Inc.", 
+    "cross_sell_value": 21000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Quanta Services, Inc.", 
+    "cross_sell_value": 35833.51, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Equinix, Inc.", 
+    "cross_sell_value": 10422.98, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "CVS Health Corporation", 
+    "cross_sell_value": 300070.55, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Microsoft Corporation", 
+    "cross_sell_value": 181085.01, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "SVB Financial Group", 
+    "cross_sell_value": 4461.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Cincinnati Financial Corporation", 
+    "cross_sell_value": 5336.34, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Ingersoll Rand Inc.", 
+    "cross_sell_value": 15987.6, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Raytheon Technologies Corporation", 
+    "cross_sell_value": 181000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Prudential Financial, Inc.", 
+    "cross_sell_value": 41774.38, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "AMETEK, Inc.", 
+    "cross_sell_value": 16572.05, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Ulta Beauty, Inc.", 
+    "cross_sell_value": 37209.09, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Arista Networks, Inc.", 
+    "cross_sell_value": 2613.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Hilton Worldwide Holdings Inc.", 
+    "cross_sell_value": 141078.66, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Visa Inc.", 
+    "cross_sell_value": 21613.86, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "APA Corporation", 
+    "cross_sell_value": 2309.73, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Verisk Analytics, Inc.", 
+    "cross_sell_value": 9052.28, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "United Parcel Service, Inc.", 
+    "cross_sell_value": 543109.28, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Morgan Stanley", 
+    "cross_sell_value": 68051.79, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "IDEXX Laboratories, Inc.", 
+    "cross_sell_value": 9469.28, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "PACCAR Inc.", 
+    "cross_sell_value": 26066.98, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Viatris Inc.", 
+    "cross_sell_value": 45000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Fox Corporation", 
+    "cross_sell_value": 9034.56, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Zebra Technologies Corporation", 
+    "cross_sell_value": 8800.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Expedia Group, Inc.", 
+    "cross_sell_value": 19223.03, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Honeywell International Inc.", 
+    "cross_sell_value": 103146.02, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Seagate Technology Holdings PLC", 
+    "cross_sell_value": 40047.44, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Republic Services, Inc.", 
+    "cross_sell_value": 35062.72, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Texas Instruments Incorporated", 
+    "cross_sell_value": 30097.66, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Lockheed Martin Corporation", 
+    "cross_sell_value": 114334.3, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Zimmer Biomet Holdings, Inc.", 
+    "cross_sell_value": 20115.53, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Chubb Limited", 
+    "cross_sell_value": 31140.39, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "D/B/A Royal Caribbean Cruises Ltd.", 
+    "cross_sell_value": 85122.45, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "The Hershey Company", 
+    "cross_sell_value": 16977.65, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Regency Centers Corporation", 
+    "cross_sell_value": 486.58, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Emerson Electric Company", 
+    "cross_sell_value": 86766.4, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Comcast Corporation", 
+    "cross_sell_value": 168038.19, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Huntington Ingalls Industries, Inc.", 
+    "cross_sell_value": 42225.37, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "PulteGroup, Inc.", 
+    "cross_sell_value": 5277.67, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Discovery, Inc. \u2013 Series A", 
+    "cross_sell_value": 9822.87, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "NetApp, Inc.", 
+    "cross_sell_value": 11055.85, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Charles Schwab Corporation (The)", 
+    "cross_sell_value": 32048.9, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Kinder Morgan, Inc.", 
+    "cross_sell_value": 10540.8, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "AutoZone, Inc.", 
+    "cross_sell_value": 100718.57, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Baker Hughes Company", 
+    "cross_sell_value": 55000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Lowe\u2019s Companies, Inc.", 
+    "cross_sell_value": 340095.01, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Waste Management, Inc.", 
+    "cross_sell_value": 48329.12, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Nasdaq, Inc.", 
+    "cross_sell_value": 4905.21, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Tractor Supply Company", 
+    "cross_sell_value": 42565.94, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Humana Inc.", 
+    "cross_sell_value": 49862.37, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Synopsys, Inc.", 
+    "cross_sell_value": 16443.62, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Nucor Corporation", 
+    "cross_sell_value": 26460.38, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Amgen Inc.", 
+    "cross_sell_value": 24473.12, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Generac Holdlings Inc.", 
+    "cross_sell_value": 6797.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "UnitedHealth Group Incorporated", 
+    "cross_sell_value": 330216.46, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Motorola Solutions, Inc.", 
+    "cross_sell_value": 18098.74, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "McKesson Corporation", 
+    "cross_sell_value": 76150.23, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Electronic Arts Inc.", 
+    "cross_sell_value": 11116.54, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Transdigm Group Inc.", 
+    "cross_sell_value": 13583.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Teleflex Incorporated", 
+    "cross_sell_value": 14000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Ross Stores, Inc.", 
+    "cross_sell_value": 93775.06, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Packaging Corporation of America", 
+    "cross_sell_value": 15311.95, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Johnson & Johnson", 
+    "cross_sell_value": 134626.36, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Alaska Air Group, Inc.", 
+    "cross_sell_value": 22061.04, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Zions Bancorporation N.A.", 
+    "cross_sell_value": 9728.71, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Automatic Data Processing, Inc.", 
+    "cross_sell_value": 56108.25, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Halliburton Company", 
+    "cross_sell_value": 40047.41, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "WEC Energy Group, Inc.", 
+    "cross_sell_value": 7332.5, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Allegion plc", 
+    "cross_sell_value": 11577.32, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Goldman Sachs Group, Inc. (The)", 
+    "cross_sell_value": 40746.35, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "General Mills, Inc.", 
+    "cross_sell_value": 35053.99, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "CarMax Inc", 
+    "cross_sell_value": 26953.34, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Molson Coors Beverage Company", 
+    "cross_sell_value": 17074.51, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "PTC Inc.", 
+    "cross_sell_value": 6709.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Match Group, Inc.", 
+    "cross_sell_value": 1900.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Target Corporation", 
+    "cross_sell_value": 409071.11, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Eli Lilly and Company", 
+    "cross_sell_value": 35074.21, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Boeing Company (The)", 
+    "cross_sell_value": 141329.66, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "J.B. Hunt Transport Services, Inc.", 
+    "cross_sell_value": 30423.81, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "American Airlines Group, Inc.", 
+    "cross_sell_value": 102748.6, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Moderna, Inc.", 
+    "cross_sell_value": 1300.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "DaVita Inc.", 
+    "cross_sell_value": 67071.91, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "People\u2019s", 
+    "cross_sell_value": 6005.56, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Cintas Corporation", 
+    "cross_sell_value": 40149.32, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Trane Technologies plc", 
+    "cross_sell_value": 35000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Merck & Company, Inc.", 
+    "cross_sell_value": 74054.73, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "LKQ Corporation", 
+    "cross_sell_value": 44038.86, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Walgreens Boots Alliance, Inc.", 
+    "cross_sell_value": 315068.22, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Intuitive Surgical, Inc.", 
+    "cross_sell_value": 8462.87, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Tapestry, Inc.", 
+    "cross_sell_value": 16448.85, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "NortonLifeLock Inc.", 
+    "cross_sell_value": 2800.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Becton, Dickinson and Company", 
+    "cross_sell_value": 75211.44, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Bath & Body Works, Inc.", 
+    "cross_sell_value": 92300.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Kellogg Company", 
+    "cross_sell_value": 31065.98, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Copart, Inc.", 
+    "cross_sell_value": 8600.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "LyondellBasell Industries NV", 
+    "cross_sell_value": 19305.79, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "PPL Corporation", 
+    "cross_sell_value": 12347.52, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Dollar General Corporation", 
+    "cross_sell_value": 158095.1, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Hologic, Inc.", 
+    "cross_sell_value": 6743.8, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Roper Technologies, Inc.", 
+    "cross_sell_value": 18659.4, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Skyworks Solutions, Inc.", 
+    "cross_sell_value": 11099.04, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Exxon Mobil Corporation", 
+    "cross_sell_value": 72076.07, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Gilead Sciences, Inc.", 
+    "cross_sell_value": 13678.22, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "American Tower Corporation (REIT)", 
+    "cross_sell_value": 5751.57, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "V.F. Corporation", 
+    "cross_sell_value": 40078.75, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "VeriSign, Inc.", 
+    "cross_sell_value": 1014.62, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "American Express Company", 
+    "cross_sell_value": 63788.34, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Universal Health Services, Inc.", 
+    "cross_sell_value": 89114.87, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "O\u2019Reilly Automotive, Inc.", 
+    "cross_sell_value": 78079.22, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Jack Henry & Associates, Inc.", 
+    "cross_sell_value": 6714.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Interpublic Group of Companies, Inc. (The)", 
+    "cross_sell_value": 50221.34, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Booking Holdings Inc. Common Stock", 
+    "cross_sell_value": 20300.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Iron Mountain Incorporated (Delaware)", 
+    "cross_sell_value": 24032.07, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Discover Financial Services", 
+    "cross_sell_value": 17672.4, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Intel Corporation", 
+    "cross_sell_value": 110642.75, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "PayPal Holdings, Inc.", 
+    "cross_sell_value": 26572.32, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Weyerhaeuser Company", 
+    "cross_sell_value": 9405.6, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "PPG Industries, Inc.", 
+    "cross_sell_value": 47010.3, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Johnson Controls International plc", 
+    "cross_sell_value": 101036.55, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Medtronic plc.", 
+    "cross_sell_value": 90078.38, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Ceridian HCM Holding Inc.", 
+    "cross_sell_value": 5974.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Franklin Resources, Inc.", 
+    "cross_sell_value": 10338.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Avery Dennison Corporation", 
+    "cross_sell_value": 32110.77, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "EPAM Systems, Inc.", 
+    "cross_sell_value": 41168.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Occidental Petroleum Corporation", 
+    "cross_sell_value": 11868.47, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Principal Financial Group Inc", 
+    "cross_sell_value": 17460.38, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Abbott Laboratories", 
+    "cross_sell_value": 109056.27, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "PVH Corp.", 
+    "cross_sell_value": 33142.68, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Catalent, Inc.", 
+    "cross_sell_value": 17300.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "PNC Financial Services Group, Inc. (The)", 
+    "cross_sell_value": 51406.38, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Federal Realty Investment Trust", 
+    "cross_sell_value": 415.11, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Healthpeak Properties, Inc.", 
+    "cross_sell_value": 217.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Celanese Corporation Celanese Corporation", 
+    "cross_sell_value": 7658.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Brown & Brown, Inc.", 
+    "cross_sell_value": 10843.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Eaton Corporation, PLC", 
+    "cross_sell_value": 92066.41, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Regions Financial Corporation", 
+    "cross_sell_value": 19423.9, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Citizens Financial Group, Inc.", 
+    "cross_sell_value": 17626.19, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "United Rentals, Inc.", 
+    "cross_sell_value": 18411.99, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "DexCom, Inc.", 
+    "cross_sell_value": 6400.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Rollins, Inc.", 
+    "cross_sell_value": 15616.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "IQVIA Holdings, Inc.", 
+    "cross_sell_value": 70095.23, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Western Digital Corporation", 
+    "cross_sell_value": 65680.09, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Signature Bank", 
+    "cross_sell_value": 1652.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Hormel Foods Corporation", 
+    "cross_sell_value": 20032.21, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Atmos Energy Corporation", 
+    "cross_sell_value": 4684.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "McDonald\u2019s Corporation", 
+    "cross_sell_value": 200158.97, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Illumina, Inc.", 
+    "cross_sell_value": 8009.54, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "W.W. Grainger, Inc.", 
+    "cross_sell_value": 23358.6, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Cerner Corporation", 
+    "cross_sell_value": 26461.22, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Live Nation Entertainment, Inc.", 
+    "cross_sell_value": 8200.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "General Electric Company", 
+    "cross_sell_value": 174014.45, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Carrier Global Corporation", 
+    "cross_sell_value": 56000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Citrix Systems, Inc.", 
+    "cross_sell_value": 9084.53, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Freeport-McMoRan, Inc.", 
+    "cross_sell_value": 24517.16, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Simon Property Group, Inc.", 
+    "cross_sell_value": 3452.18, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Applied Materials, Inc.", 
+    "cross_sell_value": 27045.75, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "MSCI Inc", 
+    "cross_sell_value": 3633.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "EOG Resources, Inc.", 
+    "cross_sell_value": 3001.04, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "TJX Companies, Inc. (The)", 
+    "cross_sell_value": 320074.36, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Consolidated Edison, Inc.", 
+    "cross_sell_value": 14145.73, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Caesars Entertainment, Inc.", 
+    "cross_sell_value": 21000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Raymond James Financial, Inc.", 
+    "cross_sell_value": 20107.06, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Westrock Company", 
+    "cross_sell_value": 49960.93, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Pentair plc.", 
+    "cross_sell_value": 9816.67, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Penn National Gaming, Inc.", 
+    "cross_sell_value": 18321.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Mosaic Company (The)", 
+    "cross_sell_value": 12641.13, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "JP Morgan Chase & Co.", 
+    "cross_sell_value": 255458.88, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Henry Schein, Inc.", 
+    "cross_sell_value": 19070.85, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "SolarEdge Technologies, Inc.", 
+    "cross_sell_value": 3174.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Parker-Hannifin Corporation", 
+    "cross_sell_value": 54814.51, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Accenture plc", 
+    "cross_sell_value": 624150.51, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Walt Disney Company (The)", 
+    "cross_sell_value": 190101.35, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "The Kraft Heinz Company", 
+    "cross_sell_value": 38071.58, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Starbucks Corporation", 
+    "cross_sell_value": 383053.77, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Kimco Realty Corporation", 
+    "cross_sell_value": 498.01, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Kimberly-Clark Corporation", 
+    "cross_sell_value": 46111.69, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Juniper Networks, Inc.", 
+    "cross_sell_value": 9974.66, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Equifax, Inc.", 
+    "cross_sell_value": 11514.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Campbell Soup Company", 
+    "cross_sell_value": 14144.83, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "U.S. Bancorp", 
+    "cross_sell_value": 68160.65, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Hartford Financial Services Group, Inc. (The)", 
+    "cross_sell_value": 18553.34, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "QUALCOMM Incorporated", 
+    "cross_sell_value": 45062.42, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Expeditors International of Washington, Inc.", 
+    "cross_sell_value": 17540.36, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Intuit Inc.", 
+    "cross_sell_value": 13652.75, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Pool Corporation", 
+    "cross_sell_value": 4500.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Thermo Fisher Scientific Inc", 
+    "cross_sell_value": 80198.73, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Tyson Foods, Inc.", 
+    "cross_sell_value": 137073.92, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Nike, Inc.", 
+    "cross_sell_value": 73362.49, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "FirstEnergy Corp.", 
+    "cross_sell_value": 12183.64, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Charles River Laboratories International, Inc.", 
+    "cross_sell_value": 18400.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Lumen Technologies, Inc.", 
+    "cross_sell_value": 39000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "DXC Technology Company", 
+    "cross_sell_value": 134091.92, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "CSX Corporation", 
+    "cross_sell_value": 19350.47, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Marriott International", 
+    "cross_sell_value": 121133.88, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Kroger Company (The)", 
+    "cross_sell_value": 465027.57, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "IPG Photonics Corporation", 
+    "cross_sell_value": 6060.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Marsh & McLennan Companies, Inc.", 
+    "cross_sell_value": 76079.31, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Dominion Energy, Inc.", 
+    "cross_sell_value": 17373.31, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Newell Brands Inc.", 
+    "cross_sell_value": 31027.91, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Twitter, Inc.", 
+    "cross_sell_value": 5500.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Global Payments Inc.", 
+    "cross_sell_value": 24100.59, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Capital One Financial Corporation", 
+    "cross_sell_value": 52076.8, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Walmart Inc.", 
+    "cross_sell_value": 2300100.02, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Pinnacle West Capital Corporation", 
+    "cross_sell_value": 162.34, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Southwest Airlines Company", 
+    "cross_sell_value": 56555.63, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Philip Morris International Inc", 
+    "cross_sell_value": 71100.39, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "American International Group, Inc. New", 
+    "cross_sell_value": 45058.28, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Fortive Corporation", 
+    "cross_sell_value": 17069.14, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Organon & Co.", 
+    "cross_sell_value": 9950.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Comerica Incorporated", 
+    "cross_sell_value": 7959.18, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Best Buy Co., Inc.", 
+    "cross_sell_value": 102068.79, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Xcel Energy Inc.", 
+    "cross_sell_value": 11409.44, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "CF Industries Holdings, Inc.", 
+    "cross_sell_value": 3037.46, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Duke Energy Corporation (Holding Company)", 
+    "cross_sell_value": 27609.32, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Mastercard Incorporated", 
+    "cross_sell_value": 21160.62, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "ONEOK, Inc.", 
+    "cross_sell_value": 2940.4, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Broadcom Inc.", 
+    "cross_sell_value": 20229.57, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Lamb Weston Holdings, Inc.", 
+    "cross_sell_value": 7800.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Procter & Gamble Company (The)", 
+    "cross_sell_value": 101080.22, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "L3Harris Technologies, Inc.", 
+    "cross_sell_value": 48000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Cardinal Health, Inc.", 
+    "cross_sell_value": 47366.63, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "International Flavors & Fragrances, Inc.", 
+    "cross_sell_value": 13838.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "DTE Energy Company", 
+    "cross_sell_value": 10698.49, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Mid-America Apartment Communities, Inc.", 
+    "cross_sell_value": 2615.39, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Eversource Energy (D/B/A)", 
+    "cross_sell_value": 9355.11, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Public Service Enterprise Group Incorporated", 
+    "cross_sell_value": 12834.73, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Under Armour, Inc.", 
+    "cross_sell_value": 16611.95, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "D.R. Horton, Inc.", 
+    "cross_sell_value": 11832.55, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "AbbVie Inc.", 
+    "cross_sell_value": 47108.48, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Tesla, Inc.", 
+    "cross_sell_value": 70757.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Berkshire Hathaway Inc. New", 
+    "cross_sell_value": 360191.42, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Church & Dwight Company, Inc.", 
+    "cross_sell_value": 5147.38, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Alphabet Inc.", 
+    "cross_sell_value": 136308.71, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "AFLAC Incorporated", 
+    "cross_sell_value": 12086.25, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "IHS Markit Ltd.", 
+    "cross_sell_value": 16043.73, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Bio-Techne Corp", 
+    "cross_sell_value": 2600.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Marathon Petroleum Corporation", 
+    "cross_sell_value": 57962.79, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "United Airlines Holdings, Inc.", 
+    "cross_sell_value": 74463.37, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Evergy, Inc.", 
+    "cross_sell_value": 5133.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "CBRE Group Inc", 
+    "cross_sell_value": 100000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Corning Incorporated", 
+    "cross_sell_value": 50138.45, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "FactSet Research Systems Inc.", 
+    "cross_sell_value": 10892.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "General Motors Company", 
+    "cross_sell_value": 155040.75, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "NiSource Inc", 
+    "cross_sell_value": 7411.51, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Lincoln National Corporation", 
+    "cross_sell_value": 11039.86, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "FedEx Corporation", 
+    "cross_sell_value": 289239.27, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Yum! Brands, Inc.", 
+    "cross_sell_value": 38076.3, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Xylem Inc.", 
+    "cross_sell_value": 16770.24, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Fiserv, Inc.", 
+    "cross_sell_value": 44133.05, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Globe Life Inc.", 
+    "cross_sell_value": 3261.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Verizon Communications Inc.", 
+    "cross_sell_value": 132249.04, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Rockwell Automation, Inc.", 
+    "cross_sell_value": 24678.73, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "ViacomCBS Inc.", 
+    "cross_sell_value": 22109.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Fifth Third Bancorp", 
+    "cross_sell_value": 19903.1, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Oracle Corporation", 
+    "cross_sell_value": 132046.84, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Constellation Brands, Inc.", 
+    "cross_sell_value": 9508.73, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Alliant Energy Corporation", 
+    "cross_sell_value": 3412.14, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Sherwin-Williams Company (The)", 
+    "cross_sell_value": 61418.65, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Akamai Technologies, Inc.", 
+    "cross_sell_value": 8430.49, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Allstate Corporation (The)", 
+    "cross_sell_value": 42250.06, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Cboe Global Markets, Inc.", 
+    "cross_sell_value": 1121.15, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "ResMed Inc.", 
+    "cross_sell_value": 8059.26, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Microchip Technology Incorporated", 
+    "cross_sell_value": 19579.9, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "C.H. Robinson Worldwide, Inc.", 
+    "cross_sell_value": 14978.47, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "HP Inc.", 
+    "cross_sell_value": 51019.92, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Enphase Energy, Inc.", 
+    "cross_sell_value": 850.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Chevron Corporation", 
+    "cross_sell_value": 47848.3, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Hewlett Packard Enterprise Company", 
+    "cross_sell_value": 60415.04, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Newmont Corporation", 
+    "cross_sell_value": 27836.61, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Paycom Software, Inc.", 
+    "cross_sell_value": 4218.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Intercontinental Exchange Inc.", 
+    "cross_sell_value": 8957.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Stryker Corporation", 
+    "cross_sell_value": 43148.01, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Etsy, Inc.", 
+    "cross_sell_value": 1414.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "NRG Energy, Inc.", 
+    "cross_sell_value": 4128.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Northern Trust Corporation", 
+    "cross_sell_value": 20996.2, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Colgate-Palmolive Company", 
+    "cross_sell_value": 34268.95, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Stanley Black & Decker, Inc.", 
+    "cross_sell_value": 53252.86, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Union Pacific Corporation", 
+    "cross_sell_value": 31084.86, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Paychex, Inc.", 
+    "cross_sell_value": 15061.86, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Apple Inc.", 
+    "cross_sell_value": 154155.15, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "MetLife, Inc.", 
+    "cross_sell_value": 46544.28, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Zoetis Inc.", 
+    "cross_sell_value": 11371.51, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Everest Re Group, Ltd.", 
+    "cross_sell_value": 1987.06, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Salesforce.com Inc", 
+    "cross_sell_value": 56710.03, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "A.O. Smith Corporation", 
+    "cross_sell_value": 13960.24, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Illinois Tool Works Inc.", 
+    "cross_sell_value": 43156.15, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Boston Properties, Inc.", 
+    "cross_sell_value": 862.09, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Autodesk, Inc.", 
+    "cross_sell_value": 11604.81, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Old Dominion Freight Line, Inc.", 
+    "cross_sell_value": 19779.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "IDEX Corporation", 
+    "cross_sell_value": 7075.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Willis Towers Watson Public Limited Company", 
+    "cross_sell_value": 46252.36, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "MGM Resorts International", 
+    "cross_sell_value": 42033.5, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "FleetCor Technologies, Inc.", 
+    "cross_sell_value": 8400.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Cadence Design Systems, Inc.", 
+    "cross_sell_value": 8836.82, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "TE Connectivity Ltd. New Switzerland Registered Shares", 
+    "cross_sell_value": 89095.27, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "PepsiCo, Inc.", 
+    "cross_sell_value": 291110.15, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "DISH Network Corporation", 
+    "cross_sell_value": 13543.77, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "The Bank of New York Mellon Corporation", 
+    "cross_sell_value": 48553.29, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "International Business Machines Corporation", 
+    "cross_sell_value": 375447.59, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Edison International", 
+    "cross_sell_value": 13409.07, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "AmerisourceBergen Corporation", 
+    "cross_sell_value": 42091.55, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "McCormick & Company, Incorporated", 
+    "cross_sell_value": 13101.36, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Ameriprise Financial, Inc.", 
+    "cross_sell_value": 12452.5, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Incyte Corporation", 
+    "cross_sell_value": 1856.92, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Las Vegas Sands Corp.", 
+    "cross_sell_value": 46000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Amphenol Corporation", 
+    "cross_sell_value": 80084.44, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Tyler Technologies, Inc.", 
+    "cross_sell_value": 5500.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Linde plc", 
+    "cross_sell_value": 74207.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Hasbro, Inc.", 
+    "cross_sell_value": 6918.48, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Cognizant Technology Solutions Corporation", 
+    "cross_sell_value": 289575.16, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Leidos Holdings, Inc.", 
+    "cross_sell_value": 39000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Host Hotels", 
+    "cross_sell_value": 181.75, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "STERIS plc (Ireland)", 
+    "cross_sell_value": 13000.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "BlackRock, Inc.", 
+    "cross_sell_value": 17009.38, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "NextEra Energy, Inc.", 
+    "cross_sell_value": 13945.29, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Gap, Inc. (The)", 
+    "cross_sell_value": 117031.17, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Broadridge Financial Solutions, Inc.", 
+    "cross_sell_value": 13704.0, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Edwards Lifesciences Corporation", 
+    "cross_sell_value": 15023.78, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "CMS Energy Corporation", 
+    "cross_sell_value": 9386.77, 
+    "up_sell_value": null
+  }, 
+  {
+    "companyID": "Boston Scientific Corporation", 
+    "cross_sell_value": 38025.2, 
+    "up_sell_value": null
+  }
+]

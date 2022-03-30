@@ -1,0 +1,135 @@
+{
+    "elements": 
+    [
+        {
+            "data": {
+                "column_keys": "Name",
+                "column_values": "Number of Employees",
+                "csv_name": "../../resources/SP500 by employees.xlsx - SP500 by Employees.csv",
+                "label": "csv_data_import node"
+            },
+            "id": "dndnode_25c6ce74-cc2a-4d81-9a11-7db1d04b63b6",
+            "position": {
+                "x": 21.583100222464385,
+                "y": 52.012247649117164
+            },
+            "type": "csv_data_import"
+        },
+        {
+            "data": {
+                "column_keys": "Name",
+                "column_values": "Number of Employees",
+                "csv_name": "../../resources/SP500 by employees.xlsx - SP500 by Employees.csv",
+                "label": "csv_data_import node"
+            },
+            "id": "dndnode_7dc1315d-bc34-4f1e-8c3e-2df02acf60a9",
+            "position": {
+                "x": 12.42852654341634,
+                "y": 240.8967639088263
+            },
+            "type": "csv_data_import"
+        },
+        {
+            "data": {
+                "column_keys": "Name",
+                "column_values": "Number of Employees",
+                "csv_name": "../../resources/SP500 by employees.xlsx - SP500 by Employees.csv",
+                "label": "csv_data_import node"
+            },
+            "id": "dndnode_f42d7e79-b540-40eb-95f3-1d76ea79c6e8",
+            "position": {
+                "x": 6.234862925611139,
+                "y": 438.14254744497435
+            },
+            "type": "csv_data_import"
+        },
+        {
+            "data": {
+                "label": "addition node"
+            },
+            "id": "dndnode_b76a3dfe-e597-4075-a1cd-89516db301b2",
+            "position": {
+                "x": 713.1584691240773,
+                "y": 174.59975349232562
+            },
+            "type": "addition"
+        },
+        {
+            "data": {
+                "label": "addition node"
+            },
+            "id": "dndnode_7cb85813-57a7-46e2-8747-bed018c94d6b",
+            "position": {
+                "x": 872.7012630767261,
+                "y": 321.5811015609373
+            },
+            "type": "addition"
+        },
+        {
+            "data": {
+                "label": "cross_sell_output node"
+            },
+            "id": "dndnode_0ff01b80-179a-4b17-adb9-ebc065b38348",
+            "position": {
+                "x": 997.5922943262281,
+                "y": 323.2580311852652
+            },
+            "type": "cross_sell_output"
+        },
+        {
+            "id": "dndnode_22774384-b1b3-4d55-93f5-61f78a64c3e4",
+            "type": "csv_data_import",
+            "position": {
+                "x": 670.8940336565411,
+                "y": -10.792302657097025
+            },
+            "data": {
+                "label": "csv_data_import node",
+                "csv_name": "../../resources/SP500 by employees.xlsx - SP500 by Employees.csv",
+                "column_keys": "hdfjfkfh",
+                "column_values": "gggggg"
+            }
+        },
+        {
+            "id": "reactflow__edge-dndnode_25c6ce74-cc2a-4d81-9a11-7db1d04b63b6a-dndnode_b76a3dfe-e597-4075-a1cd-89516db301b2input_1",
+            "source": "dndnode_25c6ce74-cc2a-4d81-9a11-7db1d04b63b6",
+            "sourceHandle": "a",
+            "target": "dndnode_b76a3dfe-e597-4075-a1cd-89516db301b2",
+            "targetHandle": "input_1",
+            "type": "default"
+        },
+        {
+            "id": "reactflow__edge-dndnode_7dc1315d-bc34-4f1e-8c3e-2df02acf60a9a-dndnode_b76a3dfe-e597-4075-a1cd-89516db301b2input_2",
+            "source": "dndnode_7dc1315d-bc34-4f1e-8c3e-2df02acf60a9",
+            "sourceHandle": "a",
+            "target": "dndnode_b76a3dfe-e597-4075-a1cd-89516db301b2",
+            "targetHandle": "input_2",
+            "type": "default"
+        },
+        {
+            "id": "reactflow__edge-dndnode_f42d7e79-b540-40eb-95f3-1d76ea79c6e8a-dndnode_7cb85813-57a7-46e2-8747-bed018c94d6binput_2",
+            "source": "dndnode_f42d7e79-b540-40eb-95f3-1d76ea79c6e8",
+            "sourceHandle": "a",
+            "target": "dndnode_7cb85813-57a7-46e2-8747-bed018c94d6b",
+            "targetHandle": "input_2",
+            "type": "default"
+        },
+        {
+            "id": "reactflow__edge-dndnode_b76a3dfe-e597-4075-a1cd-89516db301b2a-dndnode_7cb85813-57a7-46e2-8747-bed018c94d6binput_1",
+            "source": "dndnode_b76a3dfe-e597-4075-a1cd-89516db301b2",
+            "sourceHandle": "a",
+            "target": "dndnode_7cb85813-57a7-46e2-8747-bed018c94d6b",
+            "targetHandle": "input_1",
+            "type": "default"
+        },
+        {
+            "id": "reactflow__edge-dndnode_7cb85813-57a7-46e2-8747-bed018c94d6ba-dndnode_0ff01b80-179a-4b17-adb9-ebc065b38348null",
+            "source": "dndnode_7cb85813-57a7-46e2-8747-bed018c94d6b",
+            "sourceHandle": "a",
+            "target": "dndnode_0ff01b80-179a-4b17-adb9-ebc065b38348",
+            "targetHandle": null,
+            "type": "default"
+        }
+    ]
+}
+

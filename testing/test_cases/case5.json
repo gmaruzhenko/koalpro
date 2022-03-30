@@ -1,0 +1,49 @@
+{
+    "elements": 
+    [
+        {
+            "id": "dndnode_1cd85375-9649-428e-8670-89b6b903c7b2",
+            "type": "csv_data_import",
+            "position": {"x": 112, "y": 94.84375},
+            "data": {
+                "label": "csv_data_import node",
+                "csv_name": "../../resources/SP500 by employees.xlsx - SP500 by Employees.csv",
+                "column_keys": "Name",
+                "column_values": "Price"
+                }
+        },
+        {
+            "id": "dndnode_4744dd02-5a53-4176-8e26-3ad174c16785",
+            "type": "discount",
+            "position": {"x": 388, "y": 160.84375},
+            "data": {
+                "label": "discount node",
+                "discount": 0.2
+                }
+        },
+        {
+            "id": "dndnode_cfff13ef-8646-4921-af0a-fb2c9f13b752",
+            "type": "cross_sell_output",
+            "position": {"x": 663, "y": 184.84375},
+            "data": {
+                "label": "cross_sell_output node"
+                }
+        },
+        {
+            "source": "dndnode_1cd85375-9649-428e-8670-89b6b903c7b2",
+            "sourceHandle": "a",
+            "target": "dndnode_4744dd02-5a53-4176-8e26-3ad174c16785",
+            "targetHandle": "input_1",
+            "id": "reactflow__edge-dndnode_1cd85375-9649-428e-8670-89b6b903c7b2a-dndnode_4744dd02-5a53-4176-8e26-3ad174c16785input_1",
+            "type": "default"
+        },
+        {
+            "source": "dndnode_4744dd02-5a53-4176-8e26-3ad174c16785",
+            "sourceHandle": "a",
+            "target": "dndnode_cfff13ef-8646-4921-af0a-fb2c9f13b752",
+            "targetHandle": null,
+            "id": "reactflow__edge-dndnode_4744dd02-5a53-4176-8e26-3ad174c16785a-dndnode_cfff13ef-8646-4921-af0a-fb2c9f13b752null",
+            "type": "default"
+        }
+    ]
+}
