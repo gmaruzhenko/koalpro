@@ -43,44 +43,45 @@ def test_post_config():
     # Now iterating over files in test_cases, sending the content of each file as a request to the backend, 
     # and checking if the response matches the corresponding expected outcome in store in the dictionary above
 
-    directory = 'test_cases'
+    case_directory = 'test_cases'
 
-    for test_case in os.listdir(directory):
-        f = os.path.join(directory, test_case)
+    for test_case in os.listdir(case_directory):
+        f = os.path.join(case_directory, test_case)
         # checking if it is a file
         if os.path.isfile(f):
             print(f)
             # returns JSON object as
             # a dictionary
             file=open(f, "r")
-            #print(file)
             json_string = json.load(file)
             test_data = json_string
             #print(test_data)
             
             index = os.path.splitext(os.path.basename(test_case))[0] +"_outcome.json"
-            #print(index)
             outcome = test_expected_outcomes.get(index)
-            #print(data)
-            #print(outcome)
-    
-            # convert dict to json string by json.dumps() for body data. 
-            resp_config = requests.post(url,  json=test_data)       
-            #print(resp.json())
-            # Validate response headers and body contents, e.g. status code.
-            assert resp_config.status_code == 200
-            resp_body = resp_config.json()
 
-            resp_data = requests.get(url) 
+            # hit the config/GET endpoint first:
+            #resp_config_get = requests.get(url)
+            #assert resp_config_get.status_code == 200, "Problem with the '/config/GET' endpoint"
 
-            #print(resp_body)
-            #assert resp_body['url'] == url
-            resp_data = requests.get(url_data) 
+            # hit the config/POST endpoint 
+            resp_config_post = requests.post(url,  json=test_data)    
+            assert resp_config_post.status_code == 200, "Problem with the '/config/POST' endpoint"
+
+            # send a request to get the data from /data/GET endpoint
+            resp_data = requests.get(url_data)
+            assert resp_data.status_code == 200, "Problem with the '/data/GET' endpoint"
+            
+            # store the response data
+            output = resp_data.json()
             # print response full body as text
-            print(resp_data.text)
+            print(output)
             print("\n \n")
             
+            # print the expected outcome
             #print(outcome)
             print("\n \n")
-            assert resp_data.json() == outcome
+            
+
+            assert (output == outcome), "Response does not match expected outcome."
 
