@@ -24,6 +24,7 @@ import Grid from "@material-ui/core/Grid";
 import UpSellOutputNode from "./nodes/UpSellOutputNode";
 import DiscountNode from "./nodes/DiscountNode";
 import defaultStartNodes from "./defaultStartNodes";
+import ProductNode from "./nodes/ProductNode";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -104,6 +105,7 @@ const nodeTypes = {
     up_sell_output: UpSellOutputNode,
     csv_data_import: CsvDataImportNode,
     discount: DiscountNode,
+    product: ProductNode,
 
 };
 

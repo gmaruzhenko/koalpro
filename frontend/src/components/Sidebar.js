@@ -54,6 +54,10 @@ export default ({nodes}) => {
                  draggable>
                 CSV Data Import
             </div>
+            <div className="product-node" onDragStart={(event) => onDragStart(event, 'product')}
+                 draggable>
+                Product
+            </div>
         </aside>
     );
 };

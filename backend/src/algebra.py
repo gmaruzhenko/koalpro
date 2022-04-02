@@ -82,6 +82,12 @@ def discount(dict1,discount_decimal):
     for key in dict1:
         resDict[key] = dict1[key] * (1-discount_decimal)
     return resDict
+
+def product(dict1,unit_price):
+    resDict = {}
+    for key in dict1:
+        resDict[key] = dict1[key] * unit_price
+    return resDict
     
 # takes "data" and loads the CSV.
 def load_csv(data):

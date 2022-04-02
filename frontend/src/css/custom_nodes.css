@@ -6,13 +6,14 @@
     --boarderblue:#0041d0;
     --whitebackground:#fff;
     --greenmedow: #598234;
+    --earthbrown: #7D4427
 
 }
 
 .react-flow__node {
     cursor: grab;
 }
-.addition-node, .csv-data-import-node, .cross-sell-output-node, .up-sell-output-node,.discount-node {
+.addition-node, .csv-data-import-node, .cross-sell-output-node, .up-sell-output-node,.discount-node,.product-node {
     padding: 10px;
     border-radius: 3px;
     width: 200px;
@@ -22,7 +23,7 @@
     border-width: 1px;
     border-style: solid;
 }
-.addition-node.selectable:hover, .csv-data-import-node.selectable:hover, .cross-sell-output-node.selectable:hover,.up-sell-output-node.selectable:hover,.discount-node.selectable:hover  {
+.addition-node.selectable:hover, .csv-data-import-node.selectable:hover, .cross-sell-output-node.selectable:hover,.up-sell-output-node.selectable:hover,.discount-node.selectable:hover,.product-node.selectable:hover  {
     box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.08);
 }
 
@@ -64,6 +65,16 @@
     background: var(--greenmedow);
 }
 
+.product-node {
+    background: var(--whitebackground);
+    border-color: var(--earthbrown);
+}
+.product-node.selected, .product-node.selected:hover {
+    box-shadow: 0 0 0 0.5px var(--earthbrown);
+}
+.product-node .react-flow__handle {
+    background: var(--earthbrown);
+}
 
 
 .cross-sell-output-node {
@@ -87,3 +98,4 @@
 .up-sell-output-node .react-flow__handle {
     background: var(--warmorange);
 }
+
